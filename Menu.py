@@ -34,6 +34,10 @@ def InstructionsMenu():
   print('1 - RETOUR')
   print('')
   print('Appuyez sur la touche correspondante')
+  ChoiceMainMenu = int(input())
+  if ChoiceMainMenu == 1 :
+    PrintMainMenu()
+    MainMenu()
   print('____________________________________________________________')
 
 def CreditsMenu():
@@ -41,6 +45,10 @@ def CreditsMenu():
   print('1 - RETOUR')
   print('')
   print('Appuyez sur la touche correspondante')
+  ChoiceMainMenu = int(input())
+  if ChoiceMainMenu == 1 :
+    PrintMainMenu()
+    MainMenu()
   print('____________________________________________________________')
 
 def MainMenu ():
@@ -54,5 +62,5 @@ def MainMenu ():
   elif ChoiceMainMenu == 4 :
     CreditsMenu()
   elif ChoiceMainMenu == 5 :
-    print('Merci d\'avoir joué !')
+    print('Personne ne s\'échappe du Labyrinthe !')
     print('____________________________________________________________')
