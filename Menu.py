@@ -1,1 +1,1 @@
-print("\033[1;34;48m Salut je suis du bright blue\033")
+# print("\033[1;34;48m Salut je suis du bright blue\033")
