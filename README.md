@@ -5,4 +5,4 @@ Louis JANSSEN
 François OLONA
 
 Theme:
-Greece
+Greek Mythology
