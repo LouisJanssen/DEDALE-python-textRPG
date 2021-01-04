@@ -37,7 +37,7 @@ def InstructionsMenu():
   print('____________________________________________________________')
 
 def CreditsMenu():
-  print('Louis Janssen et son acolyte fraçois lona')
+  print('Code : Louis Janssen & François Olona')
   print('1 - RETOUR')
   print('')
   print('Appuyez sur la touche correspondante')
@@ -54,8 +54,5 @@ def MainMenu ():
   elif ChoiceMainMenu == 4 :
     CreditsMenu()
   elif ChoiceMainMenu == 5 :
-    print("Merci d'avoir joué !")
+    print('Merci d\'avoir joué !')
     print('____________________________________________________________')
-
-PrintMainMenu()
-MainMenu()
