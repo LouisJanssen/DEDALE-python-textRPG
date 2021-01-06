@@ -1,0 +1,4 @@
+def diceRoll() :
+  import random
+  D = random.randint(1,20)
+  return D
