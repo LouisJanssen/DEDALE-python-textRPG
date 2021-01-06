@@ -79,13 +79,54 @@ def StartQuiz():
         AnswerPoseidon = AnswerPoseidon + 1
     elif Answer5 == 3 :
         AnswerZeus = AnswerZeus + 1
+    
+    # Solving equality issues
+    if AnswerHades == AnswerPoseidon :
+        print('<>==============================<>')
+        print('Vous préférez vous baigner...')
+        print('1 - Dans une rivière, profitant de l\'eau douce et de ses murmures.')
+        print('2 - Dans la mer, bercé par les effluves de l\'océan tumultueux.')
+        print('<>==============================<>')
+        AnswerBonus1 = int(input())
+        if AnswerBonus1 == 1 :
+            AnswerHades = AnswerHades + 1
+        elif AnswerBonus1 == 2 :
+            AnswerPoseidon = AnswerPoseidon + 1
+    
+    if AnswerPoseidon == AnswerZeus :
+        print('<>==============================<>')
+        print('Qu\'est-ce qui vous effraye le plus ?')
+        print('1 - Le tonnerre, aussi bruyant que destructeur.')
+        print('2 - Les tremblements de terre, puissants et imprévisibles.')
+        print('<>==============================<>')
+        AnswerBonus2 = int(input())
+        if AnswerBonus2 == 1 :
+            AnswerZeus = AnswerZeus + 1
+        elif AnswerBonus2 == 2 :
+            AnswerPoseidon = AnswerPoseidon + 1
 
-    if AnswerZeus > (AnswerPoseidon and AnswerHades) :
+    if AnswerZeus == AnswerHades :
+        print('<>==============================<>')
+        print('Deux chemins s\'offrent à vous alors que vous tentez de rejoindre un endroit lointain. Lequel choisissez-vous ?')
+        print('1 - Un pont vertigineux, si haut que les nuages vous chatouillent la plante des pieds.')
+        print('2 - Un tunnel souterrain, plongé dans l\'obscurité la plus totale.')
+        print('<>==============================<>')
+        AnswerBonus3 = int(input())
+        if AnswerBonus3 == 1 :
+            AnswerZeus = AnswerZeus + 1
+        elif AnswerBonus3 == 2 :
+            AnswerHades = AnswerHades + 1
+
+    if AnswerZeus > (AnswerPoseidon or AnswerHades) :
         print('Vous êtes le fils de Zeus')
-    elif AnswerPoseidon > (AnswerZeus and AnswerHades) :
+    elif AnswerPoseidon > (AnswerZeus or AnswerHades) :
         print('Vous êtes le fils de Poséidon')
-    elif AnswerHades > (AnswerZeus and AnswerPoseidon) :
+    elif AnswerHades > (AnswerZeus or AnswerPoseidon) :
         print('Vous êtes le fils d\'Hadès')
+    
+    print('Zeus = ', AnswerZeus)
+    print('Poseidon = ', AnswerPoseidon)
+    print('Hadès = ', AnswerHades)
 
 StartQuiz()
 
