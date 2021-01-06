@@ -1,4 +1,6 @@
 # print("\033[1;34;48m Salut je suis du bright blue\033")
+import time
+
 def PrintMainMenu():
   print('-------------------------')
   print('DEDALE')
@@ -30,7 +32,9 @@ def LoadMenu():
   print('____________________________________________________________')
 
 def InstructionsMenu():
-  print('CECI EST LES INSTRUCTIONS')
+  print('INSTRUCTIONS :')
+  print('Le but du jeu est d\'atteindre le boss et de le vaincre, pour ce faire vous aurrez à l\'écran différents choix à faire que ce soit pour les déplacements, les choix de dialogue ou encore les combats.')
+  print('Pour choisir une action entrez le chiffre correspondant à l\'action désirée dans le terminal')
   print('1 - RETOUR')
   print('')
   print('Appuyez sur la touche correspondante')
@@ -42,6 +46,9 @@ def InstructionsMenu():
 
 def CreditsMenu():
   print('Code : Louis Janssen & François Olona')
+  print('Histoire : Louis Janssen & François Olona')
+  print('Art ASCII : https://www.asciiart.eu/')
+  print('Remerciements : Monsieur Loïc Janin')
   print('1 - RETOUR')
   print('')
   print('Appuyez sur la touche correspondante')
@@ -62,5 +69,8 @@ def MainMenu ():
   elif ChoiceMainMenu == 4 :
     CreditsMenu()
   elif ChoiceMainMenu == 5 :
-    print('Personne ne s\'échappe du Labyrinthe !')
+    print('PERSONNE NE S\'ECHAPPE DU LABYRINTHE !')
+    time.sleep(2)
+    PrintMainMenu()
+    MainMenu()
     print('____________________________________________________________')
