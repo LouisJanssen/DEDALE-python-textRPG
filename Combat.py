@@ -1,6 +1,6 @@
 HeroTurn = True
 
-def CombatTest(HeroTurn):
+def CombatTest(HeroTurn, ennemy):
     if HeroTurn == False :
         print('Tour de l\'adversaire')
         HeroTurn = True
@@ -10,7 +10,7 @@ def CombatTest(HeroTurn):
         print(']===================================[')
         print('1 - ATTAQUER')
         print('2 - SE DÉFENDRE')
-        print('3 - OBJET')
+        print('3 - OBJETS')
         print('4 - FUIR')
         print(']===================================[')
         Action = int(input())
@@ -21,13 +21,13 @@ def CombatTest(HeroTurn):
             CombatTest(HeroTurn)
             # Attaquer : lancer 1d20 ?
         elif Action == 2 :
-            print('ok')
+            print('Se défendre')
             # Se défendre : Diminue de 3/4 la prochaine attaque ennemie
         elif Action == 3 :
-            print('ok2')
+            print('Objets')
             # Afficher liste des objets présents dans l'inventaire
         elif Action == 4 :
-            print('ok3')
+            print('Fuir')
             # Tentative de fuite (pourcentage de réussite dépendant des stats et objets)
 
 class MobChicken :
@@ -37,4 +37,4 @@ class MobChicken :
         self.Atk = 0
         self.loot = CuisseDePoulet
 
-CombatTest(HeroTurn)
+CombatTest(HeroTurn, MobChicken)
