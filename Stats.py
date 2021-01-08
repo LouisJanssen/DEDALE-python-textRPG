@@ -1,4 +1,4 @@
-class Player:
+class PlayerStats:
   def __init__(self):
     self.name = ""
     self.Hp = 10
@@ -9,8 +9,4 @@ class Player:
     self.Cha = 5
     self.Gold = 0
 
-Player = Player()
-Player.Atk = 6
-print(Player.Atk)
-Player.Atk += 1
-print(Player.Atk)
+Player = PlayerStats()
