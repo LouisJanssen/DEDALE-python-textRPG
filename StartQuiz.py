@@ -14,11 +14,11 @@ def StartQuiz():
     print('<>==============================<>')
     Answer1 = int(input())
     if Answer1 == 1 :
-        AnswerZeus = AnswerZeus + 1
+        AnswerZeus += 1
     elif Answer1 == 2 :
-        AnswerPoseidon = AnswerPoseidon + 1
+        AnswerPoseidon += 1
     elif Answer1 == 3 :
-        AnswerHades = AnswerHades + 1
+        AnswerHades += 1
 
     # Question 2
     print('<>==============================<>')
@@ -29,11 +29,11 @@ def StartQuiz():
     print('<>==============================<>')
     Answer2 = int(input())
     if Answer2 == 1 :
-        AnswerPoseidon = AnswerPoseidon + 1
+        AnswerPoseidon += 1
     elif Answer2 == 2 :
-        AnswerHades = AnswerHades + 1
+        AnswerHades += 1
     elif Answer2 == 3 :
-        AnswerZeus = AnswerZeus + 1
+        AnswerZeus += 1
 
     # Question 3
     print('<>==============================<>')
@@ -44,11 +44,11 @@ def StartQuiz():
     print('<>==============================<>')
     Answer3 = int(input())
     if Answer3 == 1 :
-        AnswerHades = AnswerHades + 1
+        AnswerHades += 1
     elif Answer3 == 2 :
-        AnswerZeus = AnswerZeus + 1
+        AnswerZeus += 1
     elif Answer3 == 3 :
-        AnswerPoseidon = AnswerPoseidon + 1
+        AnswerPoseidon += 1
 
     # Question 4
     print('<>==============================<>')
@@ -59,11 +59,11 @@ def StartQuiz():
     print('<>==============================<>')
     Answer4 = int(input())
     if Answer4 == 1 :
-        AnswerZeus = AnswerZeus + 1
+        AnswerZeus += 1
     elif Answer4 == 2 :
-        AnswerHades = AnswerHades + 1
+        AnswerHades += 1
     elif Answer4 == 3 :
-        AnswerPoseidon = AnswerPoseidon + 1
+        AnswerPoseidon += 1
 
     # Question 5
     print('<>==============================<>')
@@ -74,11 +74,11 @@ def StartQuiz():
     print('<>==============================<>')
     Answer5 = int(input())
     if Answer5 == 1 :
-        AnswerHades = AnswerHades + 1
+        AnswerHades += 1
     elif Answer5 == 2 :
-        AnswerPoseidon = AnswerPoseidon + 1
+        AnswerPoseidon += 1
     elif Answer5 == 3 :
-        AnswerZeus = AnswerZeus + 1
+        AnswerZeus += 1
     
     # Solving equality issues
     if AnswerHades == AnswerPoseidon :
@@ -89,9 +89,9 @@ def StartQuiz():
         print('<>==============================<>')
         AnswerBonus1 = int(input())
         if AnswerBonus1 == 1 :
-            AnswerHades = AnswerHades + 1
+            AnswerHades += 1
         elif AnswerBonus1 == 2 :
-            AnswerPoseidon = AnswerPoseidon + 1
+            AnswerPoseidon += 1
     
     if AnswerPoseidon == AnswerZeus :
         print('<>==============================<>')
@@ -101,9 +101,9 @@ def StartQuiz():
         print('<>==============================<>')
         AnswerBonus2 = int(input())
         if AnswerBonus2 == 1 :
-            AnswerZeus = AnswerZeus + 1
+            AnswerZeus += 1
         elif AnswerBonus2 == 2 :
-            AnswerPoseidon = AnswerPoseidon + 1
+            AnswerPoseidon += 1
 
     if AnswerZeus == AnswerHades :
         print('<>==============================<>')
@@ -113,9 +113,9 @@ def StartQuiz():
         print('<>==============================<>')
         AnswerBonus3 = int(input())
         if AnswerBonus3 == 1 :
-            AnswerZeus = AnswerZeus + 1
+            AnswerZeus += 1
         elif AnswerBonus3 == 2 :
-            AnswerHades = AnswerHades + 1
+            AnswerHades += 1
 
     if AnswerZeus > (AnswerPoseidon or AnswerHades) :
         print('Vous êtes le fils de Zeus')
