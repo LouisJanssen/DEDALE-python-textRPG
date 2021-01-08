@@ -8,3 +8,9 @@ class Player:
     self.Int = 5
     self.Cha = 5
     self.Gold = 0
+
+Player = Player()
+Player.Atk = 6
+print(Player.Atk)
+Player.Atk += 1
+print(Player.Atk)
