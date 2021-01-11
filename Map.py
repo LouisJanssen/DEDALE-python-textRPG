@@ -1,3 +1,4 @@
+#Import of tools needed
 import cmd
 import textwrap
 import sys
@@ -8,7 +9,7 @@ from Stats import PlayerStats
 
 Player = PlayerStats()
 
-#### MAP ####
+#Creation of the MAP
 ZONENAME = 'zonename'
 DESCRIPTION = 'description'
 NORTH = 'nord'
@@ -17,6 +18,7 @@ EAST = 'est'
 WEST = 'ouest'
 EVENT = 'event'
 
+#Library for activation of map tiles
 ActiveCase = {'A1': True, 'A2': True, 'A3': True,'A4': True, 'A5': True,
               'B1': True, 'B2': True, 'B3': True,'B4': True, 'B5': True,
               'C1': True, 'C2': True, 'C3': True,'C4': True, 'C5': True,
@@ -25,6 +27,7 @@ ActiveCase = {'A1': True, 'A2': True, 'A3': True,'A4': True, 'A5': True,
               'F1': True, 'F2': True, 'F3': True,'F4': True, 'F5': True
               }
 
+#Library for the map
 ZoneMap = {
   'A1': {
     ZONENAME: 'Beach',
@@ -141,7 +144,7 @@ ZoneMap = {
     SOUTH: 'B3',
     EAST: 'A4',
     WEST: 'A2',
-    EVENT: '',
+    EVENT: 'BOSS',
   },
   'B3': {
     ZONENAME: 'Bitch house',
@@ -298,10 +301,12 @@ ZoneMap = {
   },
 }
 
+#display the location of the player
 def PrintLocation():
   print(ZoneMap[Player.pos][ZONENAME].upper())
   print(ZoneMap[Player.pos][DESCRIPTION])
 
+#main display with actions of the player
 def prompt():
   if (ZoneMap[Player.pos][EVENT] == 'fight' and ActiveCase[Player.pos] == True):
     testlecombat()
@@ -314,56 +319,100 @@ def prompt():
     elif action.lower() == 'move':
       PlayerMove(action.lower())
 
+#function for the movement of the player
 def PlayerMove(MyAction):
   ask = "Où souhaitez-vous aller ?"
   print('\n')
   dest = input(ask + '>')
   if dest == 'est':
-    if ZoneMap[Player.pos][EAST] == '':
-      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
-      PlayerMove(MyAction)
-    else :
-      destination = ZoneMap[Player.pos][EAST]
-      MovementHandler(destination)
+    if (ZoneMap[ZoneMap[Player.pos][EAST]][EVENT] == 'BOSS'):
+      print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
+      print('Oui / Non')
+      ask = input('>' ).lower()
+      if (ask == 'oui'):
+        destination = ZoneMap[Player.pos][EAST]
+        MovementHandler(destination)
+      elif (ask == 'non'):
+        prompt()
+    else:
+      if ZoneMap[Player.pos][EAST] == '':
+        print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+        PlayerMove(MyAction)
+      else :
+        destination = ZoneMap[Player.pos][EAST]
+        MovementHandler(destination)
   elif dest == 'nord':
-    if ZoneMap[Player.pos][NORTH] == '':
-      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
-      PlayerMove(MyAction)
-    else :
-      destination = ZoneMap[Player.pos][NORTH]
-      MovementHandler(destination)
+    if (ZoneMap[ZoneMap[Player.pos][NORTH]][EVENT] == 'BOSS'):
+      print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
+      print('Oui / Non')
+      ask = input('>' ).lower()
+      if (ask == 'oui'):
+        destination = ZoneMap[Player.pos][NORTH]
+        MovementHandler(destination)
+      elif (ask == 'non'):
+        prompt()
+    else:
+      if ZoneMap[Player.pos][NORTH] == '':
+        print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+        PlayerMove(MyAction)
+      else :
+        destination = ZoneMap[Player.pos][NORTH]
+        MovementHandler(destination)
   elif dest == 'sud':
-    if ZoneMap[Player.pos][SOUTH] == '':
-      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
-      PlayerMove(MyAction)
-    else :
-      destination = ZoneMap[Player.pos][SOUTH]
-      MovementHandler(destination)
+    if (ZoneMap[ZoneMap[Player.pos][SOUTH]][EVENT] == 'BOSS'):
+      print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
+      print('Oui / Non')
+      ask = input('>' ).lower()
+      if (ask == 'oui'):
+        destination = ZoneMap[Player.pos][SOUTH]
+        MovementHandler(destination)
+      elif (ask == 'non'):
+        prompt()
+    else:
+      if ZoneMap[Player.pos][SOUTH] == '':
+        print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+        PlayerMove(MyAction)
+      else :
+        destination = ZoneMap[Player.pos][SOUTH]
+        MovementHandler(destination)
   elif dest == 'ouest':
-    if ZoneMap[Player.pos][WEST] == '':
-      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
-      PlayerMove(MyAction)
-    else :
-      destination = ZoneMap[Player.pos][WEST]
-      MovementHandler(destination)
+    if (ZoneMap[ZoneMap[Player.pos][WEST]][EVENT] == 'BOSS'):
+      print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
+      print('Oui / Non')
+      ask = input('>' ).lower()
+      if (ask == 'oui'):
+        destination = ZoneMap[Player.pos][WEST]
+        MovementHandler(destination)
+      elif (ask == 'non'):
+        prompt()
+    else:
+      if ZoneMap[Player.pos][WEST] == '':
+        print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+        PlayerMove(MyAction)
+      else :
+        destination = ZoneMap[Player.pos][WEST]
+        MovementHandler(destination)
   else :
     print("Commande invalide, essayez avec nord, sud, est ou ouest.\n")
     PlayerMove(MyAction)
 
+#Movement of the player
 def MovementHandler(destination):
   print('Vous quittez ' + ZoneMap[Player.pos][ZONENAME])
   Player.pos = destination
   PrintLocation()
 
+#Main game loop function
 def main_game_loop():
-	while Player.won is False:
-		prompt()
+  while Player.won is False:
+    prompt()
 
+########## ZONE DE TESTS ##########
+#test 001
 def testlecombat():
   print('boum boum')
   ActiveCase[Player.pos] = False
   time.sleep(2)
   prompt()
-
 
 main_game_loop()
