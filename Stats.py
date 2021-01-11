@@ -30,22 +30,24 @@ class PlayerStats:
 #======================================================================================
 # Bibliothèque monstres & stats
 
+NAME = 'NAME'
 HP = 'HP'
 ATK = 'ATK'
 LOOT = 'loot'
 
 MobStats = {
   'ChickenStats':{
+    NAME: 'Poule',
     HP: 1,
     ATK: 0,
     LOOT: 'not defined',
   },
   'SpiderStats':{
+    NAME: 'Arraignée d\'Héphaïstos',
     HP: 5,
     ATK: 3,
     LOOT: 'not defined',
   },
 }
 
-Test = MobStats['ChickenStats'][ATK]
-print(Test)
+# MobStats['SpiderStats'][HP]

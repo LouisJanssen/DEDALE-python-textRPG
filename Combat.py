@@ -1,13 +1,14 @@
 # IMPORTS
 from DiceSystem import DiceRoll
-from Stats import PlayerStats
+from Stats import *
 Player = PlayerStats()
-from Stats import ChickenStats
-from Stats import SpiderStats
 
-# MOBS
-Chicken = ChickenStats()
-Spider = SpiderStats()
+# CURRENT MOB STATS
+
+class EnnemyStats:
+    def __init__(self):
+        self.name = MobStats[currentname][NAME]
+        self.
 
 # COMBAT
 PlayerTurn = True
@@ -88,15 +89,15 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     elif (Player.Hp > 0) and (ennemy.Hp <= 0) :
         print('VICTOIRE')
 
-# Combat(PlayerTurn, Spider, False)
+Combat(PlayerTurn, 'EnnemyStats', False)
 
-SavePlayerStats = PlayerStats()
-SaveMobStats = SpiderStats()
+# SavePlayerStats = PlayerStats()
+# SaveMobStats = SpiderStats()
 
-Player.Hp -= 5
-print(Player.Hp)
-Player = SavePlayerStats
-print(Player.Hp)
+# Player.Hp -= 5
+# print(Player.Hp)
+# Player = SavePlayerStats
+# print(Player.Hp)
 
 # def ResetStats():
 #     # Réinitialise les stats après le combat
