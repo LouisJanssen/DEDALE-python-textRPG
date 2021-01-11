@@ -30,9 +30,8 @@ class PlayerStats:
 #======================================================================================
 # Bibliothèque monstres & stats
 
-MOBNAME = 'name'
-HP = 0
-ATK = 0
+HP = 'HP'
+ATK = 'ATK'
 LOOT = 'loot'
 
 MobStats = {
@@ -48,5 +47,5 @@ MobStats = {
   },
 }
 
-Test = MobStats['SpiderStats'][HP]
+Test = MobStats['ChickenStats'][ATK]
 print(Test)
