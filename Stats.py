@@ -8,6 +8,8 @@ class PlayerStats:
     self.Int = 5
     self.Cha = 5
     self.Gold = 0
+    self.pos = 'D3'
+    self.won = False
 
 #======================================================================================
 

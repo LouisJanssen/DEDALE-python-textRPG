@@ -4,21 +4,18 @@ import sys
 import os
 import time
 import random
+from Stats import PlayerStats
 
-class PlayerPos:
-  def __init__(self):
-    self.pos = 'D3'
-
-PlayerPos = PlayerPos()
+Player = PlayerStats()
 
 #### MAP ####
-ZONENAME = ''
+ZONENAME = 'zonename'
 DESCRIPTION = 'description'
-ACTIVECASE = True
-NORTH = 'north'
-SOUTH = 'south'
-EAST = 'east'
-WEST = 'west'
+NORTH = 'nord'
+SOUTH = 'sud'
+EAST = 'est'
+WEST = 'ouest'
+EVENT = 'event'
 
 ActiveCase = {'A1': True, 'A2': True, 'A3': True,'A4': True, 'A5': True,
               'B1': True, 'B2': True, 'B3': True,'B4': True, 'B5': True,
@@ -32,306 +29,341 @@ ZoneMap = {
   'A1': {
     ZONENAME: 'Beach',
     DESCRIPTION: 'Bitch you are at the beach',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: 'B1',
     EAST: 'A2',
     WEST: '',
+    EVENT: '',
   },
   'B1': {
     ZONENAME: 'Town',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'A1',
     SOUTH: 'C1',
     EAST: '',
     WEST: '',
+    EVENT: '',
   },
   'C1': {
     ZONENAME: 'Whorehouse',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'B1',
     SOUTH: 'D1',
     EAST: 'C2',
     WEST: '',
+    EVENT: '',
   },
   'D1': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'C1',
     SOUTH: 'E1',
     EAST: 'D2',
     WEST: '',
+    EVENT: '',
   },
   'E1': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'D1',
     SOUTH: 'F1',
     EAST: 'E2',
     WEST: '',
+    EVENT: '',
   },
   'F1': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'E1',
     SOUTH: '',
     EAST: 'F2',
     WEST: '',
+    EVENT: '',
   },
   'A2': {
     ZONENAME: 'Test',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: '',
     EAST: 'A3',
     WEST: 'A1',
+    EVENT: '',
   },
   'B2': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: '',
     EAST: 'B3',
     WEST: '',
+    EVENT: '',
   },
   'C2': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: 'D2',
     EAST: '',
     WEST: 'C1',
+    EVENT: '',
   },
   'D2': {
     ZONENAME: 'dsgfs',
     DESCRIPTION: 'gfdsgf',
-    ACTIVECASE: True,
     NORTH: 'C2',
     SOUTH: '',
     EAST: 'D3',
     WEST: 'D1',
+    EVENT: 'fight',
   },
   'E2': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: '',
     EAST: '',
     WEST: 'E1',
+    EVENT: '',
   },
   'F2': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: '',
     EAST: 'F3',
     WEST: 'F1',
+    EVENT: '',
   },
   'A3': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: 'B3',
     EAST: 'A4',
     WEST: 'A2',
+    EVENT: '',
   },
   'B3': {
-    ZONENAME: '',
+    ZONENAME: 'Bitch house',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'A3',
     SOUTH: 'C3',
     EAST: '',
     WEST: 'B2',
+    EVENT: '',
   },
   'C3': {
     ZONENAME: 'Hell',
     DESCRIPTION: 'dsgfdg',
-    ACTIVECASE: True,
     NORTH: 'B3',
     SOUTH: 'D3',
     EAST: '',
     WEST: '',
+    EVENT: '',
   },
   'D3': {
     ZONENAME: 'Start',
     DESCRIPTION: 'descritohgf',
-    ACTIVECASE: True,
     NORTH: 'C3',
     SOUTH: 'E3',
     EAST: 'D4',
     WEST: 'D2',
+    EVENT: '',
   },
   'E3': {
     ZONENAME: 'gdfdgf',
     DESCRIPTION: 'dfggdfg',
-    ACTIVECASE: True,
     NORTH: 'D3',
     SOUTH: '',
     EAST: 'E4',
     WEST: '',
+    EVENT: '',
   },
   'F3': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: '',
     EAST: 'F4',
     WEST: 'F2',
+    EVENT: '',
   },
   'A4': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: '',
     EAST: 'A5',
     WEST: 'A3',
+    EVENT: '',
   },
   'B4': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: '',
     EAST: 'B5',
     WEST: '',
+    EVENT: '',
   },
   'C4': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: 'D4',
     EAST: 'C5',
     WEST: '',
+    EVENT: '',
   },
   'D4': {
     ZONENAME: 'ruytru',
     DESCRIPTION: 'ruhgfj',
-    ACTIVECASE: True,
     NORTH: 'C4',
     SOUTH: '',
     EAST: 'D5',
     WEST: 'D3',
+    EVENT: '',
   },
   'E4': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: 'F4',
     EAST: 'E5',
     WEST: 'E3',
+    EVENT: '',
   },
   'F4': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'E4',
     SOUTH: '',
     EAST: '',
     WEST: 'F3',
+    EVENT: '',
   },
   'A5': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: 'B5',
     EAST: '',
     WEST: 'A4',
+    EVENT: '',
   },
   'B5': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'A5',
     SOUTH: 'C5',
     EAST: '',
     WEST: 'B4',
+    EVENT: '',
   },
   'C5': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'B5',
     SOUTH: '',
     EAST: '',
     WEST: 'C4',
+    EVENT: '',
   },
   'D5': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: '',
     SOUTH: 'E5',
     EAST: '',
     WEST: 'D4',
+    EVENT: '',
   },
   'E5': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'D5',
     SOUTH: 'F5',
     EAST: '',
     WEST: 'E4',
+    EVENT: '',
   },
   'F5': {
     ZONENAME: '',
     DESCRIPTION: '',
-    ACTIVECASE: True,
     NORTH: 'E5',
     SOUTH: '',
     EAST: '',
     WEST: '',
+    EVENT: '',
   },
 }
 
 def PrintLocation():
-  print(PlayerPos.pos.upper())
-  print(ZoneMap[PlayerPos.pos][DESCRIPTION])
+  print(ZoneMap[Player.pos][ZONENAME].upper())
+  print(ZoneMap[Player.pos][DESCRIPTION])
 
 def prompt():
-  print('What to do bitch?')
-  action = input('>')
-  if action.lower() == 'quit':
-    sys.exit()
-  elif action.lower() == 'move':
-    PlayerMove(action.lower())
+  if (ZoneMap[Player.pos][EVENT] == 'fight' and ActiveCase[Player.pos] == True):
+    testlecombat()
+  else:
+    print('Que souhaitez vous faire ?')
+    print('\n')
+    action = input('>')
+    if action.lower() == 'quit':
+      sys.exit()
+    elif action.lower() == 'move':
+      PlayerMove(action.lower())
 
 def PlayerMove(MyAction):
-  ask = "Where to go?"
+  ask = "Où souhaitez-vous aller ?"
+  print('\n')
   dest = input(ask + '>')
-  if dest == 'east':
-    destination = ZoneMap[PlayerPos.pos][EAST]
-    MovementHandler(destination)
-  elif dest == 'north':
-    destination = ZoneMap[PlayerPos.pos][NORTH]
-    MovementHandler(destination)
-  elif dest == 'south':
-    destination = ZoneMap[PlayerPos.pos][SOUTH]
-    MovementHandler(destination)
-  elif dest == 'west':
-    destination = ZoneMap[PlayerPos.pos][WEST]
-    MovementHandler(destination)
+  if dest == 'est':
+    if ZoneMap[Player.pos][EAST] == '':
+      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      PlayerMove(MyAction)
+    else :
+      destination = ZoneMap[Player.pos][EAST]
+      MovementHandler(destination)
+  elif dest == 'nord':
+    if ZoneMap[Player.pos][NORTH] == '':
+      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      PlayerMove(MyAction)
+    else :
+      destination = ZoneMap[Player.pos][NORTH]
+      MovementHandler(destination)
+  elif dest == 'sud':
+    if ZoneMap[Player.pos][SOUTH] == '':
+      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      PlayerMove(MyAction)
+    else :
+      destination = ZoneMap[Player.pos][SOUTH]
+      MovementHandler(destination)
+  elif dest == 'ouest':
+    if ZoneMap[Player.pos][WEST] == '':
+      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      PlayerMove(MyAction)
+    else :
+      destination = ZoneMap[Player.pos][WEST]
+      MovementHandler(destination)
+  else :
+    print("Commande invalide, essayez avec nord, sud, est ou ouest.\n")
+    PlayerMove(MyAction)
 
 def MovementHandler(destination):
-  print('you move to the' + destination + '.')
-  PlayerPos.pos = destination
+  print('Vous quittez ' + ZoneMap[Player.pos][ZONENAME])
+  Player.pos = destination
   PrintLocation()
 
-prompt()
+def main_game_loop():
+	while Player.won is False:
+		prompt()
+
+def testlecombat():
+  print('boum boum')
+  ActiveCase[Player.pos] = False
+  time.sleep(2)
+  prompt()
+
+
+main_game_loop()
