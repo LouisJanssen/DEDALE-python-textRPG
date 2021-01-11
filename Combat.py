@@ -88,4 +88,15 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     elif (Player.Hp > 0) and (ennemy.Hp <= 0) :
         print('VICTOIRE')
 
-Combat(PlayerTurn, Spider, False)
+# Combat(PlayerTurn, Spider, False)
+
+SavePlayerStats = PlayerStats()
+SaveMobStats = SpiderStats()
+
+Player.Hp -= 5
+print(Player.Hp)
+Player = SavePlayerStats
+print(Player.Hp)
+
+# def ResetStats():
+#     # Réinitialise les stats après le combat
