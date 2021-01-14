@@ -317,8 +317,7 @@ def prompt():
     testlecombat()
   else:
     print('Que souhaitez vous faire ?')
-    print('\n')
-    action = input('>')
+    action = input('\n > ')
     if action.lower() == 'quitter':
       sys.exit()
     elif action.lower() == 'voyager':
@@ -335,10 +334,13 @@ def prompt():
 #function for the movement of the player
 def PlayerMove(MyAction):
   ask = "Où souhaitez-vous aller ?"
-  print('\n')
-  dest = input(ask + '>')
+  dest = input(ask + '\n > ')
+
   if dest == 'est':
-    if (ZoneMap[ZoneMap[Player.pos][EAST]][EVENT] == 'BOSS'):
+    if ZoneMap[Player.pos][EAST] == '':
+      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      PlayerMove(MyAction)
+    elif (ZoneMap[ZoneMap[Player.pos][EAST]][EVENT] == 'BOSS'):
       print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
       ask = input('>' ).lower()
@@ -346,16 +348,17 @@ def PlayerMove(MyAction):
         destination = ZoneMap[Player.pos][EAST]
         MovementHandler(destination)
       elif (ask == 'non'):
+        ActiveCase[Player.pos] = True
         prompt()
-    else:
-      if ZoneMap[Player.pos][EAST] == '':
-        print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
-        PlayerMove(MyAction)
-      else :
-        destination = ZoneMap[Player.pos][EAST]
-        MovementHandler(destination)
+    else :
+      destination = ZoneMap[Player.pos][EAST]
+      MovementHandler(destination)
+
   elif dest == 'nord':
-    if (ZoneMap[ZoneMap[Player.pos][NORTH]][EVENT] == 'BOSS'):
+    if ZoneMap[Player.pos][NORTH] == '':
+      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      PlayerMove(MyAction)
+    elif (ZoneMap[ZoneMap[Player.pos][NORTH]][EVENT] == 'BOSS'):
       print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
       ask = input('>' ).lower()
@@ -363,16 +366,17 @@ def PlayerMove(MyAction):
         destination = ZoneMap[Player.pos][NORTH]
         MovementHandler(destination)
       elif (ask == 'non'):
+        ActiveCase[Player.pos] = True
         prompt()
-    else:
-      if ZoneMap[Player.pos][NORTH] == '':
-        print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
-        PlayerMove(MyAction)
-      else :
-        destination = ZoneMap[Player.pos][NORTH]
-        MovementHandler(destination)
+    else :
+      destination = ZoneMap[Player.pos][NORTH]
+      MovementHandler(destination)
+
   elif dest == 'sud':
-    if (ZoneMap[ZoneMap[Player.pos][SOUTH]][EVENT] == 'BOSS'):
+    if ZoneMap[Player.pos][SOUTH] == '':
+      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      PlayerMove(MyAction)
+    elif (ZoneMap[ZoneMap[Player.pos][SOUTH]][EVENT] == 'BOSS'):
       print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
       ask = input('>' ).lower()
@@ -380,16 +384,17 @@ def PlayerMove(MyAction):
         destination = ZoneMap[Player.pos][SOUTH]
         MovementHandler(destination)
       elif (ask == 'non'):
+        ActiveCase[Player.pos] = True
         prompt()
-    else:
-      if ZoneMap[Player.pos][SOUTH] == '':
-        print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
-        PlayerMove(MyAction)
-      else :
-        destination = ZoneMap[Player.pos][SOUTH]
-        MovementHandler(destination)
+    else :
+      destination = ZoneMap[Player.pos][SOUTH]
+      MovementHandler(destination)
+
   elif dest == 'ouest':
-    if (ZoneMap[ZoneMap[Player.pos][WEST]][EVENT] == 'BOSS'):
+    if ZoneMap[Player.pos][WEST] == '':
+      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      PlayerMove(MyAction)
+    elif (ZoneMap[ZoneMap[Player.pos][WEST]][EVENT] == 'BOSS'):
       print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
       ask = input('>' ).lower()
@@ -397,14 +402,11 @@ def PlayerMove(MyAction):
         destination = ZoneMap[Player.pos][WEST]
         MovementHandler(destination)
       elif (ask == 'non'):
+        ActiveCase[Player.pos] = True
         prompt()
-    else:
-      if ZoneMap[Player.pos][WEST] == '':
-        print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
-        PlayerMove(MyAction)
-      else :
-        destination = ZoneMap[Player.pos][WEST]
-        MovementHandler(destination)
+    else :
+      destination = ZoneMap[Player.pos][WEST]
+      MovementHandler(destination)
   else :
     print("Commande invalide, essayez avec nord, sud, est ou ouest.\n")
     PlayerMove(MyAction)
