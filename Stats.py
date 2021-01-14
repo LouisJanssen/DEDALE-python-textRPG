@@ -12,22 +12,6 @@ class PlayerStats:
     self.won = False
 
 #======================================================================================
-
-# class ChickenStats :
-#   def __init__(self): # Ajouter ,NomDuLoot
-#     self.name = 'Poule'
-#     self.Hp = 1
-#     self.Atk = 0
-#     #self.loot = CuisseDePoulet
-
-# class SpiderStats :
-#   def __init__(self):
-#     self.name = 'Araignée d\'Héphaïstos'
-#     self.Hp = 5
-#     self.Atk = 3
-    #self.loot = ???
-
-#======================================================================================
 # Bibliothèque monstres & stats
 
 NAME = 'NAME'
@@ -48,6 +32,37 @@ MobStats = {
     ATK: 3,
     LOOT: 'not defined',
   },
+  'BoarStats':{
+    NAME: 'Sanglier',
+    HP: 8,
+    ATK: 5,
+    LOOT: 'not defined',
+  },
+  'HydraStats':{
+    NAME: 'Hydre',
+    HP: 15,
+    ATK: 10,
+    LOOT: 'not defined',
+  },
+  'SirensStats':{
+    NAME: 'Sirène',
+    HP: 10,
+    ATK: 10,
+    LOOT: 'not defined',
+  },
+  'CyclopStats':{
+    NAME: 'Cyclope',
+    HP: 15,
+    ATK: 15,
+    LOOT: 'not defined',
+  },
+  'LestrygonStats':{
+    NAME: 'Lestrygon',
+    HP: 10,
+    ATK: 15,
+    LOOT: 'not defined',
+  },
 }
 
-# MobStats['SpiderStats'][HP]
+# Test = MobStats['CyclopStats'][HP]
+# print(Test)
