@@ -30,31 +30,31 @@ ActiveCase = {'A1': True, 'A2': True, 'A3': True,'A4': True, 'A5': True,
 #Library for the map
 ZoneMap = {
   'A1': {
-    ZONENAME: 'Beach',
-    DESCRIPTION: 'Bitch you are at the beach',
+    ZONENAME: '',
+    DESCRIPTION: '',
     NORTH: '',
     SOUTH: 'B1',
     EAST: 'A2',
     WEST: '',
-    EVENT: '',
+    EVENT: 'object',
   },
   'B1': {
-    ZONENAME: 'Town',
+    ZONENAME: '',
     DESCRIPTION: '',
     NORTH: 'A1',
     SOUTH: 'C1',
     EAST: '',
     WEST: '',
-    EVENT: '',
+    EVENT: 'fight',
   },
   'C1': {
-    ZONENAME: 'Whorehouse',
+    ZONENAME: '',
     DESCRIPTION: '',
     NORTH: 'B1',
     SOUTH: 'D1',
     EAST: 'C2',
     WEST: '',
-    EVENT: '',
+    EVENT: 'npc',
   },
   'D1': {
     ZONENAME: '',
@@ -63,7 +63,7 @@ ZoneMap = {
     SOUTH: 'E1',
     EAST: 'D2',
     WEST: '',
-    EVENT: '',
+    EVENT: 'fight',
   },
   'E1': {
     ZONENAME: '',
@@ -72,7 +72,7 @@ ZoneMap = {
     SOUTH: 'F1',
     EAST: 'E2',
     WEST: '',
-    EVENT: '',
+    EVENT: 'object',
   },
   'F1': {
     ZONENAME: '',
@@ -81,16 +81,16 @@ ZoneMap = {
     SOUTH: '',
     EAST: 'F2',
     WEST: '',
-    EVENT: '',
+    EVENT: 'fight',
   },
   'A2': {
-    ZONENAME: 'Test',
+    ZONENAME: '',
     DESCRIPTION: '',
     NORTH: '',
     SOUTH: '',
     EAST: 'A3',
     WEST: 'A1',
-    EVENT: '',
+    EVENT: 'npc',
   },
   'B2': {
     ZONENAME: '',
@@ -99,7 +99,7 @@ ZoneMap = {
     SOUTH: '',
     EAST: 'B3',
     WEST: '',
-    EVENT: '',
+    EVENT: 'blessing',
   },
   'C2': {
     ZONENAME: '',
@@ -108,16 +108,16 @@ ZoneMap = {
     SOUTH: 'D2',
     EAST: '',
     WEST: 'C1',
-    EVENT: '',
+    EVENT: 'fight',
   },
   'D2': {
-    ZONENAME: 'dsgfs',
-    DESCRIPTION: 'gfdsgf',
+    ZONENAME: '',
+    DESCRIPTION: '',
     NORTH: 'C2',
     SOUTH: '',
     EAST: 'D3',
     WEST: 'D1',
-    EVENT: 'fight',
+    EVENT: 'easter',
   },
   'E2': {
     ZONENAME: '',
@@ -126,7 +126,7 @@ ZoneMap = {
     SOUTH: '',
     EAST: '',
     WEST: 'E1',
-    EVENT: '',
+    EVENT: 'curse',
   },
   'F2': {
     ZONENAME: '',
@@ -135,7 +135,7 @@ ZoneMap = {
     SOUTH: '',
     EAST: 'F3',
     WEST: 'F1',
-    EVENT: '',
+    EVENT: 'npc',
   },
   'A3': {
     ZONENAME: '',
@@ -147,40 +147,41 @@ ZoneMap = {
     EVENT: 'BOSS',
   },
   'B3': {
-    ZONENAME: 'Bitch house',
+    ZONENAME: '',
     DESCRIPTION: '',
     NORTH: 'A3',
     SOUTH: 'C3',
     EAST: '',
     WEST: 'B2',
-    EVENT: '',
+    EVENT: 'npc',
   },
   'C3': {
-    ZONENAME: 'Hell',
-    DESCRIPTION: 'dsgfdg',
+    ZONENAME: '',
+    DESCRIPTION: '',
     NORTH: 'B3',
     SOUTH: 'D3',
     EAST: '',
     WEST: '',
-    EVENT: '',
+    EVENT: 'easter',
   },
+  #### FRANCIS PART ^^^^^^^^^^^^
   'D3': {
-    ZONENAME: 'Start',
-    DESCRIPTION: 'descritohgf',
+    ZONENAME: '',
+    DESCRIPTION: '',
     NORTH: 'C3',
     SOUTH: 'E3',
     EAST: 'D4',
     WEST: 'D2',
-    EVENT: '',
+    EVENT: 'object',
   },
   'E3': {
-    ZONENAME: 'gdfdgf',
-    DESCRIPTION: 'dfggdfg',
+    ZONENAME: '',
+    DESCRIPTION: '',
     NORTH: 'D3',
     SOUTH: '',
     EAST: 'E4',
     WEST: '',
-    EVENT: '',
+    EVENT: 'npc',
   },
   'F3': {
     ZONENAME: '',
@@ -189,7 +190,7 @@ ZoneMap = {
     SOUTH: '',
     EAST: 'F4',
     WEST: 'F2',
-    EVENT: '',
+    EVENT: 'start',
   },
   'A4': {
     ZONENAME: '',
@@ -198,7 +199,7 @@ ZoneMap = {
     SOUTH: '',
     EAST: 'A5',
     WEST: 'A3',
-    EVENT: '',
+    EVENT: 'npc',
   },
   'B4': {
     ZONENAME: '',
@@ -207,7 +208,7 @@ ZoneMap = {
     SOUTH: '',
     EAST: 'B5',
     WEST: '',
-    EVENT: '',
+    EVENT: 'curse',
   },
   'C4': {
     ZONENAME: '',
@@ -216,16 +217,16 @@ ZoneMap = {
     SOUTH: 'D4',
     EAST: 'C5',
     WEST: '',
-    EVENT: '',
+    EVENT: 'npc',
   },
   'D4': {
-    ZONENAME: 'ruytru',
-    DESCRIPTION: 'ruhgfj',
+    ZONENAME: '',
+    DESCRIPTION: '',
     NORTH: 'C4',
     SOUTH: '',
     EAST: 'D5',
     WEST: 'D3',
-    EVENT: '',
+    EVENT: 'fight',
   },
   'E4': {
     ZONENAME: '',
@@ -234,7 +235,7 @@ ZoneMap = {
     SOUTH: 'F4',
     EAST: 'E5',
     WEST: 'E3',
-    EVENT: '',
+    EVENT: 'easter',
   },
   'F4': {
     ZONENAME: '',
@@ -243,7 +244,7 @@ ZoneMap = {
     SOUTH: '',
     EAST: '',
     WEST: 'F3',
-    EVENT: '',
+    EVENT: 'npc',
   },
   'A5': {
     ZONENAME: '',
@@ -252,7 +253,7 @@ ZoneMap = {
     SOUTH: 'B5',
     EAST: '',
     WEST: 'A4',
-    EVENT: '',
+    EVENT: 'fight',
   },
   'B5': {
     ZONENAME: '',
@@ -261,7 +262,7 @@ ZoneMap = {
     SOUTH: 'C5',
     EAST: '',
     WEST: 'B4',
-    EVENT: '',
+    EVENT: 'object',
   },
   'C5': {
     ZONENAME: '',
@@ -270,7 +271,7 @@ ZoneMap = {
     SOUTH: '',
     EAST: '',
     WEST: 'C4',
-    EVENT: '',
+    EVENT: 'fight',
   },
   'D5': {
     ZONENAME: '',
@@ -279,7 +280,7 @@ ZoneMap = {
     SOUTH: 'E5',
     EAST: '',
     WEST: 'D4',
-    EVENT: '',
+    EVENT: 'object',
   },
   'E5': {
     ZONENAME: '',
@@ -288,7 +289,7 @@ ZoneMap = {
     SOUTH: 'F5',
     EAST: '',
     WEST: 'E4',
-    EVENT: '',
+    EVENT: 'fight',
   },
   'F5': {
     ZONENAME: '',
@@ -297,14 +298,18 @@ ZoneMap = {
     SOUTH: '',
     EAST: '',
     WEST: '',
-    EVENT: '',
+    EVENT: 'blessing',
   },
 }
 
 #display the location of the player
 def PrintLocation():
   print(ZoneMap[Player.pos][ZONENAME].upper())
-  print(ZoneMap[Player.pos][DESCRIPTION])
+  if(ActiveCase[Player.pos] == True):
+    print(ZoneMap[Player.pos][DESCRIPTION])
+  else:
+    print('Vous êtes déjà passé par ici, il ne reste plus rien d\'intéressant')
+  
 
 #main display with actions of the player
 def prompt():
@@ -314,10 +319,18 @@ def prompt():
     print('Que souhaitez vous faire ?')
     print('\n')
     action = input('>')
-    if action.lower() == 'quit':
+    if action.lower() == 'quitter':
       sys.exit()
-    elif action.lower() == 'move':
+    elif action.lower() == 'voyager':
       PlayerMove(action.lower())
+    elif action.lower() == 'aide':
+      print('Liste des commandes: ')
+      print('voyager        -       vous permets de vous déplacer')
+      print('inventaire     -       vous permets d\'accéder à votre inventaire')
+      print('carte          -       vous permets d\'accéder à votre carte')
+      print('journal        -       vous permets d\'accéder à votre journal de quête')
+      print('aide           -       vous permet d\'avoir une liste des commandes')
+      print('quitter        -       vous permet de quitter le jeu')
 
 #function for the movement of the player
 def PlayerMove(MyAction):
@@ -400,6 +413,7 @@ def PlayerMove(MyAction):
 def MovementHandler(destination):
   print('Vous quittez ' + ZoneMap[Player.pos][ZONENAME])
   Player.pos = destination
+  ActiveCase[Player.pos] = False
   PrintLocation()
 
 #Main game loop function
@@ -411,7 +425,6 @@ def main_game_loop():
 #test 001
 def testlecombat():
   print('boum boum')
-  ActiveCase[Player.pos] = False
   time.sleep(2)
   prompt()
 
