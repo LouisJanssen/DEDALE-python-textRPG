@@ -1,6 +1,7 @@
 # import of tools needed
 import time
 import sys
+import os
 
 # function for slow prompt of prints
 def promptSlow(phrase):
@@ -12,6 +13,7 @@ def promptSlow(phrase):
 
 # display of the menu
 def PrintMainMenu():
+  os.system('clear')
   print('-------------------------')
   print('DEDALE')
   print('-------------------------')
