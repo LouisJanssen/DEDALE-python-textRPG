@@ -419,7 +419,6 @@ def PlayerMove(MyAction):
 
 #Movement of the player
 def MovementHandler(destination):
-  print('Vous quittez ' + ZoneMap[Player.pos][ZONENAME])
   Player.pos = destination
   PrintLocation()
 
