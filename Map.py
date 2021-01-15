@@ -26,8 +26,8 @@ ActiveCase = {'A1': True, 'A2': True, 'A3': True,'A4': True, 'A5': True,
 #Library for the map
 ZoneMap = {
   'A1': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Le refuge de Prométhée',
+    DESCRIPTION: 'Votre périple en mer s\'achève enfin, vous continuez donc votre aventure comme vous l\'avez commencé : à pied. Après une longue marche, vous tombez sur une maison d\'apparence commune mais aux dimensions atypiques. L\'endroit semble abandonné depuis des centaines d\'années, des milliers peut-être. Au milieu de cette demeure hors du temps, vous apercevez un foyer dépourvu de toute flamme. En y regardant de plus près, vous y décelez néanmoins un petit coffre dans lequel se trouve une fiole au contenu incandescent...',
     NORTH: '',
     SOUTH: 'B1',
     EAST: 'A2',
@@ -35,8 +35,8 @@ ZoneMap = {
     EVENT: 'object',
   },
   'B1': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Île de l\'œil du cyclone',
+    DESCRIPTION: 'Après de longs jours de plus en mer, le ciel commence à se couvrir sérieusement. Soudain, une tempête éclate avant même que vous ayez le temps de vous y préparer. Tout à coup, la foudre frappe le mat de votre navire, qui vous tombe sur la tête vous faisant tomber dans l\'inconscience. Quand Morphée vous libère enfin de son emprise, vous sentez une forte odeur. En observant autour de vous, vous réalisez que vous avez atterri dans ce qui semble être une bergerie à grande échelle avec option vue sur mer. Vous êtes d\'abord soulagé, songeant que les gens qui habitent ici accepteront peut-être de vous aider à réparer votre bateau, quand soudain, une voix gutturale retentit : "Cette odeur... C\'est pas un mouton ça, je reconnais... Mmmhh... Impossible ! PERSONNE ! JE SAIS QUE C\'EST TOI ! TU M\'ÉCHAPPERAS PAS CETTE FOIS !".',
     NORTH: 'A1',
     SOUTH: 'C1',
     EAST: '',
@@ -44,8 +44,8 @@ ZoneMap = {
     EVENT: 'fight',
   },
   'C1': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Le vieux pêcheur perdu en mer',
+    DESCRIPTION: 'Cela va faire une semaine maintenant que vous avez pris la mer. C\'est une journée calme, et l\'absence de vent semble distordre le temps, l\'aboutissement de votre odyssée vous paraît bien loin. La monotonie de votre voyage est troublée alors que votre navire s\'enfonce dans une brume étrange. Au milieu de cette brume, vous décelez une lumière ainsi qu\'une silhouette. Piqué de curiosité, vous allez à sa rencontre. Vous croyez d\'abord halluciner quand vous découvrez un homme en train de pêcher, installé dans une barque, au beau milieu de l\'océan. Une atmosphère paisible règne. De nombreuses secondes passent sans que le vieux pêcheur ne vous adresse la parole. Finissant par perdre patience, vous vous raclez la gorge pour signaler votre présence. Après un léger froncement de sourcil, le vieil homme se tourne vers vous, l\'index collé à ses lèvres souriantes : "Chut ! Vous allez faire fuir le poisson !". Vous êtes alors frappé par le regard du vieillard, d\'un vert strictement semblable à celui de la mer, empreint à la fois de sagesse et de malice.',
     NORTH: 'B1',
     SOUTH: 'D1',
     EAST: 'C2',
@@ -53,8 +53,8 @@ ZoneMap = {
     EVENT: 'npc',
   },
   'D1': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Le domaine d\'Artémis',
+    DESCRIPTION: 'Vous ressentez un soulagement indescriptible lorsque vous arrivez enfin à la lisière d\'une forêt luxuriante vous offrant l\'abri parfait contre le soleil. Seulement, la chaleur laisse peu à peu place à la faim. D\'une flèche bien tirée, vous transpercez un écureuil bien portant qui passait par là. Alors que vous vous approchez de votre futur repas, vous constatez à quel point la vie semble grouiller dans les environs. Les écureuils du même acabit que votre proie sont nombreux et vous avez même croisé le regard d\'un cerf majestueux à quelques mètres de là.  Vous en profitez pour chasser un autre écureuil afin d\'en faire l\'offrande aux dieux. Soudain, un grouinement féroce se fait entendre dans votre dos. Vous vous retournez aussitôt, prêt au combat, et tombez nez à nez avec un sanglier. Cela n\'aurait pas vraiment posé problème, si celui-ci n\'avait pas fait près de deux fois votre taille.',
     NORTH: 'C1',
     SOUTH: 'E1',
     EAST: 'D2',
@@ -71,8 +71,8 @@ ZoneMap = {
     EVENT: 'object',
   },
   'F1': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Forges d\'Héphaïstos',
+    DESCRIPTION: 'Quelle idée d\'avoir décidé de passer par cette étrange caverne ! Ce n\'est pas les raisons de vous plaindre qui manquent entre cette chaleur étouffante, les cliquetis incessant qui retentissent jusqu\'à se graver dans votre crâne et cette obscurité constante interrompue uniquement par le passage peu rassurant de fines coulées de lave. Vous perdez presque espoir avant d\'enfin apercevoir la lumière du jour, loin devant vous. Soulagé, vous hurlez de joie et vous précipitez dans cette direction. C\'est alors qu\'une masse lourde tombe pile devant vous. À y regarder de plus près, il semblerait qu\'il s\'agisse d\'une boule, faite entièrement de métal... Tout à coup, celle-ci se met à grincer, déployant ses membres jusqu\'à former une araignée vous arrivant facilement à la taille.',
     NORTH: 'E1',
     SOUTH: '',
     EAST: 'F2',
@@ -80,8 +80,8 @@ ZoneMap = {
     EVENT: 'fight',
   },
   'A2': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Le secret de Thanatos',
+    DESCRIPTION: 'Les terres que vous foulez sont de plus en plus mornes et il devient difficile de trouver de quoi vous sustenter. Vous envisagez un instant de tenter d\'attraper l\'un des nombreux corbeaux qui parcourent le ciel gris au-dessus de vous, mais qui sait de quelle funeste maladie Apollon a bien pu les affubler. Durant votre voyage, vous passez par bien des villages, tous rasés par l\'arc du dieu musicien. Vous avez soif. Et faim. Si faim... Vous finissez par perdre conscience au milieu de l\'un de ces villages, comme l\'ont fait les centaines de famille qui avaient du vivre ici autrefois. Lorsque vous rouvrez les yeux, vous vous trouvez au milieu d\'une pièce sombre et très étendue, dépourvue de tout meuble à l\'exception d\'un bureau et d\'une chaise en son centre. Assis à ce bureau, un jeune garçon est penché sur une feuille de papier, compas à la main. Debout à côté de lui se trouve une silhouette ailée, la main posée sur l\'épaule du garçon. Vous décelez ce qui ressemble à de la tristesse dans son regard à première vue sinistre.',
     NORTH: '',
     SOUTH: '',
     EAST: 'A3',
@@ -89,8 +89,8 @@ ZoneMap = {
     EVENT: 'npc',
   },
   'B2': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Le treizième travail',
+    DESCRIPTION: 'Enfin, vous arrivez dans ce qui semble être en tout point un havre de paix au beau milieu d\'une clairière. Une cascade se déverse dans une source d\'eau douce dont le toucher tempéré vous invite à vous détendre - et à vous décrasser - pour la première fois depuis bien longtemps. Seulement, un cri retentissant vient troubler votre quiétude, faisant fuir toutes les créatures alentour : "TOI ! Je savais bien que je finirais par te trouver ! Papa m\'a donné un boulot, il veut que je fasse de toi un guerrier à ma hauteur. J\'ai bien essayé de lui faire comprendre que c\'était impossible, hein, mais il est du type assez borné... Moi c\'est Héraclès, au fait. Sors de l\'eau, on a du pain sur la planche. Et enfile quelque-chose !".',
     NORTH: '',
     SOUTH: '',
     EAST: 'B3',
@@ -98,8 +98,8 @@ ZoneMap = {
     EVENT: 'blessing',
   },
   'C2': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Chant funeste',
+    DESCRIPTION: 'Il faut être particulièrement prudent quand on prend la mer, on vous l\'a assez répété quand vous étiez jeune. Vous voguez donc sur les mers, prenant garde à ne pas fracasser votre embarcation sur le premier rocher venu. Vous êtes impressionné par vos talents de navigateur, bien que l\'idée de potentiellement tomber sur Charybde et Scylla vous terrifie. Mais bon, personne n\'est tombé sur ces monstres depuis le grand Ulysse, alors... Vous vous rendez soudain compte que vous avez légèrement dévié de cap. Alors que vous vous apprêtez à rectifier la trajectoire, une douce mélodie parvient à vos oreilles. Si douce que vous avez du mal à vous en détourner... Désormais, trouver la source de ce chant est devenu votre priorité. Malheureusement pour vous, c\'est face à une sorte d\'oiseau à taille humaine et au visage de femme que vous vous retrouvez. Aucun doute, il s\'agit d\'une sirène.',
     NORTH: '',
     SOUTH: 'D2',
     EAST: '',
