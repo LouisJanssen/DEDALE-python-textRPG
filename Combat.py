@@ -51,7 +51,6 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             print('1 - ATTAQUER')
             print('2 - SE DÉFENDRE')
             print('3 - OBJETS')
-            print('4 - FUIR')
             print(']===================================[')
             Action = int(input())
 
@@ -79,10 +78,6 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             elif Action == 3 :
                 print('Objets')
                 # Afficher liste des objets présents dans l'inventaire
-
-            elif Action == 4 :
-                print('Fuir')
-                # Tentative de fuite (pourcentage de réussite dépendant des stats et objets)
     
     elif Player.Hp <= 0 :
         print('GAME OVER')

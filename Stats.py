@@ -27,7 +27,7 @@ MobStats = {
     LOOT: 'not defined',
   },
   'SpiderStats':{
-    NAME: 'Arraignée d\'Héphaïstos',
+    NAME: 'Arraignée mécanique',
     HP: 5,
     ATK: 3,
     LOOT: 'not defined',
