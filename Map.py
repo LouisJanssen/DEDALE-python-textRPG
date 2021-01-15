@@ -311,6 +311,16 @@ def PrintLocation():
 def prompt():
   if (ZoneMap[Player.pos][EVENT] == 'fight' and ActiveCase[Player.pos] == True):
     testlecombat()
+  elif (ZoneMap[Player.pos][EVENT] == 'npc' and ActiveCase[Player.pos] == True):
+    testnpc()
+  elif (ZoneMap[Player.pos][EVENT] == 'object' and ActiveCase[Player.pos] == True):
+    testobject()
+  elif (ZoneMap[Player.pos][EVENT] == 'curse' and ActiveCase[Player.pos] == True):
+    testcurse()
+  elif (ZoneMap[Player.pos][EVENT] == 'blessing' and ActiveCase[Player.pos] == True):
+    testblessing()
+  elif (ZoneMap[Player.pos][EVENT] == 'easter' and ActiveCase[Player.pos] == True):
+    testeaster()
   else:
     print('Que souhaitez vous faire ?')
     action = input('\n > ')
@@ -411,7 +421,6 @@ def PlayerMove(MyAction):
 def MovementHandler(destination):
   print('Vous quittez ' + ZoneMap[Player.pos][ZONENAME])
   Player.pos = destination
-  ActiveCase[Player.pos] = False
   PrintLocation()
 
 #Main game loop function
@@ -423,7 +432,38 @@ def main_game_loop():
 #test 001
 def testlecombat():
   print('boum boum')
+  ActiveCase[Player.pos] = False
+  time.sleep(2)
+  prompt()
+
+def testeaster():
+  print('easter')
+  ActiveCase[Player.pos] = False
+  time.sleep(2)
+  prompt()
+def testblessing():
+  print('blessing')
+  ActiveCase[Player.pos] = False
+  time.sleep(2)
+  prompt()
+
+def testcurse():
+  print('curse')
+  ActiveCase[Player.pos] = False
+  time.sleep(2)
+  prompt()
+
+def testobject():
+  print('object')
+  ActiveCase[Player.pos] = False
+  time.sleep(2)
+  prompt()
+
+def testnpc():
+  print('npc')
+  ActiveCase[Player.pos] = False
   time.sleep(2)
   prompt()
 
 main_game_loop()
+
