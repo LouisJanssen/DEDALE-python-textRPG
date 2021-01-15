@@ -1,3 +1,5 @@
+#Table of colors possible
+
 print("\033[0;37;48m Normal text\n")
 print("\033[2;37;48m Underlined text\n \033[0;0;48m ")
 print("\033[1;37;48m Gras\n \033[0;0;48m ")

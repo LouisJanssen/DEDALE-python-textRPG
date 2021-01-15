@@ -1,4 +1,4 @@
-### SAUVEGARDE ###
+### SAVES ###
 import os.path
 file_exists = os.path.isfile('loadfile.txt')
 

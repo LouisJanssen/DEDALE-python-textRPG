@@ -12,7 +12,7 @@ class PlayerStats:
     self.won = False
 
 #======================================================================================
-# Bibliothèque monstres & stats
+# Library monsters and stats
 
 NAME = 'NAME'
 HP = 'HP'
