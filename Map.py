@@ -62,8 +62,8 @@ ZoneMap = {
     EVENT: 'fight',
   },
   'E1': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Les yeux revolver',
+    DESCRIPTION: 'Enfin, la lumière du jour ! Il faut un temps à vos yeux pour se réhabituer, mais vous réalisez que vous êtes arrivé dans ce qui semble être un temple en l\'honneur d\'Athéna. Celui-ci est décoré par des centaines de statues, dont le réalisme vous impressionne. Celui qui les avait sculptées devait être béni des dieux. En vous enfonçant un peu plus à travers ce champ de pierre, vous vous rendez compte que les scènes représentées possèdent une aura étrange. Les visages des statues reflètent une peur incontrôlable, et beaucoup d\'entre elles sont dirigées vers la direction opposée au temple. Au centre de celui-ci, vous découvrez, posé sur un autel, un bouclier orné d\'un visage monstrueux. Ce visage, celui d\'une gorgone, provoque chez vous un mouvement de recul et une frayeur que vous peinez à surmonter.',
     NORTH: 'D1',
     SOUTH: 'F1',
     EAST: 'E2',
