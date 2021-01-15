@@ -8,28 +8,28 @@ Player = PlayerStats()
 
 #Library for objects
 Objects = {
-          'ambroisie':{
-            NAME: 'AMBROISIE',
+          'ambrosia':{
+            NAME: 'Ambroisie',
             DESCRIPTION: 'la boisson des dieux',
             EFFECT: '+ 10 HP',
           },
-          'bouclier':{
-            NAME: 'BOUCLIER',
+          'shield':{
+            NAME: 'BOUCLIER DE PERSEE',
             DESCRIPTION: '',
             EFFECT: '',
           },
-          'épée':{
-            NAME: 'EPEE',
+          'club':{
+            NAME: 'MASSUE D\'HERCULE',
             DESCRIPTION: '',
             EFFECT: '',
           },
-          'casque':{
-            NAME: 'CASQUE',
+          'fire':{
+            NAME: 'FEU SACRE',
             DESCRIPTION: '',
             EFFECT: '',
           },
-          'armure':{
-            NAME: 'ARMURE',
+          'belt':{
+            NAME: 'CEINTURE D\'APHRODITE',
             DESCRIPTION: '',
             EFFECT: '',
           },
@@ -49,12 +49,12 @@ Inventory = {'slot1':'empty','slot2':'empty','slot3':'empty','slot4':'empty','sl
 #   print('---------------')
 #   i = 1
 #   if Inventory[('slot' + str(i))] == 'empty':
-#     Inventory[('slot' + str(i))] = 'ambroisie'
+#     Inventory[('slot' + str(i))] = 'ambrosia'
 #   print(Inventory)
 
 # def testUse(objectUsed):
 #   print('avant' + str(Player.Hp))
-#   if objectUsed == 'ambroisie':
+#   if objectUsed == 'ambrosia':
 #     Player.Hp += 10
 #   print('après' + str(Player.Hp))
 

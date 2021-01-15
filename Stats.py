@@ -10,6 +10,8 @@ class PlayerStats:
     self.Gold = 0
     self.pos = 'F3'
     self.won = False
+    self.lvl = 1
+    self.xp = 0
 
 #======================================================================================
 # Library monsters and stats
