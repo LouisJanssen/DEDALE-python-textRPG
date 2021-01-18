@@ -13,6 +13,7 @@ SOUTH = 'sud'
 EAST = 'est'
 WEST = 'ouest'
 EVENT = 'event'
+SPEC = 'spec'
 
 #Library for activation of map tiles
 ActiveCase = {'A1': True, 'A2': True, 'A3': True,'A4': True, 'A5': True,
@@ -33,6 +34,7 @@ ZoneMap = {
     EAST: 'A2',
     WEST: '',
     EVENT: 'object',
+    SPEC: 'fire',
   },
   'B1': {
     ZONENAME: 'Île de l\'œil du cyclone',
@@ -42,6 +44,7 @@ ZoneMap = {
     EAST: '',
     WEST: '',
     EVENT: 'fight',
+    SPEC: '',
   },
   'C1': {
     ZONENAME: 'Le vieux pêcheur perdu en mer',
@@ -51,6 +54,7 @@ ZoneMap = {
     EAST: 'C2',
     WEST: '',
     EVENT: 'npc',
+    SPEC: '',
   },
   'D1': {
     ZONENAME: 'Le domaine d\'Artémis',
@@ -60,6 +64,7 @@ ZoneMap = {
     EAST: 'D2',
     WEST: '',
     EVENT: 'fight',
+    SPEC: '',
   },
   'E1': {
     ZONENAME: 'Les yeux revolver',
@@ -69,6 +74,7 @@ ZoneMap = {
     EAST: 'E2',
     WEST: '',
     EVENT: 'object',
+    SPEC: '',
   },
   'F1': {
     ZONENAME: 'Forges d\'Héphaïstos',
@@ -78,6 +84,7 @@ ZoneMap = {
     EAST: 'F2',
     WEST: '',
     EVENT: 'fight',
+    SPEC: '',
   },
   'A2': {
     ZONENAME: 'Le secret de Thanatos',
@@ -87,6 +94,7 @@ ZoneMap = {
     EAST: 'A3',
     WEST: 'A1',
     EVENT: 'npc',
+    SPEC: '',
   },
   'B2': {
     ZONENAME: 'Le treizième travail',
@@ -96,6 +104,7 @@ ZoneMap = {
     EAST: 'B3',
     WEST: '',
     EVENT: 'blessing',
+    SPEC: '',
   },
   'C2': {
     ZONENAME: 'Chant funeste',
@@ -105,6 +114,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'C1',
     EVENT: 'fight',
+    SPEC: '',
   },
   'D2': {
     ZONENAME: '',
@@ -114,6 +124,7 @@ ZoneMap = {
     EAST: 'D3',
     WEST: 'D1',
     EVENT: 'easter',
+    SPEC: '',
   },
   'E2': {
     ZONENAME: '',
@@ -123,6 +134,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'E1',
     EVENT: 'curse',
+    SPEC: '',
   },
   'F2': {
     ZONENAME: '',
@@ -132,6 +144,7 @@ ZoneMap = {
     EAST: 'F3',
     WEST: 'F1',
     EVENT: 'npc',
+    SPEC: '',
   },
   'A3': {
     ZONENAME: '',
@@ -141,6 +154,7 @@ ZoneMap = {
     EAST: 'A4',
     WEST: 'A2',
     EVENT: 'BOSS',
+    SPEC: '',
   },
   'B3': {
     ZONENAME: '',
@@ -150,6 +164,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'B2',
     EVENT: 'npc',
+    SPEC: '',
   },
   'C3': {
     ZONENAME: '',
@@ -159,6 +174,7 @@ ZoneMap = {
     EAST: '',
     WEST: '',
     EVENT: 'easter',
+    SPEC: '',
   },
   #### FRANCIS PART ^^^^^^^^^^^^
   'D3': {
@@ -169,6 +185,7 @@ ZoneMap = {
     EAST: 'D4',
     WEST: 'D2',
     EVENT: 'object',
+    SPEC: '',
   },
   'E3': {
     ZONENAME: '',
@@ -178,6 +195,7 @@ ZoneMap = {
     EAST: 'E4',
     WEST: '',
     EVENT: 'npc',
+    SPEC: '',
   },
   'F3': {
     ZONENAME: '',
@@ -187,6 +205,7 @@ ZoneMap = {
     EAST: 'F4',
     WEST: 'F2',
     EVENT: 'start',
+    SPEC: '',
   },
   'A4': {
     ZONENAME: '',
@@ -196,6 +215,7 @@ ZoneMap = {
     EAST: 'A5',
     WEST: 'A3',
     EVENT: 'npc',
+    SPEC: '',
   },
   'B4': {
     ZONENAME: '',
@@ -205,6 +225,7 @@ ZoneMap = {
     EAST: 'B5',
     WEST: '',
     EVENT: 'curse',
+    SPEC: '',
   },
   'C4': {
     ZONENAME: '',
@@ -214,6 +235,7 @@ ZoneMap = {
     EAST: 'C5',
     WEST: '',
     EVENT: 'npc',
+    SPEC: '',
   },
   'D4': {
     ZONENAME: '',
@@ -223,6 +245,7 @@ ZoneMap = {
     EAST: 'D5',
     WEST: 'D3',
     EVENT: 'fight',
+    SPEC: '',
   },
   'E4': {
     ZONENAME: '',
@@ -232,6 +255,7 @@ ZoneMap = {
     EAST: 'E5',
     WEST: 'E3',
     EVENT: 'easter',
+    SPEC: '',
   },
   'F4': {
     ZONENAME: '',
@@ -241,6 +265,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'F3',
     EVENT: 'npc',
+    SPEC: '',
   },
   'A5': {
     ZONENAME: '',
@@ -250,6 +275,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'A4',
     EVENT: 'fight',
+    SPEC: '',
   },
   'B5': {
     ZONENAME: '',
@@ -259,6 +285,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'B4',
     EVENT: 'object',
+    SPEC: '',
   },
   'C5': {
     ZONENAME: '',
@@ -268,6 +295,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'C4',
     EVENT: 'fight',
+    SPEC: '',
   },
   'D5': {
     ZONENAME: '',
@@ -277,6 +305,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'D4',
     EVENT: 'object',
+    SPEC: '',
   },
   'E5': {
     ZONENAME: '',
@@ -286,6 +315,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'E4',
     EVENT: 'fight',
+    SPEC: '',
   },
   'F5': {
     ZONENAME: '',
@@ -295,13 +325,14 @@ ZoneMap = {
     EAST: '',
     WEST: '',
     EVENT: 'blessing',
+    SPEC: '',
   },
 }
 
 #display the location of the player
 def PrintLocation():
-  print(ZoneMap[Player.pos][ZONENAME].upper())
   if(ActiveCase[Player.pos] == True):
+    print(ZoneMap[Player.pos][ZONENAME].upper())
     print(ZoneMap[Player.pos][DESCRIPTION])
   else:
     print('Vous êtes déjà passé par ici, il ne reste plus rien d\'intéressant')

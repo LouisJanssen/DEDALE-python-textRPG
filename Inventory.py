@@ -19,7 +19,7 @@ Objects = {
             EFFECT: '',
           },
           'club':{
-            NAME: 'MASSUE D\'HERCULE',
+            NAME: 'MASSUE D\'HERACLES',
             DESCRIPTION: '',
             EFFECT: '',
           },
