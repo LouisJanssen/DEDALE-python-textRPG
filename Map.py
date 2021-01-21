@@ -78,7 +78,7 @@ ZoneMap = {
   },
   'F1': {
     ZONENAME: 'Forges d\'Héphaïstos',
-    DESCRIPTION: 'Quelle idée d\'avoir décidé de passer par cette étrange caverne ! Ce n\'est pas les raisons de vous plaindre qui manquent entre cette chaleur étouffante, les cliquetis incessant qui retentissent jusqu\'à se graver dans votre crâne et cette obscurité constante interrompue uniquement par le passage peu rassurant de fines coulées de lave. Vous perdez presque espoir avant d\'enfin apercevoir la lumière du jour, loin devant vous. Soulagé, vous hurlez de joie et vous précipitez dans cette direction. C\'est alors qu\'une masse lourde tombe pile devant vous. À y regarder de plus près, il semblerait qu\'il s\'agisse d\'une boule, faite entièrement de métal... Tout à coup, celle-ci se met à grincer, déployant ses membres jusqu\'à former une araignée vous arrivant facilement à la taille.',
+    DESCRIPTION: 'Quelle idée d\'avoir décidé de passer par cette étrange caverne ! Ce ne sont pas les raisons de vous plaindre qui manquent entre cette chaleur étouffante, les cliquetis incessants qui retentissent jusqu\'à se graver dans votre crâne et cette obscurité constante interrompue uniquement par le passage peu rassurant de fines coulées de lave. Vous perdez presque espoir avant d\'enfin apercevoir la lumière du jour, loin devant vous. Soulagé, vous hurlez de joie et vous précipitez dans cette direction. C\'est alors qu\'une masse lourde tombe pile devant vous. À y regarder de plus près, il semblerait qu\'il s\'agisse d\'une boule, faite entièrement de métal... Tout à coup, celle-ci se met à grincer, déployant ses membres jusqu\'à former une araignée vous arrivant facilement à la taille.',
     NORTH: 'E1',
     SOUTH: '',
     EAST: 'F2',
@@ -88,7 +88,7 @@ ZoneMap = {
   },
   'A2': {
     ZONENAME: 'Le secret de Thanatos',
-    DESCRIPTION: 'Les terres que vous foulez sont de plus en plus mornes et il devient difficile de trouver de quoi vous sustenter. Vous envisagez un instant de tenter d\'attraper l\'un des nombreux corbeaux qui parcourent le ciel gris au-dessus de vous, mais qui sait de quelle funeste maladie Apollon a bien pu les affubler. Durant votre voyage, vous passez par bien des villages, tous rasés par l\'arc du dieu musicien. Vous avez soif. Et faim. Si faim... Vous finissez par perdre conscience au milieu de l\'un de ces villages, comme l\'ont fait les centaines de famille qui avaient du vivre ici autrefois. Lorsque vous rouvrez les yeux, vous vous trouvez au milieu d\'une pièce sombre et très étendue, dépourvue de tout meuble à l\'exception d\'un bureau et d\'une chaise en son centre. Assis à ce bureau, un jeune garçon est penché sur une feuille de papier, compas à la main. Debout à côté de lui se trouve une silhouette ailée, la main posée sur l\'épaule du garçon. Vous décelez ce qui ressemble à de la tristesse dans son regard à première vue sinistre.',
+    DESCRIPTION: 'Les terres que vous foulez sont de plus en plus mornes et il devient difficile de trouver de quoi vous sustenter. Vous envisagez un instant de tenter d\'attraper l\'un des nombreux corbeaux qui parcourent le ciel gris au-dessus de vous, mais qui sait de quelle funeste maladie Apollon a bien pu les affubler. Durant votre voyage, vous passez par bien des villages, tous rasés par l\'arc du dieu musicien. Vous avez soif. Et faim. Si faim... Vous finissez par perdre conscience au milieu de l\'un de ces villages, comme l\'ont fait les centaines de familles qui avaient du vivre ici autrefois. Lorsque vous rouvrez les yeux, vous vous trouvez au milieu d\'une pièce sombre et très étendue, dépourvue de tout meuble à l\'exception d\'un bureau et d\'une chaise en son centre. Assis à ce bureau, un jeune garçon est penché sur une feuille de papier, compas à la main. Debout à côté de lui se trouve une silhouette ailée, la main posée sur l\'épaule du garçon. Vous décelez ce qui ressemble à de la tristesse dans son regard à première vue sinistre.',
     NORTH: '',
     SOUTH: '',
     EAST: 'A3',
@@ -98,7 +98,7 @@ ZoneMap = {
   },
   'B2': {
     ZONENAME: 'Le treizième travail',
-    DESCRIPTION: 'Enfin, vous arrivez dans ce qui semble être en tout point un havre de paix au beau milieu d\'une clairière. Une cascade se déverse dans une source d\'eau douce dont le toucher tempéré vous invite à vous détendre - et à vous décrasser - pour la première fois depuis bien longtemps. Seulement, un cri retentissant vient troubler votre quiétude, faisant fuir toutes les créatures alentour : "TOI ! Je savais bien que je finirais par te trouver ! Papa m\'a donné un boulot, il veut que je fasse de toi un guerrier à ma hauteur. J\'ai bien essayé de lui faire comprendre que c\'était impossible, hein, mais il est du type assez borné... Moi c\'est Héraclès, au fait. Sors de l\'eau, on a du pain sur la planche. Et enfile quelque-chose !".',
+    DESCRIPTION: 'Enfin, vous arrivez dans ce qui semble être en tout point un havre de paix au beau milieu d\'une clairière. Une cascade se déverse dans une source d\'eau douce dont le toucher tempéré vous invite à vous détendre - et à vous décrasser - pour la première fois depuis bien longtemps. Seulement, un cri retentissant vient troubler votre quiétude, faisant fuir toutes les créatures alentour : "TOI ! Je savais bien que je finirais par te trouver ! Papa m\'a donné un boulot, il veut que je fasse de toi un guerrier à ma hauteur. J\'ai bien essayé de lui faire comprendre que c\'était impossible, hein, mais il est du type assez borné... Moi c\'est Héraclès, au fait. Sors de l\'eau, on a du pain sur la planche. Et enfile quelque chose !".',
     NORTH: '',
     SOUTH: '',
     EAST: 'B3',
@@ -128,7 +128,7 @@ ZoneMap = {
   },
   'E2': {
     ZONENAME: 'La fleur au bord de l\'eau',
-    DESCRIPTION: 'Après tous ces jours de marche, vous avez désespérément besoin de reprendre des forces. Vous finissez par trouver une petite grotte, dont les parois vous accorderont un formidable abri contre le vent cette nuit. Seulement, chaque bruit que vous faites à l\'intérieur de celle-ci est répété par un écho incessant. Las et sur les nerfs, vous décidez de sortir de la grotte pour récupérer de l\'eau d\'une source située non loin de là. C\'est au bord de celle-ci que vous apercevez une fleur, dont la beauté dépasse tout ce que vous avez pu voir jusque-là. Vous êtes prêt à tout pour qu\'elle vous appartienne. Alors que vous l\'extirpez du sol précautionneusement, l\'écho de la grotte que vous avez quitté répète : "Hélas ! Hélas !".',
+    DESCRIPTION: 'Après tous ces jours de marche, vous avez désespérément besoin de reprendre des forces. Vous finissez par trouver une petite grotte, dont les parois vous accorderont un formidable abri contre le vent cette nuit. Seulement, chaque bruit que vous faites à l\'intérieur de celle-ci est répété par un écho incessant. Las et sur les nerfs, vous décidez de sortir de la grotte pour récupérer de l\'eau d\'une source située non loin de là. C\'est au bord de celle-ci que vous apercevez une fleur, dont la beauté dépasse tout ce que vous avez pu voir jusque-là. Vous êtes prêt à tout pour qu\'elle vous appartienne. Alors que vous l\'extirpez du sol précautionneusement, l\'écho de la grotte que vous avez quittée répète : "Hélas ! Hélas !".',
     NORTH: '',
     SOUTH: '',
     EAST: '',
@@ -148,7 +148,7 @@ ZoneMap = {
   },
   'A3': {
     ZONENAME: 'LA DÉTRESSE D\'ASTÉRION',
-    DESCRIPTION: 'Vous entendez le cœur du labyrinthe battre la chamade un peu plus vite à chaque pas que vous faites. Vous ressentez toute la colère, la haine, la puissance mais aussi la tristesse qui plane dans l\'atmosphère. D\'immenses blocs de terre se dressent autour de vous, bloquant toute issue alors qu\'une masse gigantesque s\'extirpe de l\'ombre. Face à vous se tient, hurlant, le Minotaure. Celui-là même que Thésée avait vaincu il y a bien longtemps, de retour du royaume d\'Hadès. Son corps, recouvert partiellement de bronze, semble avoir subi des modifications visant à le rendre plus redoutable qu\'il ne l\'a jamais été. D\'une voix sombre, il s\'adresse à vous : "Approche, héros, cela fait bien trop longtemps que je n\'ai pas tué quiconque."',
+    DESCRIPTION: 'Vous entendez le cœur du labyrinthe battre la chamade un peu plus vite à chaque pas que vous faites. Vous ressentez toute la colère, la haine, la puissance, mais aussi la tristesse qui plane dans l\'atmosphère. D\'immenses blocs de terre se dressent autour de vous, bloquant toute issue alors qu\'une masse gigantesque s\'extirpe de l\'ombre. Face à vous se tient, hurlant, le Minotaure. Celui-là même que Thésée avait vaincu il y a bien longtemps, de retour du royaume d\'Hadès. Son corps, recouvert partiellement de bronze, semble avoir subi des modifications visant à le rendre plus redoutable qu\'il ne l\'a jamais été. D\'une voix sombre, il s\'adresse à vous : "Approche, héros, cela fait bien trop longtemps que je n\'ai pas tué quiconque."',
     NORTH: '',
     SOUTH: 'B3',
     EAST: 'A4',
@@ -168,7 +168,7 @@ ZoneMap = {
   },
   'C3': {
     ZONENAME: 'Les vestiges de la guerre',
-    DESCRIPTION: 'Vous avez marché toute la nuit, avec votre torche comme seule source de lumière. Vous espérez atteindre plus vite votre destination grâce à ce gain de temps, mais la fatigue se fait tout doucement ressentir malgré votre métabolisme héroïque. La lumière du soleil levant vous brûle la rétine. C\'est avec stupeur que vous découvrez le paysage alentour, révélé par l\'aube. Tout ici n\'est que destruction, le paysage est rasé à des milliers de pieds à la ronde, jonché d\'armes et armures rouillées, accompagné parfois par les restes d\'un guerrier malchanceux. Quelque-chose vous perturbe dans cet endroit : c\'est comme s\'il appartenait à un autre temps. Ci et là, des bannières rouges et bleues se tiennent encore fièrement malgré les bris du temps. Vous ne tenez pas particulièrement à vous attarder ici. En chemin, une lance magnifique, bien que rendue inutilisable par la rouille, attire votre attention. Plantée dans le sol, un casque pilos trône en son sommet. Aucun doute, Arès aurait aimé cet endroit.',
+    DESCRIPTION: 'Vous avez marché toute la nuit, avec votre torche comme seule source de lumière. Vous espérez atteindre plus vite votre destination grâce à ce gain de temps, mais la fatigue se fait tout doucement ressentir malgré votre métabolisme héroïque. La lumière du soleil levant vous brûle la rétine. C\'est avec stupeur que vous découvrez le paysage alentour, révélé par l\'aube. Tout ici n\'est que destruction, le paysage est rasé à des milliers de pieds à la ronde, jonché d\'armes et armures rouillées, accompagné parfois par les restes d\'un guerrier malchanceux. Quelque chose vous perturbe dans cet endroit : c\'est comme s\'il appartenait à un autre temps. Ci et là, des bannières rouges et bleues se tiennent encore fièrement malgré les bris du temps. Vous ne tenez pas particulièrement à vous attarder ici. En chemin, une lance magnifique, bien que rendue inutilisable par la rouille, attire votre attention. Plantée dans le sol, un casque pilos trône en son sommet. Aucun doute, Arès aurait aimé cet endroit.',
     NORTH: 'B3',
     SOUTH: 'D3',
     EAST: '',
@@ -176,7 +176,6 @@ ZoneMap = {
     EVENT: 'easter',
     SPEC: '',
   },
-  #### FRANCIS PART ^^^^^^^^^^^^
   'D3': {
     ZONENAME: '',
     DESCRIPTION: '',
@@ -188,8 +187,8 @@ ZoneMap = {
     SPEC: '',
   },
   'E3': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Le mal-aimé',
+    DESCRIPTION: 'C\'est difficile, mais vous parvenez petit à petit à prendre vos marques dans ce labyrinthe infernal. Pris par la fatigue, vous vous laissez glisser au pied d\'un arbre mort, séduit par l\'idée d\'une petite sieste. Vous levez la tête et observez les branches nues de l\'olivier qui vous protège du soleil. Vous vous rendez compte que vous allez vite finir comme lui si vous ne buvez pas rapidement. "Ce serait bête de mourir de soif quand on peut l\'être en étant cruellement déchiqueté par une bête des Enfers..." vous marmonnez-vous à vous-même en portant votre outre à votre bouche jusqu\'à ce qu\'une voix derrière vous vous en fasse recracher tout le contenu : "Allez ! ça va encore être de ma faute ! Le vilain dieu des Enfers a donné des pouvoirs à Dédale pour qu\'il réduise le monde entier à néant ! Bien sûr, j\'ai que ça à faire !". Abasourdi, vous vous retournez pour faire face à un homme aux cheveux de jais et au teint plus pâle que du lait de chèvre.',
     NORTH: 'D3',
     SOUTH: '',
     EAST: 'E4',
@@ -198,8 +197,8 @@ ZoneMap = {
     SPEC: '',
   },
   'F3': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'La folie de Dédale',
+    DESCRIPTION: '"Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide, dont trois murs sont ouverts par une brèche. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement."',
     NORTH: '',
     SOUTH: '',
     EAST: 'F4',
@@ -208,8 +207,8 @@ ZoneMap = {
     SPEC: '',
   },
   'A4': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Les sœurs filandières',
+    DESCRIPTION: 'Une atmosphère étrangement calme plane sur les lieux et quelque chose vous dit que celui-ci précède certainement la tempête. Sur votre route, vous tombez sur une petite maison. De la lumière s\'échappe des fenêtres et la perspective de passer une nuit dans un foyer chaleureux est un luxe que vous ne pouvez pas vous permettre de refuser. Vous constatez que la porte est déjà ouverte et vous permettez de passer la tête à l\'intérieur. Trois femmes d\'âges très différents détournent alors leur regard de leur tricot pour le poser sur vous. La plus âgée d\'entre elles tient une paire de ciseaux dans sa main parcheminée.',
     NORTH: '',
     SOUTH: '',
     EAST: 'A5',
@@ -218,8 +217,8 @@ ZoneMap = {
     SPEC: '',
   },
   'B4': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Vignes trompeuses',
+    DESCRIPTION: 'Vous arrivez dans un énorme vignoble aux raisins gorgés de soleil s\'étendant à perte de vue. Vous ignorez qui entretient cet endroit et ne voyez aucune demeure dans les environs, mais vous avez cessé de chercher la moindre logique dans ce labyrinthe, de toute manière. Alors que le sommeil commence à se coucher, une musique entraînante attire votre attention, comme un appel à la fête. En vous approchante de sa source, vous découvrez, éberlué, un groupe de satyres, jouant de la flûte de pan et dansant, distribuant du vin à tour de bras. Après un court moment d\'hésitation, vous vous décidez à rejoindre la petite troupe le temps d\'une nuit. Ou peut-être plusieurs...',
     NORTH: '',
     SOUTH: '',
     EAST: 'B5',
@@ -228,8 +227,8 @@ ZoneMap = {
     SPEC: '',
   },
   'C4': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Juge et Roi',
+    DESCRIPTION: 'Le bâtiment qui se dresse devant vous est pour le moins singulier. Haut de plusieurs dizaines de mètres, il ne possède pas la moindre fenêtre, seulement une porte aux barreaux de fer, déjà ouverte. Une fois à l\'intérieur, vous allumez une torche pour tenter d\'y voir quelque chose. Vous mettez un moment à vous rendre compte du spectacle qui a lieu sous vos yeux. Dans un coin du bâtiment, un homme vous surplombe par son imposante taille, même assis. Il ne semble pas avoir remarqué votre présence. Son regard vide et son corps décharnés vous laissent d\'abord penser que la vie a quitté cette enveloppe immense, pourtant un râle constant vous prouve le contraire. Vous vous approchez et tentez d\'attirer son attention : "Bonjour ?". Un léger mouvement de pupille vous laisse penser qu\'il s\'agit d\'une invitation à la discussion.',
     NORTH: '',
     SOUTH: 'D4',
     EAST: 'C5',
@@ -258,8 +257,8 @@ ZoneMap = {
     SPEC: '',
   },
   'F4': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Un message de dernière minute',
+    DESCRIPTION: 'Vous commencez votre route, sans vraiment savoir où vous allez ni ce que vous allez trouver en chemin. Vous marchez presque automatiquement, la tête encore dans le brouillard. Tout à coup, un souffle puissant vous fait presque perdre l\'équilibre. Sorti de nulle part, un homme se tient devant vous. Son accoutrement et son arrivée fulgurante laissent peu de doute quant à son identité. Vous faites face à Hermès, le dieu aux sandales ailées.',
     NORTH: 'E4',
     SOUTH: '',
     EAST: '',
@@ -318,8 +317,8 @@ ZoneMap = {
     SPEC: '',
   },
   'F5': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Une trempette vivifiante',
+    DESCRIPTION: 'C\'est avec un grand soulagement que vous trouvez un fleuve, dont la fraîcheur est plus que bienvenue. Seulement, en vous approchant, vous réalisez que c\'est plutôt une profonde froideur qui en ressort. Stupéfié, vous constatez la présence d\'une femme, en train d\'y tremper son enfant, peut-être pour faire sa toilette. Soudain, vous vous rendez compte de la scène à laquelle vous assistez. Ulysse vous avait prévenu, dans le labyrinthe, l\'espace et le temps sont distordus. Cette femme et son enfant, ce sont Thétis et son fils, Achille, le héros légendaire de la Guerre de Troie. Une idée vous traverse alors l\'esprit. Une idée risquée, certes, mais payante. Prenant garde de vous accrocher à un rocher pour ne pas vous faire emporter, vous vous baignez dans le Styx.',
     NORTH: 'E5',
     SOUTH: '',
     EAST: '',
