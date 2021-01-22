@@ -1,4 +1,4 @@
-
+from Map import main_game_loop
 
 def StartQuiz():
     AnswerZeus = 0
@@ -127,7 +127,14 @@ def StartQuiz():
     print('Zeus = ', AnswerZeus)
     print('Poseidon = ', AnswerPoseidon)
     print('Hadès = ', AnswerHades)
+    print ('<>==============================<>')
+    print('')
+    print('Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide, dont trois murs sont ouverts par une brèche. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
+    # RAJOUTER DIALOGUE DEBUT
 
-StartQuiz()
+    main_game_loop()
+
+
+# StartQuiz()
 
 # Ajouter moyen de résoudre les égalités

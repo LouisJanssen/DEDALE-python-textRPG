@@ -177,14 +177,14 @@ ZoneMap = {
     SPEC: '',
   },
   'D3': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Un lien irrésistible',
+    DESCRIPTION: 'Les vestiges d\'un temple se trouvent devant vous. Vous entreprenez des les visiter afin de découvrir de quelle divinité ce lieu de culte était il autrefois le sanctuaire. Vous parvenez à reconnaitre des fresques encore très colorés montrant des hommes et des femmes contrôlés par une déesse des plus ravissante. Nul doute c\'était un temple à gloire d\'Aphrodite. En parcourant les débris vous tombez sur un petit coffret et décidez de l\'ouvrir. A l\'intérieur se trouve une ceinture magnifique et l\'essayez sur vous immédiatement. Elle vous va à ravir.',
     NORTH: 'C3',
     SOUTH: 'E3',
     EAST: 'D4',
     WEST: 'D2',
     EVENT: 'object',
-    SPEC: '',
+    SPEC: 'belt',
   },
   'E3': {
     ZONENAME: 'Le mal-aimé',
@@ -237,8 +237,8 @@ ZoneMap = {
     SPEC: '',
   },
   'D4': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Lernie, l\'hydre vorace',
+    DESCRIPTION: 'La brume se lève, l\'air devient plus frais, et une aura menaçante plane sur ce lieu où la végétation ne pousse plus. Vous entendez des cris terrifiant venant d\'une caverne par laquelle vous êtes obligé de passer si vous voulez continuer votre périple. Alors que vous approchez de l\'entrée une tête hideuse sort de la caverne, puis une deuxième et une troisième. Vous en êtes sûr maintenant vous avez affaire à une Hydre.',
     NORTH: 'C4',
     SOUTH: '',
     EAST: 'D5',
@@ -247,8 +247,8 @@ ZoneMap = {
     SPEC: '',
   },
   'E4': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Un labyrinthe des plus particuliers',
+    DESCRIPTION: 'D\'immenses colonnes peintes en bleu et jaune se dressent devant vous. En continuant votre route vous entendez du bruit et décidez de vous cacher pour ne pas vous faire repérer et ainsi évaluer au mieux la menace. Passe alors deux hommes proche de vous, et vous arrivez à entendre leur conversation. " Tu as vu les nouveaux Gnedby ? J\'aime beaucoup la couleur mais je t\'avoue que pour la forme les Lerberg sont bien mieux! Vivement les nouveaux arrivages pour le rayon meuble ! " Quel étrange discussion... Mais si c\'était une menace vous l\'avez évitée, quel labyrinthe des plus mystérieux.',
     NORTH: '',
     SOUTH: 'F4',
     EAST: 'E5',
@@ -267,8 +267,8 @@ ZoneMap = {
     SPEC: '',
   },
   'A5': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Un adversaire surprenant',
+    DESCRIPTION: 'Vous arrivez dans un tunnel éclairé par de simples torches accrochées aux murs, et alors que vous le traversez, vous sentez une présence des plus perturbantes. Et c\'est là que vous l\'apercevez. Une créature effroyable vous bloque le chemin. Deux pattes aux serres acérés, un corps démesuré d\'où sortent deux grandes ailes, une tête des plus affreuses vous menaçant d\'un regard féroce et orné d\'une crête écarlate ainsi que d\'un bec des plus terrifiant. Vous voilà face à un redoutable poulet.',
     NORTH: '',
     SOUTH: 'B5',
     EAST: '',
@@ -277,8 +277,8 @@ ZoneMap = {
     SPEC: '',
   },
   'B5': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'De zéro à héros',
+    DESCRIPTION: 'Alors que vous continuez votre route vous vous retrouvez face à un énorme autel d\'où trône une massue, encastrée dans celui-ci. L\'autel est orné de plusieurs fresques démontrant le courage d\'un héros oublié. Vous arrivez à en compter 12 en tout. Après avoir gravit les quelques marches menant au haut de l\'autel vous y récupérer l\'arme avec énormément de difficulté car celle ci était encastré dans la pierre de l\'altar. En la tenant dans vos mais vous ressentez toute la force de son ancien propriétaire.',
     NORTH: 'A5',
     SOUTH: 'C5',
     EAST: '',
@@ -287,8 +287,8 @@ ZoneMap = {
     SPEC: '',
   },
   'C5': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Un adversaire de taille',
+    DESCRIPTION: 'Quel spectacle d\'horreur. Le sol devant vous est jonché d\'ossements. En examinant de plus près vous confirmez la présence d\'ossements humains et non animaux. Puis le sol se mit à trembler. Une ombre gigantesque s\'avance vers vous. Ni une ni deux vous vous préparez au combat et c\'est là que vous l\'apercevez. Il ressemble à un homme mais ce n\'en est pas. Il est beaucoup trop grand, beaucoup trop massif pour être un simple homme. Non ce ne peut être qu\'un Lestrygon, une abomination anthropophage. Et celui là n\'a l\'air de souhaiter qu\'une chose: vous dévorer.',
     NORTH: 'B5',
     SOUTH: '',
     EAST: '',
@@ -297,18 +297,18 @@ ZoneMap = {
     SPEC: '',
   },
   'D5': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'La boisson des dieux',
+    DESCRIPTION: 'En continuant sur la route vous croisez les restes d\'un voyageur égaré. Le pauvre avait dû se faire attaquer par une quelconque créature et son combat résultat d\'un dessein funeste. Cependant bien qu\'il ne lui reste presque plus de chair sur les os, il peut peut être y avoir quelques objets qui pourrait vous être utile pour votre voyage. En cherchant dans les affaires du mort, vous y trouver une boite avec une flacon contenant un liquide doré. Une petite étiquette pendouille accrochée au bouchon indiquant : " Ambroisie ! La boisson des dieux qui vous revigorera immédiatement ! " ainsi que diverses mentions légales au dos de l\'étiquette sur une possibles présence d\'effets secondaires sur les mortels.',
     NORTH: '',
     SOUTH: 'E5',
     EAST: '',
     WEST: 'D4',
     EVENT: 'object',
-    SPEC: '',
+    SPEC: 'ambrosia',
   },
   'E5': {
-    ZONENAME: '',
-    DESCRIPTION: '',
+    ZONENAME: 'Beaucoup trop de pattes à mon goût',
+    DESCRIPTION: 'La nuit tombe mais vous décidez de continuer votre chemin pour aller le plus loin possible et trouver un abri pour passer la nuit sereinement. Enfin vous trouvez une petite cave toute en pierre à même la paroi d\'un des murs du labyrinthe. Vous y serez au chaud ! Mais alors que vous commencez à vous installer vous entendez des petits cliquetis sur la roche non loin de vous. Vous levez votre torche pour éclairer et vous la voyez. Toutes ces pattes... vous voilà face à une araignée d\'Héphaïstos.',
     NORTH: 'D5',
     SOUTH: 'F5',
     EAST: '',
@@ -494,5 +494,5 @@ def testnpc():
   time.sleep(2)
   prompt()
 
-main_game_loop()
+# main_game_loop()
 

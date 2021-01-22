@@ -2,13 +2,14 @@
 import time
 import sys
 import os
+from StartQuiz import StartQuiz
 
 # function for slow prompt of prints
 def promptSlow(phrase):
   for l in phrase:
     sys.stdout.write(l)
     sys.stdout.flush()
-    time.sleep(0.05)
+    time.sleep(0.03)
   print('')
 
 # display of the menu
@@ -31,7 +32,9 @@ def PlayMenu():
   print('JOUER')
   print('CONTINUER')
   print('')
-  print('____________________________________________________________')
+  ChoiceMainMenu = input(' > ')
+  if ChoiceMainMenu.lower() == 'jouer' :
+    StartQuiz()
 
 #Load menu
 def LoadMenu():
