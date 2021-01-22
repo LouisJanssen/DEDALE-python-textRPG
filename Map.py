@@ -105,7 +105,7 @@ ZoneMap = {
     EAST: 'B3',
     WEST: '',
     EVENT: 'blessing',
-    SPEC: '',
+    SPEC: 'Work',
   },
   'C2': {
     ZONENAME: 'Chant funeste',
@@ -135,7 +135,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'E1',
     EVENT: 'curse',
-    SPEC: '',
+    SPEC: 'Flower',
   },
   'F2': {
     ZONENAME: 'L\'heure n\'est pas à la fête',
@@ -225,7 +225,7 @@ ZoneMap = {
     EAST: 'B5',
     WEST: '',
     EVENT: 'curse',
-    SPEC: '',
+    SPEC: 'Vines',
   },
   'C4': {
     ZONENAME: 'Juge et Roi',
@@ -325,7 +325,7 @@ ZoneMap = {
     EAST: '',
     WEST: '',
     EVENT: 'blessing',
-    SPEC: '',
+    SPEC: 'Styx',
   },
 }
 

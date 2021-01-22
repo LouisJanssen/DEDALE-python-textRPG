@@ -2,9 +2,9 @@
 NAME = 'name'
 DESCRIPTION = 'description'
 EFFECT = 'effect'
-from Stats import PlayerStats
 
-Player = PlayerStats()
+# from Stats import PlayerStats
+# Player = PlayerStats()
 
 #Library for objects
 Objects = {
