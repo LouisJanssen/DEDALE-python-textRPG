@@ -3,14 +3,15 @@ import time
 import sys
 import os
 from StartQuiz import StartQuiz
+from Tools import promptSlow
 
 # function for slow prompt of prints
-def promptSlow(phrase):
-  for l in phrase:
-    sys.stdout.write(l)
-    sys.stdout.flush()
-    time.sleep(0.03)
-  print('')
+# def promptSlow(phrase):
+#   for l in phrase:
+#     sys.stdout.write(l)
+#     sys.stdout.flush()
+#     time.sleep(0.03)
+#   print('')
 
 # display of the menu
 def PrintMainMenu():
@@ -35,6 +36,11 @@ def PlayMenu():
   ChoiceMainMenu = input(' > ')
   if ChoiceMainMenu.lower() == 'jouer' :
     StartQuiz()
+  elif ChoiceMainMenu.lower() == 'continuer' :
+    print('continuer')
+  else:
+    print('Commande inconnue, essayez de rentrer une des instructions présente sur le menu.')
+    PlayMenu()
 
 #Load menu
 def LoadMenu():
@@ -93,4 +99,5 @@ def MainMenu ():
     MainMenu()
     print('____________________________________________________________')
   else :
-    promptSlow('Commande inconnue, essayez de rentrer une des instructions présente sur le menu ou tapez "instructions" pour avoir plus d\'infos. ')
+    print('Commande inconnue, essayez de rentrer une des instructions présente sur le menu ou tapez "instructions" pour avoir plus d\'infos. ')
+    MainMenu()

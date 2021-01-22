@@ -2,6 +2,7 @@
 import sys
 import time
 from Stats import PlayerStats
+from Tools import promptSlow
 
 Player = PlayerStats()
 
@@ -331,10 +332,10 @@ ZoneMap = {
 #display the location of the player
 def PrintLocation():
   if(ActiveCase[Player.pos] == True):
-    print(ZoneMap[Player.pos][ZONENAME].upper())
-    print(ZoneMap[Player.pos][DESCRIPTION])
+    promptSlow(ZoneMap[Player.pos][ZONENAME].upper())
+    promptSlow(ZoneMap[Player.pos][DESCRIPTION])
   else:
-    print('Vous êtes déjà passé par ici, il ne reste plus rien d\'intéressant')
+    promptSlow('Vous êtes déjà passé par ici, il ne reste plus rien d\'intéressant')
   
 
 #main display with actions of the player
@@ -352,20 +353,20 @@ def prompt():
   elif (ZoneMap[Player.pos][EVENT] == 'easter' and ActiveCase[Player.pos] == True):
     testeaster()
   else:
-    print('Que souhaitez vous faire ?')
+    promptSlow('Que souhaitez vous faire ?')
     action = input('\n > ')
     if action.lower() == 'quitter':
       sys.exit()
     elif action.lower() == 'voyager':
       PlayerMove(action.lower())
     elif action.lower() == 'aide':
-      print('Liste des commandes: ')
-      print('voyager        -       vous permets de vous déplacer')
-      print('inventaire     -       vous permets d\'accéder à votre inventaire')
-      print('carte          -       vous permets d\'accéder à votre carte')
-      print('journal        -       vous permets d\'accéder à votre journal de quête')
-      print('aide           -       vous permet d\'avoir une liste des commandes')
-      print('quitter        -       vous permet de quitter le jeu')
+      promptSlow('Liste des commandes: ')
+      promptSlow('voyager        -       vous permets de vous déplacer')
+      promptSlow('inventaire     -       vous permets d\'accéder à votre inventaire')
+      promptSlow('carte          -       vous permets d\'accéder à votre carte')
+      promptSlow('journal        -       vous permets d\'accéder à votre journal de quête')
+      promptSlow('aide           -       vous permet d\'avoir une liste des commandes')
+      promptSlow('quitter        -       vous permet de quitter le jeu')
 
 #function for the movement of the player
 def PlayerMove(MyAction):
@@ -374,10 +375,10 @@ def PlayerMove(MyAction):
 
   if dest == 'est':
     if ZoneMap[Player.pos][EAST] == '':
-      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      promptSlow('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
       PlayerMove(MyAction)
     elif (ZoneMap[ZoneMap[Player.pos][EAST]][EVENT] == 'BOSS'):
-      print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
+      promptSlow('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
       ask = input('>' ).lower()
       if (ask == 'oui'):
@@ -392,10 +393,10 @@ def PlayerMove(MyAction):
 
   elif dest == 'nord':
     if ZoneMap[Player.pos][NORTH] == '':
-      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      promptSlow('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
       PlayerMove(MyAction)
     elif (ZoneMap[ZoneMap[Player.pos][NORTH]][EVENT] == 'BOSS'):
-      print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
+      promptSlow('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
       ask = input('>' ).lower()
       if (ask == 'oui'):
@@ -410,10 +411,10 @@ def PlayerMove(MyAction):
 
   elif dest == 'sud':
     if ZoneMap[Player.pos][SOUTH] == '':
-      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      promptSlow('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
       PlayerMove(MyAction)
     elif (ZoneMap[ZoneMap[Player.pos][SOUTH]][EVENT] == 'BOSS'):
-      print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
+      promptSlow('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
       ask = input('>' ).lower()
       if (ask == 'oui'):
@@ -428,10 +429,10 @@ def PlayerMove(MyAction):
 
   elif dest == 'ouest':
     if ZoneMap[Player.pos][WEST] == '':
-      print('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
+      promptSlow('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
       PlayerMove(MyAction)
     elif (ZoneMap[ZoneMap[Player.pos][WEST]][EVENT] == 'BOSS'):
-      print('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
+      promptSlow('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
       ask = input('>' ).lower()
       if (ask == 'oui'):
@@ -444,7 +445,7 @@ def PlayerMove(MyAction):
       destination = ZoneMap[Player.pos][WEST]
       MovementHandler(destination)
   else :
-    print("Commande invalide, essayez avec nord, sud, est ou ouest.\n")
+    promptSlow("Commande invalide, essayez avec nord, sud, est ou ouest.\n")
     PlayerMove(MyAction)
 
 #Movement of the player

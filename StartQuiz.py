@@ -1,4 +1,6 @@
+import time
 from Map import main_game_loop
+from Tools import promptSlow
 
 def StartQuiz():
     AnswerZeus = 0
@@ -7,12 +9,14 @@ def StartQuiz():
 
     # Question 1
     print('<>==============================<>')
-    print('D\'où venez-vous ?')
+    promptSlow('D\'où venez-vous ?')
     print('1 - D\'Olympie, à l\'ombre des platanes et des oliviers du bois sacré d\'Altis.')
+    time.sleep(0.3)
     print('2 - Du Cap Sounion, bercé par les effluves iodées de la Mer Egée.')
+    time.sleep(0.3)
     print('3 - De l\'Epire, dans la vallée de l\'Achéron, au bord d\'un fleuve à l\'aura étrange.')
     print('<>==============================<>')
-    Answer1 = int(input())
+    Answer1 = int(input(' > '))
     if Answer1 == 1 :
         AnswerZeus += 1
     elif Answer1 == 2 :
@@ -22,12 +26,14 @@ def StartQuiz():
 
     # Question 2
     print('<>==============================<>')
-    print('Quel métier exerciez-vous ?')
+    promptSlow('Quel métier exerciez-vous ?')
     print('1 - Un humble pêcheur.')
+    time.sleep(0.3)
     print('2 - Mineur, dans l\'obscurité quasi-constante.')
+    time.sleep(0.3)
     print('3 - Un métier ? J\'étais un ROI, moi !')
     print('<>==============================<>')
-    Answer2 = int(input())
+    Answer2 = int(input(' > '))
     if Answer2 == 1 :
         AnswerPoseidon += 1
     elif Answer2 == 2 :
@@ -37,12 +43,14 @@ def StartQuiz():
 
     # Question 3
     print('<>==============================<>')
-    print('Alors que vous étiez encore un jeune enfant, un événement vous a bouleversé...')
+    promptSlow('Alors que vous étiez encore un jeune enfant, un événement vous a bouleversé...')
     print('1 - La nuit où un être défunt s\'est adressé à vous en rêve.')
+    time.sleep(0.3)
     print('2 - La foudre vous a frappé, vous marquant à vie sans laisser aucune séquelle pour autant.')
+    time.sleep(0.3)
     print('3 - La fois où vous êtes tombé d\'une trirème et avez failli vous noyer mais qu\'une vague vous a redéposé à bord.')
     print('<>==============================<>')
-    Answer3 = int(input())
+    Answer3 = int(input(' > '))
     if Answer3 == 1 :
         AnswerHades += 1
     elif Answer3 == 2 :
@@ -52,12 +60,14 @@ def StartQuiz():
 
     # Question 4
     print('<>==============================<>')
-    print('L\'animal qui vous correspond le plus est...')
+    promptSlow('L\'animal qui vous correspond le plus est...')
     print('1 - L\'aigle, noble et majestueux.')
+    time.sleep(0.3)
     print('2 - Le serpent, discret et rusé.')
+    time.sleep(0.3)
     print('3 - Le dauphin, rapide et fédérateur.')
     print('<>==============================<>')
-    Answer4 = int(input())
+    Answer4 = int(input(' > '))
     if Answer4 == 1 :
         AnswerZeus += 1
     elif Answer4 == 2 :
@@ -67,12 +77,14 @@ def StartQuiz():
 
     # Question 5
     print('<>==============================<>')
-    print('De tous les monstres présents dans les histoires qui vous ont été contées, le plus puissant est sans aucun doute...')
+    promptSlow('De tous les monstres présents dans les histoires qui vous ont été contées, le plus puissant est sans aucun doute...')
     print('1 - Cerbère, le terrible gardien des Enfers.')
+    time.sleep(0.3)
     print('2 - Les cyclopes, grands, puissants et au regard de braise.')
+    time.sleep(0.3)
     print('3 - Les monstres ne peuvent rien face à ma puissance.')
     print('<>==============================<>')
-    Answer5 = int(input())
+    Answer5 = int(input(' > '))
     if Answer5 == 1 :
         AnswerHades += 1
     elif Answer5 == 2 :
@@ -83,11 +95,12 @@ def StartQuiz():
     # Solving equality issues
     if AnswerHades == AnswerPoseidon :
         print('<>==============================<>')
-        print('Vous préférez vous baigner...')
+        promptSlow('Vous préférez vous baigner...')
         print('1 - Dans une rivière, profitant de l\'eau douce et de ses murmures.')
+        time.sleep(0.3)
         print('2 - Dans la mer, bercé par les effluves de l\'océan tumultueux.')
         print('<>==============================<>')
-        AnswerBonus1 = int(input())
+        AnswerBonus1 = int(input(' > '))
         if AnswerBonus1 == 1 :
             AnswerHades += 1
         elif AnswerBonus1 == 2 :
@@ -95,11 +108,12 @@ def StartQuiz():
     
     if AnswerPoseidon == AnswerZeus :
         print('<>==============================<>')
-        print('Qu\'est-ce qui vous effraye le plus ?')
+        promptSlow('Qu\'est-ce qui vous impressionne le plus ?')
         print('1 - Le tonnerre, aussi bruyant que destructeur.')
+        time.sleep(0.3)
         print('2 - Les tremblements de terre, puissants et imprévisibles.')
         print('<>==============================<>')
-        AnswerBonus2 = int(input())
+        AnswerBonus2 = int(input(' > '))
         if AnswerBonus2 == 1 :
             AnswerZeus += 1
         elif AnswerBonus2 == 2 :
@@ -107,29 +121,30 @@ def StartQuiz():
 
     if AnswerZeus == AnswerHades :
         print('<>==============================<>')
-        print('Deux chemins s\'offrent à vous alors que vous tentez de rejoindre un endroit lointain. Lequel choisissez-vous ?')
+        promptSlow('Deux chemins s\'offrent à vous alors que vous tentez de rejoindre un endroit lointain. Lequel choisissez-vous ?')
         print('1 - Un pont vertigineux, si haut que les nuages vous chatouillent la plante des pieds.')
+        time.sleep(0.3)
         print('2 - Un tunnel souterrain, plongé dans l\'obscurité la plus totale.')
         print('<>==============================<>')
-        AnswerBonus3 = int(input())
+        AnswerBonus3 = int(input(' > '))
         if AnswerBonus3 == 1 :
             AnswerZeus += 1
         elif AnswerBonus3 == 2 :
             AnswerHades += 1
 
     if AnswerZeus > (AnswerPoseidon or AnswerHades) :
-        print('Vous êtes le fils de Zeus')
+        promptSlow('Vous êtes le fils de Zeus')
     elif AnswerPoseidon > (AnswerZeus or AnswerHades) :
-        print('Vous êtes le fils de Poséidon')
+        promptSlow('Vous êtes le fils de Poséidon')
     elif AnswerHades > (AnswerZeus or AnswerPoseidon) :
-        print('Vous êtes le fils d\'Hadès')
+        promptSlow('Vous êtes le fils d\'Hadès')
     
-    print('Zeus = ', AnswerZeus)
-    print('Poseidon = ', AnswerPoseidon)
-    print('Hadès = ', AnswerHades)
+    # print('Zeus = ', AnswerZeus)
+    # print('Poseidon = ', AnswerPoseidon)
+    # print('Hadès = ', AnswerHades)
     print ('<>==============================<>')
     print('')
-    print('Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide, dont trois murs sont ouverts par une brèche. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
+    promptSlow('Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide, dont trois murs sont ouverts par une brèche. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
     # RAJOUTER DIALOGUE DEBUT
 
     main_game_loop()
