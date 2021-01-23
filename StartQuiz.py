@@ -11,11 +11,11 @@ def QuestionBonus1(zeus, poseidon, hades) :
     time.sleep(0.3)
     print('2 - Dans la mer, bercé par les effluves de l\'océan tumultueux.')
     print('<>==============================<>')
-    AnswerBonus1 = int(input(' > '))
-    if AnswerBonus1 == 1 :
+    AnswerBonus1 = input(' > ')
+    if AnswerBonus1 == '1' :
         promptSlow('Vous êtes l\'enfant d\'Hadès')
         # AJOUTER modification stats (à déterminer)
-    elif AnswerBonus1 == 2 :
+    elif AnswerBonus1 == '2' :
         promptSlow('Vous êtes l\'enfant de Poséidon')
         # AJOUTER modification stats (à déterminer)
     else :
@@ -29,11 +29,11 @@ def QuestionBonus2(zeus, poseidon, hades) :
     time.sleep(0.3)
     print('2 - Les tremblements de terre, puissants et imprévisibles.')
     print('<>==============================<>')
-    AnswerBonus2 = int(input(' > '))
-    if AnswerBonus2 == 1 :
+    AnswerBonus2 = input(' > ')
+    if AnswerBonus2 == '1' :
         promptSlow('Vous êtes l\'enfant de Zeus')
         # AJOUTER modification stats (à déterminer)
-    elif AnswerBonus2 == 2 :
+    elif AnswerBonus2 == '2' :
         promptSlow('Vous êtes l\'enfant de Poséidon')
         # AJOUTER modification stats (à déterminer)
     else :
@@ -47,11 +47,11 @@ def QuestionBonus3(zeus, poseidon, hades) :
     time.sleep(0.3)
     print('2 - Un tunnel souterrain, plongé dans l\'obscurité la plus totale.')
     print('<>==============================<>')
-    AnswerBonus3 = int(input(' > '))
-    if AnswerBonus3 == 1 :
+    AnswerBonus3 = input(' > ')
+    if AnswerBonus3 == '1' :
         promptSlow('Vous êtes l\'enfant de Zeus')
         # AJOUTER modification stats (à déterminer)
-    elif AnswerBonus3 == 2 :
+    elif AnswerBonus3 == '2' :
         promptSlow('Vous êtes l\'enfant d\'Hadès')
         # AJOUTER modification stats (à déterminer)
     else :
@@ -67,12 +67,12 @@ def Question1(zeus, poseidon, hades) :
     time.sleep(0.3)
     print('3 - De l\'Epire, dans la vallée de l\'Achéron, au bord d\'un fleuve à l\'aura étrange.')
     print('<>==============================<>')
-    Answer1 = int(input(' > '))
-    if Answer1 == 1 :
+    Answer1 = input(' > ')
+    if Answer1 == '1' :
         zeus += 1
-    elif Answer1 == 2 :
+    elif Answer1 == '2' :
         poseidon += 1
-    elif Answer1 == 3 :
+    elif Answer1 == '3' :
         hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
@@ -88,12 +88,12 @@ def Question2(zeus, poseidon, hades) :
     time.sleep(0.3)
     print('3 - Un métier ? J\'étais un ROI, moi !')
     print('<>==============================<>')
-    Answer2 = int(input(' > '))
-    if Answer2 == 1 :
+    Answer2 = input(' > ')
+    if Answer2 == '1' :
         zeus += 1
-    elif Answer2 == 2 :
+    elif Answer2 == '2' :
         poseidon += 1
-    elif Answer2 == 3 :
+    elif Answer2 == '3' :
         hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
@@ -109,12 +109,12 @@ def Question3(zeus, poseidon, hades) :
     time.sleep(0.3)
     print('3 - La fois où vous êtes tombé d\'une trirème et avez failli vous noyer mais qu\'une vague vous a redéposé à bord.')
     print('<>==============================<>')
-    Answer3 = int(input(' > '))
-    if Answer3 == 1 :
+    Answer3 = input(' > ')
+    if Answer3 == '1' :
         zeus += 1
-    elif Answer3 == 2 :
+    elif Answer3 == '2' :
         poseidon += 1
-    elif Answer3 == 3 :
+    elif Answer3 == '3' :
         hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
@@ -130,12 +130,12 @@ def Question4(zeus, poseidon, hades) :
     time.sleep(0.3)
     print('3 - Le dauphin, rapide et fédérateur.')
     print('<>==============================<>')
-    Answer4 = int(input(' > '))
-    if Answer4 == 1 :
+    Answer4 = input(' > ')
+    if Answer4 == '1' :
         zeus += 1
-    elif Answer4 == 2 :
+    elif Answer4 == '2' :
         poseidon += 1
-    elif Answer4 == 3 :
+    elif Answer4 == '3' :
         hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
@@ -151,12 +151,12 @@ def Question5(zeus, poseidon, hades) :
     time.sleep(0.3)
     print('3 - Les monstres ne peuvent rien face à ma puissance.')
     print('<>==============================<>')
-    Answer5 = int(input(' > '))
-    if Answer5 == 1 :
+    Answer5 = input(' > ')
+    if Answer5 == '1' :
         zeus += 1
-    elif Answer5 == 2 :
+    elif Answer5 == '2' :
         poseidon += 1
-    elif Answer5 == 3 :
+    elif Answer5 == '3' :
         hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
@@ -193,7 +193,7 @@ def StartDial():
     print('Mystérieux inconnu :')
     promptSlow('"Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
     promptSlow('"Quel est ton nom ?"')
-    HeroName = str(input('NOM : > '))
+    HeroName = input('NOM : > ')
     Player.name = HeroName
     print(Player.name)
     OdysseusDialogue()
@@ -205,7 +205,7 @@ def OdysseusDialogue() :
     print('3 - Et maintenant ?')
     print('4 - Je vais trouver le moyen de mettre fin à ce chaos. (Passer)')
     print('-------------------------------------')
-    OdysseusAnswer = int(input())
+    OdysseusAnswer = input()
     if OdysseusAnswer == 1 :
         promptSlow('- Où sommes-nous ?')
         promptSlow('- Alors là, j\'ai bien peur de ne pas pouvoir te répondre, {}. Il semblerait que l\'espace et le temps s\'entremêlent en ce lieu. Par les dieux, comment Dédale a-t-il pu acquérir pareils pouvoirs ?!'.format(Player.name))
