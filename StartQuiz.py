@@ -14,9 +14,11 @@ def QuestionBonus1(zeus, poseidon, hades) :
     AnswerBonus1 = input(' > ')
     if AnswerBonus1 == '1' :
         promptSlow('Vous êtes l\'enfant d\'Hadès')
+        Player.father = 'Hadès'
         # AJOUTER modification stats (à déterminer)
     elif AnswerBonus1 == '2' :
         promptSlow('Vous êtes l\'enfant de Poséidon')
+        Player.father = 'Poséidon'
         # AJOUTER modification stats (à déterminer)
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
@@ -32,9 +34,11 @@ def QuestionBonus2(zeus, poseidon, hades) :
     AnswerBonus2 = input(' > ')
     if AnswerBonus2 == '1' :
         promptSlow('Vous êtes l\'enfant de Zeus')
+        Player.father = 'Zeus'
         # AJOUTER modification stats (à déterminer)
     elif AnswerBonus2 == '2' :
         promptSlow('Vous êtes l\'enfant de Poséidon')
+        Player.father = 'Poséidon'
         # AJOUTER modification stats (à déterminer)
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
@@ -50,9 +54,11 @@ def QuestionBonus3(zeus, poseidon, hades) :
     AnswerBonus3 = input(' > ')
     if AnswerBonus3 == '1' :
         promptSlow('Vous êtes l\'enfant de Zeus')
+        Player.father = 'Zeus'
         # AJOUTER modification stats (à déterminer)
     elif AnswerBonus3 == '2' :
         promptSlow('Vous êtes l\'enfant d\'Hadès')
+        Player.father = 'Hadès'
         # AJOUTER modification stats (à déterminer)
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
@@ -173,12 +179,15 @@ def Question5(zeus, poseidon, hades) :
     else :
         if zeus > (poseidon and hades) :
             promptSlow('Vous êtes l\'enfant de Zeus')
+            Player.father = 'Zeus'
             # AJOUTER modification stats (à déterminer)
         elif poseidon > (zeus and hades) :
             promptSlow('Vous êtes l\'enfant de Poséidon')
+            Player.father = 'Poséidon'
             # AJOUTER modification stats (à déterminer)
         elif hades > (zeus and poseidon) :
             promptSlow('Vous êtes l\'enfant d\'Hadès')
+            Player.father = 'Hadès'
             # AJOUTER modification stats (à déterminer)
     StartDial()
 

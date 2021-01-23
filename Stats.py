@@ -3,15 +3,12 @@ class PlayerStats:
     self.name = ""
     self.Hp = 10
     self.Atk = 3
-    self.Str = 5
-    self.Agi = 5
-    self.Int = 5
     self.Cha = 5
-    self.Gold = 0
     self.pos = 'F3'
     self.won = False
     self.lvl = 1
     self.xp = 0
+    self.father = ""
 
 #======================================================================================
 # Library monsters and stats

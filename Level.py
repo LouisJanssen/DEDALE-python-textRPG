@@ -7,21 +7,12 @@ def ChooseUpgrade():
     print('Choisissez quelle statistique vous souhaitez augmenter :')
     print('[HP]', Player.Hp)
     print('[ATK]', Player.Atk)
-    print('[STR]', Player.Str)
-    print('[AGI]', Player.Agi)
-    print('[INT]', Player.Int)
     print('[CHA]', Player.Cha)
     Choice = input()
     if Choice.lower() == 'hp' :
         Player.Hp += 3
     elif Choice.lower() == 'atk' :
         Player.Atk += 3
-    elif Choice.lower() == 'str' :
-        Player.Str += 1
-    elif Choice.lower() == 'agi' :
-        Player.Agi += 1
-    elif Choice.lower() == 'int' :
-        Player.Int += 1
     elif Choice.lower() == 'cha' :
         Player.Cha += 1
     else :
