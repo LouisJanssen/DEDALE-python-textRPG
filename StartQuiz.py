@@ -5,9 +5,6 @@ from Stats import PlayerStats
 Player = PlayerStats()
 
 def QuestionBonus1(zeus, poseidon, hades) :
-    AnswerZeus = zeus
-    AnswerPoseidon = poseidon
-    AnswerHades = hades
     print('<>==============================<>')
     promptSlow('Vous préférez vous baigner...')
     print('1 - Dans une rivière, profitant de l\'eau douce et de ses murmures.')
@@ -26,9 +23,6 @@ def QuestionBonus1(zeus, poseidon, hades) :
         QuestionBonus1(zeus, poseidon, hades)
 
 def QuestionBonus2(zeus, poseidon, hades) :
-    AnswerZeus = zeus
-    AnswerPoseidon = poseidon
-    AnswerHades = hades
     print('<>==============================<>')
     promptSlow('Qu\'est-ce qui vous impressionne le plus ?')
     print('1 - Le tonnerre, aussi bruyant que destructeur.')
@@ -47,9 +41,6 @@ def QuestionBonus2(zeus, poseidon, hades) :
         QuestionBonus2(zeus, poseidon, hades)
 
 def QuestionBonus3(zeus, poseidon, hades) :
-    AnswerZeus = zeus
-    AnswerPoseidon = poseidon
-    AnswerHades = hades
     print('<>==============================<>')
     promptSlow('Deux chemins s\'offrent à vous alors que vous tentez de rejoindre un endroit lointain. Lequel choisissez-vous ?')
     print('1 - Un pont vertigineux, si haut que les nuages vous chatouillent la plante des pieds.')
@@ -68,9 +59,6 @@ def QuestionBonus3(zeus, poseidon, hades) :
         QuestionBonus3(zeus, poseidon, hades)
 
 def Question1(zeus, poseidon, hades) :
-    AnswerZeus = zeus
-    AnswerPoseidon = poseidon
-    AnswerHades = hades
     print('<>==============================<>')
     promptSlow('D\'où venez-vous ?')
     print('1 - D\'Olympie, à l\'ombre des platanes et des oliviers du bois sacré d\'Altis.')
@@ -81,23 +69,17 @@ def Question1(zeus, poseidon, hades) :
     print('<>==============================<>')
     Answer1 = int(input(' > '))
     if Answer1 == 1 :
-        AnswerZeus += 1
-        zeus = AnswerZeus
+        zeus += 1
     elif Answer1 == 2 :
-        AnswerPoseidon += 1
-        poseidon = AnswerPoseidon
+        poseidon += 1
     elif Answer1 == 3 :
-        AnswerHades += 1
-        hades = AnswerHades
+        hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         Question1(zeus, poseidon, hades)
     Question2(zeus, poseidon, hades)
 
 def Question2(zeus, poseidon, hades) :
-    AnswerZeus = zeus
-    AnswerPoseidon = poseidon
-    AnswerHades = hades
     print('<>==============================<>')
     promptSlow('Quel métier exerciez-vous ?')
     print('1 - Un humble pêcheur.')
@@ -108,23 +90,17 @@ def Question2(zeus, poseidon, hades) :
     print('<>==============================<>')
     Answer2 = int(input(' > '))
     if Answer2 == 1 :
-        AnswerPoseidon += 1
-        poseidon = AnswerPoseidon
+        zeus += 1
     elif Answer2 == 2 :
-        AnswerHades += 1
-        hades = AnswerHades
+        poseidon += 1
     elif Answer2 == 3 :
-        AnswerZeus += 1
-        zeus = AnswerZeus
+        hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         Question2(zeus, poseidon, hades)
     Question3(zeus, poseidon, hades)
 
 def Question3(zeus, poseidon, hades) :
-    AnswerZeus = zeus
-    AnswerPoseidon = poseidon
-    AnswerHades = hades
     print('<>==============================<>')
     promptSlow('Alors que vous étiez encore un jeune enfant, un événement vous a bouleversé...')
     print('1 - La nuit où un être défunt s\'est adressé à vous en rêve.')
@@ -135,23 +111,17 @@ def Question3(zeus, poseidon, hades) :
     print('<>==============================<>')
     Answer3 = int(input(' > '))
     if Answer3 == 1 :
-        AnswerHades += 1
-        hades = AnswerHades
+        zeus += 1
     elif Answer3 == 2 :
-        AnswerZeus += 1
-        zeus = AnswerZeus
+        poseidon += 1
     elif Answer3 == 3 :
-        AnswerPoseidon += 1
-        poseidon = AnswerPoseidon
+        hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         Question3(zeus, poseidon, hades)
     Question4(zeus, poseidon, hades)
 
 def Question4(zeus, poseidon, hades) :
-    AnswerZeus = zeus
-    AnswerPoseidon = poseidon
-    AnswerHades = hades
     print('<>==============================<>')
     promptSlow('L\'animal qui vous correspond le plus est...')
     print('1 - L\'aigle, noble et majestueux.')
@@ -162,23 +132,17 @@ def Question4(zeus, poseidon, hades) :
     print('<>==============================<>')
     Answer4 = int(input(' > '))
     if Answer4 == 1 :
-        AnswerZeus += 1
-        zeus = AnswerZeus
+        zeus += 1
     elif Answer4 == 2 :
-        AnswerHades += 1
-        hades = AnswerHades
+        poseidon += 1
     elif Answer4 == 3 :
-        AnswerPoseidon += 1
-        poseidon = AnswerPoseidon
+        hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         Question4(zeus, poseidon, hades)
     Question5(zeus, poseidon, hades)
 
 def Question5(zeus, poseidon, hades) :
-    AnswerZeus = zeus
-    AnswerPoseidon = poseidon
-    AnswerHades = hades
     print('<>==============================<>')
     promptSlow('De tous les monstres présents dans les histoires qui vous ont été contées, le plus puissant est sans aucun doute...')
     print('1 - Cerbère, le terrible gardien des Enfers.')
@@ -189,34 +153,31 @@ def Question5(zeus, poseidon, hades) :
     print('<>==============================<>')
     Answer5 = int(input(' > '))
     if Answer5 == 1 :
-        AnswerHades += 1
-        hades = AnswerHades
+        zeus += 1
     elif Answer5 == 2 :
-        AnswerPoseidon += 1
-        poseidon = AnswerPoseidon
+        poseidon += 1
     elif Answer5 == 3 :
-        AnswerZeus += 1
-        zeus = AnswerZeus
+        hades += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         Question5(zeus, poseidon, hades)
 
     # Solving equality issues
 
-    if AnswerHades == AnswerPoseidon :
+    if hades == poseidon :
         QuestionBonus1(zeus, poseidon, hades)
-    elif AnswerPoseidon == AnswerZeus :
+    elif poseidon == zeus :
         QuestionBonus2(zeus, poseidon, hades)
-    elif AnswerZeus == AnswerHades :
+    elif zeus == hades :
         QuestionBonus3(zeus, poseidon, hades)
     else :
-        if AnswerZeus > (AnswerPoseidon or AnswerHades) :
+        if zeus > (poseidon and hades) :
             promptSlow('Vous êtes l\'enfant de Zeus')
             # AJOUTER modification stats (à déterminer)
-        elif AnswerPoseidon > (AnswerZeus or AnswerHades) :
+        elif poseidon > (zeus and hades) :
             promptSlow('Vous êtes l\'enfant de Poséidon')
             # AJOUTER modification stats (à déterminer)
-        elif AnswerHades > (AnswerZeus or AnswerPoseidon) :
+        elif hades > (zeus and poseidon) :
             promptSlow('Vous êtes l\'enfant d\'Hadès')
             # AJOUTER modification stats (à déterminer)
     StartDial()
