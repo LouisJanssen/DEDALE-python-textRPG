@@ -206,21 +206,21 @@ def OdysseusDialogue() :
     print('4 - Je vais trouver le moyen de mettre fin à ce chaos. (Passer)')
     print('-------------------------------------')
     OdysseusAnswer = input()
-    if OdysseusAnswer == 1 :
+    if OdysseusAnswer == '1' :
         promptSlow('- Où sommes-nous ?')
         promptSlow('- Alors là, j\'ai bien peur de ne pas pouvoir te répondre, {}. Il semblerait que l\'espace et le temps s\'entremêlent en ce lieu. Par les dieux, comment Dédale a-t-il pu acquérir pareils pouvoirs ?!'.format(Player.name))
         OdysseusDialogue()
-    elif OdysseusAnswer == 2 :
+    elif OdysseusAnswer == '2' :
         promptSlow('- Qui êtes-vous ?')
         promptSlow('- Je suis Ulysse, Roi d\'Ithaque. Et toi, tu dois être le héros choisi par ceux qui règnent sur l\'Olympe et sur le monde des hommes. J\'espère que c\'était le bon choix, l\'enjeux est crucial...')
         OdysseusDialogue()
-    elif OdysseusAnswer == 3 :
+    elif OdysseusAnswer == '3' :
         promptSlow('- Et maintenant ?')
         promptSlow('- J\'ai bien peur que tu n\'aies pas d\'autre solution que de mettre fin à cette folie.')
         promptSlow('- Vous n\'allez pas m\'aider ?')
         promptSlow('- Crois-moi, je le ferais, si je le pouvais. Seulement, ma présence ici est temporaire. Zeus est parvenu à convaincre Morphée de me laisser te contacter. Il sait se montrer persuasif... Seulement, tu ne vas pas tarder à te réveiller, alors je dois faire vite, le temps presse. Tu dois trouver la source vitale du labyrinthe ! Dédale a beau avoir l\'intelligence d\'un dieu, il n\'en est pas un pour autant, et il est bien trop faible pour créer cet endroit à partir de sa seule psyché. Une fois que tu feras face à cette source, tu devras la détruire pour que tout revienne dans l\'ordre. C\'est le seul moyen d\'en finir avec cette folie.')
         OdysseusDialogue()
-    elif OdysseusAnswer == 4 :
+    elif OdysseusAnswer == '4' :
         promptSlow('- Je vais trouver le moyen de mettre fin à ce chaos.')
         promptSlow('- Prudence, {}.'.format(Player.name))
         print(')(=================================================)(')

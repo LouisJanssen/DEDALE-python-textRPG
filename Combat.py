@@ -108,5 +108,5 @@ def StartCombat(currentennemy):
     MobXP = MobStats[currentennemy][XP]
     LevelUp(PlayerXP, MobXP)
 
-StartCombat('SpiderStats')
+# StartCombat('SpiderStats')
 # StartCombat('ChickenStats')
