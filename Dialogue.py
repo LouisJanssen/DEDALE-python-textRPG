@@ -27,7 +27,7 @@ NpcDial = {
     'ZeusDial':{
         NPCNAME: 'Zeus',
         MINSTAT: 15,
-        SENTENCE: 'Blablablablablabla',
+        SENTENCE: '- Oui ? On me parle ?',
         DIAL1: '1 - Bla',
         DIAL1_1: '- Ki',
         DIAL2: '2 - BlaBla',
@@ -151,20 +151,26 @@ def Dialogue(npc):
     DialChoice = int(input())
     print(')(=================================================)(')
     if DialChoice == 1 :
-        print(NpcDial[npc][DIAL1_1])
+        promptSlow(NpcDial[npc][DIAL1])
+        promptSlow(NpcDial[npc][DIAL1_1])
     elif DialChoice == 2 :
-        print(NpcDial[npc][DIAL2_1])
+        promptSlow(NpcDial[npc][DIAL2])
+        promptSlow(NpcDial[npc][DIAL2_1])
     elif (DialChoice == 3) and (Player.Cha >= minstat) :
-        print(NpcDial[npc][DIALCHA1])
+        promptSlow(NpcDial[npc][DIALCHA])
+        promptSlow(NpcDial[npc][DIALCHA1])
     elif (DialChoice == 3) and (Player.Cha < minstat) :
-        print('Vous n\'avez pas le charisme nécessaire. Choisissez une autre option.')
+        promptSlow('Vous n\'avez pas le charisme nécessaire. Choisissez une autre option.')
         Dialogue(npc)
     elif (DialChoice == 4) and (npc == 'ZeusDial') and (SonOfZeus == True) :
-        print(NpcDial[npc][DIALSON1])
+        promptSlow(NpcDial[npc][DIALSON])
+        promptSlow(NpcDial[npc][DIALSON1])
     elif (DialChoice == 4) and (npc == 'PoseidonDial') and (SonOfPoseidon == True) :
-        print(NpcDial[npc][DIALSON1])
+        promptSlow(NpcDial[npc][DIALSON])
+        promptSlow(NpcDial[npc][DIALSON1])
     elif (DialChoice == 4) and (npc == 'HadesDial') and (SonOfHades == True) :
-        print(NpcDial[npc][DIALSON1])
+        promptSlow(NpcDial[npc][DIALSON])
+        promptSlow(NpcDial[npc][DIALSON1])
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
         Dialogue(npc)

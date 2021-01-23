@@ -161,7 +161,7 @@ ZoneMap = {
   },
   'B3': {
     ZONENAME: 'Une responsabilité royale',
-    DESCRIPTION: 'La fin du chemin approche, vous le sentez. Vous vous sentez fatigué, mais aussi plus fort que jamais. Comme si vous n\'en aviez pas assez bavé comme ça, le ciel commence à se couvrir et la pluie à tomber. Vous vous enfoncez de plus en plus dans le sol boueux, chaque pas étant plus difficile que le précédent. Exténué, vous glissez et tombez face contre terre. À bout de nerf, vous ne pouvez vous empêcher de pester : "Nom de Zeus !". C\'est alors que la foudre tombe juste devant vous, laissant place à une silhouette altière : "Oui ?"',
+    DESCRIPTION: 'La fin du chemin approche, vous le sentez. Vous vous sentez fatigué, mais aussi plus fort que jamais. Comme si vous n\'en aviez pas assez bavé comme ça, le ciel commence à se couvrir et la pluie à tomber. Vous vous enfoncez de plus en plus dans le sol boueux, chaque pas étant plus difficile que le précédent. Exténué, vous glissez et tombez face contre terre. À bout de nerf, vous ne pouvez vous empêcher de pester : "Nom de Zeus !". C\'est alors que la foudre tombe juste devant vous, laissant place à une silhouette altière :',
     NORTH: 'A3',
     SOUTH: 'C3',
     EAST: '',
