@@ -29,7 +29,7 @@ NpcDial = {
         NPCNAME: 'Zeus',
         MINSTAT: 15,
         SENTENCE: '- Oui ? On me parle ?',
-        DIAL1: '1 - Z-Zeus, c\'est bien vous ?,
+        DIAL1: '1 - Z-Zeus, c\'est bien vous ?',
         DIAL1_1: '- Bien sûr que oui, avorton ! Tu oses questionner ma royale identité ? Décidément, les héros de nos jours, c\'est plus ce que c\'était. Bon, je tenais quand même à te souhaiter bonne chance pour Dédale, tout ça. Sur ce, je dois y aller. Héra va encore me chercher des noises, sinon...',
         DIAL2: '2 - BlaBla',
         DIAL2_1: '- Kiki',
