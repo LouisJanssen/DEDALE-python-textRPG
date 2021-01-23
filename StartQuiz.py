@@ -220,7 +220,6 @@ def Question5(zeus, poseidon, hades) :
             promptSlow('Vous êtes l\'enfant d\'Hadès')
             # AJOUTER modification stats (à déterminer)
 
-Question1(0, 0, 0)
 
 # print('Zeus = ', AnswerZeus)
 # print('Poseidon = ', AnswerPoseidon)
