@@ -1,6 +1,7 @@
 # from Map import ZoneMap
 from Stats import PlayerStats
 from Tools import promptSlow
+from Inventory import ObjectInventory
 Player = PlayerStats()
 
 # NpcDial['ZeusDial'][NPCNAME]
@@ -188,6 +189,7 @@ def Dialogue(npc):
         promptSlow(NpcDial[npc][DIALCHA])
         promptSlow(NpcDial[npc][DIALCHA1])
         # Le joueur recoit l'objet GIFT dans son inventaire
+        ObjectInventory(NpcDial[npc][GIFT])
     elif (DialChoice == '3') and (Player.Cha < minstat) :
         promptSlow('Vous n\'avez pas le charisme nécessaire. Choisissez une autre option.')
         Dialogue(npc)
@@ -217,4 +219,4 @@ def Dialogue(npc):
 
 Player.Cha += 3000
 Player.father = 'Poséidon'
-Dialogue('PoseidonDial')
+# Dialogue('PoseidonDial')

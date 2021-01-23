@@ -24,8 +24,8 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     def useObject():
         SLOT = 'SLOT'
         QUANTITY = 'QUANTITY'
-        promptSlow("Quel objet souhaitez vous utiliser ?")
-        promptSlow('Entrez "retour" pour revenir au menu de combat')
+        print("Quel objet souhaitez vous utiliser ?")
+        print('Entrez "retour" pour revenir au menu de combat')
         InventoryList = ['','','','','']
         for i in range(0,5):
             InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
@@ -33,7 +33,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
         ask = input(' > ')
         if ask in InventoryList:
             if ask.lower() == 'ambrosia':
-                promptSlow('Vous buvez l\'ambroisie')
+                print('Vous buvez l\'ambroisie')
                 Player.Hp += 10
                 i = 1
                 while Inventory[('slot' + str(i))][SLOT] != 'ambrosia':
@@ -42,7 +42,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                 if Inventory[('slot' + str(i))][QUANTITY] == '0':
                     Inventory[('slot' + str(i))][SLOT] = 'empty'
             elif ask.lower() == 'fire':
-                promptSlow('Vous lancer le feu sacré')
+                print('Vous lancer le feu sacré')
                 ennemy.Hp -= 10
                 i = 1
                 while Inventory[('slot' + str(i))][SLOT] != 'fire':
@@ -135,6 +135,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     
     elif Player.Hp <= 0 :
         print('GAME OVER')
+        Player.dead = True
     
     elif (Player.Hp > 0) and (ennemy.Hp <= 0) :
         print('VICTOIRE')
@@ -158,5 +159,5 @@ def StartCombat(currentennemy):
     MobXP = MobStats[currentennemy][XP]
     LevelUp(PlayerXP, MobXP)
 
-StartCombat('SpiderStats')
+# StartCombat('SpiderStats')
 # StartCombat('ChickenStats')

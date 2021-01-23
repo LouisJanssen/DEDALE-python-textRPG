@@ -6,7 +6,7 @@ from Tools import promptSlow
 from Dialogue import Dialogue
 from Combat import StartCombat
 from CursesAndBlessings import Curse,Blessing
-from Inventory import displayInventory, passiveObject
+from Inventory import displayInventory, passiveObject, ObjectInventory
 
 Player = PlayerStats()
 
@@ -494,7 +494,7 @@ def testcurse():
   prompt()
 
 def testobject():
-  print('object')
+  ObjectInventory(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(2)
   prompt()
