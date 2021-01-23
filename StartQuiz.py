@@ -261,11 +261,12 @@ def StartQuiz():
         elif OdysseusAnswer == 4 :
             promptSlow('- Je vais trouver le moyen de mettre fin à ce chaos.')
             promptSlow('- Prudence, héros.')
+            main_game_loop()
         else :
             print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
             OdysseusDialogue()
     OdysseusDialogue()
 
-    main_game_loop()
+#     main_game_loop()
 
-StartQuiz()
+# StartQuiz()
