@@ -28,28 +28,28 @@ NpcDial = {
         NPCNAME: 'Zeus',
         MINSTAT: 15,
         SENTENCE: '- Oui ? On me parle ?',
-        DIAL1: '1 - Z-Zeus, c\'est bien vous ?',
+        DIAL1: '- Z-Zeus, c\'est bien vous ?',
         DIAL1_1: '- Bien sûr que oui, avorton ! Tu oses questionner ma royale identité ? Décidément, les héros de nos jours, c\'est plus ce que c\'était. Bon, je tenais quand même à te souhaiter bonne chance pour Dédale, tout ça. Sur ce, je dois y aller. Héra va encore me chercher des noises, sinon...',
-        DIAL2: '2 - BlaBla',
-        DIAL2_1: '- Kiki',
-        DIALCHA: '3 - BliBlouBla',
-        DIALCHA1: '- Kikiki',
-        DIALSON: '4 - BlaBlouBli',
-        DIALSON1: '- Ikikik',
+        DIAL2: '- Zeus, Roi de l\'Olympe, savez-vous quelle est l\'origine de cette folie ?',
+        DIAL2_1: '- C\'est moi-même, j\'en ai bien peur. J\'ai accordé à Dédale le statut divin, comme je le fais parfois pour les hommes exceptionnels. J\'étais loin de me douter que la folie consommait déjà le pauvre homme. Tu es notre seule chance de mettre fin cela. Je dois y aller, à présent. Je sais que tu ne me décevras pas.',
+        DIALCHA: '- Tiens-donc ! Zeus, le roi des rois, m\'accorde l\'honneur de sa présence. Vous devriez plutôt être à l\'Olympe, non ? Quelqu\'un aurait vite fait de raconter à Héra que vous êtes allé vous amuser ailleurs une fois de plus. J\'ai rencontré beaucoup de dieux pendant mon périple, vous savez. Bien sûr, je suppose qu\'un petit dédommagement pour mon dur travail m\'aiderait à garder ma langue dans ma poche.',
+        DIALCHA1: '- Ah non, hein ! J\'en ai assez de ses crises ! Très bien, très bien, le voilà ton dédommagement. Retiens simplement que personne ne se moque de Zeus impunément.',
+        DIALSON: '- Père, enfin je vous rencontre. C\'est un honneur.',
+        DIALSON1: '- (Il est de moi, celui-là aussi ?!) Ah ! Oui ! Mon enfant ! Je suis si heureux de te rencontrer enfin. Laisse-moi te donner ma bénédiction divine. À présent, tes attaques seront plus puissantes qu\'elles ne l\'ont jamais été. Je souhaite bonne chance aux monstres qui croiseront ton chemin. En revanche, évite celui d\'Héra, si possible. Adieu, mon enfant.',
         GIFT: 'not_defined',
     },
     'PoseidonDial':{
         NPCNAME: 'Poséidon',
         MINSTAT: 15,
-        SENTENCE: 'Blablablablablabla',
-        DIAL1: '1 - Bla',
-        DIAL1_1: '- Ki',
-        DIAL2: '2 - BlaBla',
-        DIAL2_1: '- Kiki',
-        DIALCHA: '3 - BliBlouBla',
-        DIALCHA1: '- Kikiki',
-        DIALSON: '4 - BlaBlouBli',
-        DIALSON1: '- Ikikik',
+        SENTENCE: 'Ça mord bien, aujourd\'hui.',
+        DIAL1: '- Qu\'est-ce que vous faites ici, au milieu de l\'océan ?',
+        DIAL1_1: '- Je te retourne la question, voyageur. Je profite du beau de temps et du calme marin. Il n\'y a que ça qui parvienne à me détendre réellement.',
+        DIAL2: '- Vous êtes Poséidon, n\'est-ce pas ?',
+        DIAL2_1: '- Vous êtes perspicace ! Oui, c\'est ainsi que l\'on m\'appelle. Je suis heureux de te croiser. Je te souhaite bien du courage pour ta quête. Dédale était quelqu\'un de bien, autrefois. C\'est fou ce que la jalousie et la rancoeur peuvent faire aux hommes. À présent, si tu le permets, j\'aimerais me concentrer sur ma ligne.',
+        DIALCHA: '- J\'ai moi-même pêché d\'énormes poissons. Dans ma région, personne ne m\'arrivait à la cheville, dans ce domaine.',
+        DIALCHA1: '- Hahaha, j\'en ai entendu parler, oui. Accepte donc ce modeste présent comme démonstration de mon admiration. Maintenant, chut, tu vas faire fuir le poisson.',
+        DIALSON: '- Poséidon... J\'ai du mal à contrôler mon émotion. Je suis si heureux de vous rencontrer, père.',
+        DIALSON1: '- Tiens donc ma canne à pêche un instant, mon enfant. Tu sais, la vie, c\'est comme la pêche. Tout est une question de patience. Inspire-toi de la mer à chaque instant. Aborde les épreuves avec calme et, quand le moment sera venu, déchaîne toi. Laisse-moi t\'accorder ma bénédiction avant de reprendre ton voyage. Que la vitalité de l\'océan t\'accompagne.',
         GIFT: 'not_defined',
     },
     'HadesDial':{
@@ -142,7 +142,7 @@ def SphinxEnigma() :
     print('1 - Je prends le risque, envoie ton énigme.')
     print('2 - Très peu pour moi, merci')
     print('>-------------------------------------------------<')
-    StartEnigma = input()
+    StartEnigma = input(' > ')
     if StartEnigma == '1' :
         Player.Hp -= 5
         promptSlow('- Même en marchant vers lui, vous ne pouvez l\'atteindre.')
@@ -166,17 +166,17 @@ def Dialogue(npc):
     print(NpcDial[npc][NPCNAME], ':')
     print(NpcDial[npc][SENTENCE])
     print('-------------------------------------')
-    print(NpcDial[npc][DIAL1])
-    print(NpcDial[npc][DIAL2])
-    print(NpcDial[npc][DIALCHA], '[ CHA :', minstat, ']')
+    print('1', NpcDial[npc][DIAL1])
+    print('2', NpcDial[npc][DIAL2])
+    print('3', NpcDial[npc][DIALCHA], '[ CHA :', minstat, ']')
     if npc == 'ZeusDial' and Player.father == 'Zeus' :
-        print(NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
+        print('4', NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
     elif npc == 'PoseidonDial' and Player.father == 'Poséidon' :
-        print(NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
+        print('4', NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
     elif npc == 'HadesDial' and Player.father == 'Hadès' :
-        print(NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
+        print('4', NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
     print('-------------------------------------')
-    DialChoice = input()
+    DialChoice = input(' > ')
     print(')(=================================================)(')
     if DialChoice == '1' :
         promptSlow(NpcDial[npc][DIAL1])
@@ -214,3 +214,7 @@ def Dialogue(npc):
         SphinxEnigma()
 
 # Dialogue('SphinxDial')
+
+Player.Cha += 3000
+Player.father = 'Poséidon'
+Dialogue('PoseidonDial')

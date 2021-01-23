@@ -100,7 +100,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             print('2 - SE DÉFENDRE')
             print('3 - OBJETS')
             print(']===================================[')
-            Action = input()
+            Action = input(' > ')
 
             if Action == '1' :
                 print('Le Joueur attaque')

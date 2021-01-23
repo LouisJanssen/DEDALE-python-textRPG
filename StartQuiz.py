@@ -214,7 +214,7 @@ def OdysseusDialogue() :
     print('3 - Et maintenant ?')
     print('4 - Je vais trouver le moyen de mettre fin à ce chaos. (Passer)')
     print('-------------------------------------')
-    OdysseusAnswer = input()
+    OdysseusAnswer = input(' > ')
     if OdysseusAnswer == '1' :
         promptSlow('- Où sommes-nous ?')
         promptSlow('- Alors là, j\'ai bien peur de ne pas pouvoir te répondre, {}. Il semblerait que l\'espace et le temps s\'entremêlent en ce lieu. Par les dieux, comment Dédale a-t-il pu acquérir pareils pouvoirs ?!'.format(Player.name))
