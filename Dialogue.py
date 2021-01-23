@@ -166,7 +166,7 @@ def Dialogue(npc):
     elif (DialChoice == 4) and (npc == 'HadesDial') and (SonOfHades == True) :
         print(NpcDial[npc][DIALSON1])
     else :
-        print('Veuillez entrer le chiffre correspondant au dialogue voulu.')
+        print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
         Dialogue(npc)
 
 Dialogue('ZeusDial')
