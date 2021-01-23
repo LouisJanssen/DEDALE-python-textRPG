@@ -1,7 +1,6 @@
 from Stats import *
 Player = PlayerStats()
 PlayerLevel = 1
-EXP = 0
 
 def ChooseUpgrade():
     print('-======================================-')
@@ -14,36 +13,39 @@ def ChooseUpgrade():
     print('[INT]', Player.Int)
     print('[CHA]', Player.Cha)
     Choice = input()
-    if Choice == 'HP' or Choice == 'hp' or Choice == 'Hp' :
+    if Choice.lower() == 'hp' :
         Player.Hp += 3
-    elif Choice == 'ATK' or Choice == 'atk' or Choice == 'Atk' :
+    elif Choice.lower() == 'atk' :
         Player.Atk += 3
-    elif Choice == 'STR' or Choice == 'str' or Choice == 'Str' :
+    elif Choice.lower() == 'str' :
         Player.Str += 1
-    elif Choice == 'AGI' or Choice == 'agi' or Choice == 'Agi' :
+    elif Choice.lower() == 'agi' :
         Player.Agi += 1
-    elif Choice == 'INT' or Choice == 'int' or Choice == 'Int' :
+    elif Choice.lower() == 'int' :
         Player.Int += 1
-    elif Choice == 'CHA' or Choice == 'cha' or Choice == 'Cha' :
+    elif Choice.lower() == 'cha' :
         Player.Cha += 1
     else :
         print('[ERREUR] Veuillez entrer un choix valide.')
         ChooseUpgrade()
     print('-======================================-')
 
-def LevelUp(EXP, amount):
-    EXP += amount
-    if EXP >= 25 :
+def LevelUp(XP, amount):
+    print(XP)
+    print(amount)
+    XP += amount
+    Player.xp += XP
+    if Player.xp >= 25 :
         PlayerLevel = 2
         ChooseUpgrade()
-    elif EXP >= 75 :
+    elif Player.xp >= 75 :
         PlayerLevel = 3
         ChooseUpgrade()
-    elif EXP >= 150 :
+    elif Player.xp >= 150 :
         PlayerLevel = 4
         ChooseUpgrade()
-    elif EXP >= 300 :
+    elif Player.xp >= 300 :
         PlayerLevel = 5
         ChooseUpgrade()
 
-LevelUp(EXP, 25)
+# LevelUp(XP, 25)

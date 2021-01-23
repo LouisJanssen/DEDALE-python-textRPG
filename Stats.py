@@ -20,6 +20,7 @@ NAME = 'NAME'
 HP = 'HP'
 ATK = 'ATK'
 LOOT = 'loot'
+XP = 'XP'
 
 MobStats = {
   'ChickenStats':{

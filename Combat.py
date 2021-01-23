@@ -1,5 +1,6 @@
 # IMPORTS
 from DiceSystem import DiceRoll
+from Level import *
 from Stats import *
 Player = PlayerStats()
 
@@ -99,7 +100,10 @@ def StartCombat(currentennemy):
     Combat(PlayerTurn, EnnemyStats(), False)
 
     # RESET PLAYER STATS (Mob stats reset automatically)
-    Player.Hp = SavePlayer.Hp # Trouver un moyen de sauvegarder les stats du joueur avant le combat pour les réinitialiser après
+    Player.Hp = SavePlayer.Hp
+    PlayerXP = Player.xp
+    MobXP = MobStats[currentennemy][XP]
+    LevelUp(PlayerXP, MobXP)
 
 StartCombat('SpiderStats')
 StartCombat('ChickenStats')
