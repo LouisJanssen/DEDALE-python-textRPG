@@ -1,7 +1,7 @@
 from Stats import *
 Player = PlayerStats()
 PlayerLevel = 1
-XP = 0
+EXP = 0
 
 def ChooseUpgrade():
     print('-======================================-')
@@ -31,19 +31,19 @@ def ChooseUpgrade():
         ChooseUpgrade()
     print('-======================================-')
 
-def LevelUp(XP, amount):
-    XP += amount
-    if XP >= 25 :
+def LevelUp(EXP, amount):
+    EXP += amount
+    if EXP >= 25 :
         PlayerLevel = 2
         ChooseUpgrade()
-    elif XP >= 75 :
+    elif EXP >= 75 :
         PlayerLevel = 3
         ChooseUpgrade()
-    elif XP >= 150 :
+    elif EXP >= 150 :
         PlayerLevel = 4
         ChooseUpgrade()
-    elif XP >= 300 :
+    elif EXP >= 300 :
         PlayerLevel = 5
         ChooseUpgrade()
 
-LevelUp(XP, 25)
+LevelUp(EXP, 25)
