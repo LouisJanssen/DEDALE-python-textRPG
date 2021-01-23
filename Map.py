@@ -22,7 +22,7 @@ ActiveCase = {'A1': True, 'A2': True, 'A3': True,'A4': True, 'A5': True,
               'C1': True, 'C2': True, 'C3': True,'C4': True, 'C5': True,
               'D1': True, 'D2': True, 'D3': True,'D4': True, 'D5': True,
               'E1': True, 'E2': True, 'E3': True,'E4': True, 'E5': True,
-              'F1': True, 'F2': True, 'F3': True,'F4': True, 'F5': True
+              'F1': True, 'F2': True, 'F3': False,'F4': True, 'F5': True
               }
 
 #Library for the map
@@ -55,7 +55,7 @@ ZoneMap = {
     EAST: 'C2',
     WEST: '',
     EVENT: 'npc',
-    SPEC: '',
+    SPEC: 'PoseidonDial',
   },
   'D1': {
     ZONENAME: 'Le domaine d\'Artémis',
@@ -65,7 +65,7 @@ ZoneMap = {
     EAST: 'D2',
     WEST: '',
     EVENT: 'fight',
-    SPEC: '',
+    SPEC: 'BoarStats',
   },
   'E1': {
     ZONENAME: 'Les yeux revolver',
@@ -75,7 +75,7 @@ ZoneMap = {
     EAST: 'E2',
     WEST: '',
     EVENT: 'object',
-    SPEC: '',
+    SPEC: 'shield',
   },
   'F1': {
     ZONENAME: 'Forges d\'Héphaïstos',
@@ -85,7 +85,7 @@ ZoneMap = {
     EAST: 'F2',
     WEST: '',
     EVENT: 'fight',
-    SPEC: '',
+    SPEC: 'SpiderStats',
   },
   'A2': {
     ZONENAME: 'Le secret de Thanatos',
@@ -95,7 +95,7 @@ ZoneMap = {
     EAST: 'A3',
     WEST: 'A1',
     EVENT: 'npc',
-    SPEC: '',
+    SPEC: 'ThanatosDial',
   },
   'B2': {
     ZONENAME: 'Le treizième travail',
@@ -115,7 +115,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'C1',
     EVENT: 'fight',
-    SPEC: '',
+    SPEC: 'SirensStats',
   },
   'D2': {
     ZONENAME: 'Le trésor de Midas',
@@ -145,7 +145,7 @@ ZoneMap = {
     EAST: 'F3',
     WEST: 'F1',
     EVENT: 'npc',
-    SPEC: '',
+    SPEC: 'DionysosDial',
   },
   'A3': {
     ZONENAME: 'LA DÉTRESSE D\'ASTÉRION',
@@ -165,7 +165,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'B2',
     EVENT: 'npc',
-    SPEC: '',
+    SPEC: 'ZeusDial',
   },
   'C3': {
     ZONENAME: 'Les vestiges de la guerre',
@@ -195,7 +195,7 @@ ZoneMap = {
     EAST: 'E4',
     WEST: '',
     EVENT: 'npc',
-    SPEC: '',
+    SPEC: 'HadesDial',
   },
   'F3': {
     ZONENAME: 'La folie de Dédale',
@@ -215,7 +215,7 @@ ZoneMap = {
     EAST: 'A5',
     WEST: 'A3',
     EVENT: 'npc',
-    SPEC: '',
+    SPEC: 'ParquesDial',
   },
   'B4': {
     ZONENAME: 'Vignes trompeuses',
@@ -235,7 +235,7 @@ ZoneMap = {
     EAST: 'C5',
     WEST: '',
     EVENT: 'npc',
-    SPEC: '',
+    SPEC: 'MinosDial',
   },
   'D4': {
     ZONENAME: 'Lernie, l\'hydre vorace',
@@ -245,7 +245,7 @@ ZoneMap = {
     EAST: 'D5',
     WEST: 'D3',
     EVENT: 'fight',
-    SPEC: '',
+    SPEC: 'HydraStats',
   },
   'E4': {
     ZONENAME: 'Un labyrinthe des plus particuliers',
@@ -265,7 +265,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'F3',
     EVENT: 'npc',
-    SPEC: '',
+    SPEC: 'SphinxDial',
   },
   'A5': {
     ZONENAME: 'Un adversaire surprenant',
@@ -275,7 +275,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'A4',
     EVENT: 'fight',
-    SPEC: '',
+    SPEC: 'ChickenStats',
   },
   'B5': {
     ZONENAME: 'De zéro à héros',
@@ -285,7 +285,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'B4',
     EVENT: 'object',
-    SPEC: '',
+    SPEC: 'club',
   },
   'C5': {
     ZONENAME: 'Un adversaire de taille',
@@ -295,7 +295,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'C4',
     EVENT: 'fight',
-    SPEC: '',
+    SPEC: 'LestrygonStats',
   },
   'D5': {
     ZONENAME: 'La boisson des dieux',
@@ -315,7 +315,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'E4',
     EVENT: 'fight',
-    SPEC: '',
+    SPEC: 'SpiderStats',
   },
   'F5': {
     ZONENAME: 'Une trempette vivifiante',
@@ -367,6 +367,8 @@ def prompt():
       promptSlow('journal        -       vous permets d\'accéder à votre journal de quête')
       promptSlow('aide           -       vous permet d\'avoir une liste des commandes')
       promptSlow('quitter        -       vous permet de quitter le jeu')
+    else:
+      print("Commande invalide, essayez 'aide' pour avoir la liste des commandes.\n")
 
 #function for the movement of the player
 def PlayerMove(MyAction):
@@ -445,7 +447,7 @@ def PlayerMove(MyAction):
       destination = ZoneMap[Player.pos][WEST]
       MovementHandler(destination)
   else :
-    promptSlow("Commande invalide, essayez avec nord, sud, est ou ouest.\n")
+    print("Commande invalide, essayez avec nord, sud, est ou ouest.\n")
     PlayerMove(MyAction)
 
 #Movement of the player
