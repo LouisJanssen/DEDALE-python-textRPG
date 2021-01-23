@@ -53,9 +53,9 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             print('2 - SE DÉFENDRE')
             print('3 - OBJETS')
             print(']===================================[')
-            Action = int(input())
+            Action = input()
 
-            if Action == 1 :
+            if Action == '1' :
                 print('Le Joueur attaque')
                 PlayerDefense = False
                 playerdefense = PlayerDefense
@@ -68,7 +68,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                     print('Loupé !')
                 Combat(PlayerTurn, ennemy, playerdefense)
 
-            elif Action == 2 :
+            elif Action == '2' :
                 print('Se défendre')
                 PlayerDefense = True
                 playerdefense = PlayerDefense
@@ -76,9 +76,12 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                 # Se défendre : Diminue de 3/4 la prochaine attaque ennemie
                 Combat(PlayerTurn, ennemy, playerdefense)
 
-            elif Action == 3 :
+            elif Action == '3' :
                 print('Objets')
                 # Afficher liste des objets présents dans l'inventaire
+            else:
+                print("ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.")
+                Combat(PlayerTurn, ennemy, playerdefense)
     
     elif Player.Hp <= 0 :
         print('GAME OVER')
@@ -106,4 +109,4 @@ def StartCombat(currentennemy):
     LevelUp(PlayerXP, MobXP)
 
 StartCombat('SpiderStats')
-StartCombat('ChickenStats')
+# StartCombat('ChickenStats')
