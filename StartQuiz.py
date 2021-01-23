@@ -231,7 +231,7 @@ def StartQuiz():
     print('')
     print(')(=================================================)(')
     print('Mystérieux inconnu :')
-    promptSlow('"Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide, dont trois murs sont ouverts par une brèche. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
+    promptSlow('"Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
     promptSlow('"Quel est ton nom ?"')
     HeroName = str(input('NOM : > '))
     Player.name = HeroName
@@ -246,7 +246,7 @@ def StartQuiz():
         OdysseusAnswer = int(input())
         if OdysseusAnswer == 1 :
             promptSlow('- Où sommes-nous ?')
-            promptSlow('- Alors là, j\'ai bien peur de ne pas pouvoir te répondre, héros. Il semblerait que l\'espace et le temps s\'entremêlent en ce lieu. Par les dieux, comment Dédale a-t-il pu acquérir pareils pouvoirs ?!')
+            promptSlow('- Alors là, j\'ai bien peur de ne pas pouvoir te répondre, {}. Il semblerait que l\'espace et le temps s\'entremêlent en ce lieu. Par les dieux, comment Dédale a-t-il pu acquérir pareils pouvoirs ?!'.format(Player.name))
             OdysseusDialogue()
         elif OdysseusAnswer == 2 :
             promptSlow('- Qui êtes-vous ?')
@@ -260,7 +260,10 @@ def StartQuiz():
             OdysseusDialogue()
         elif OdysseusAnswer == 4 :
             promptSlow('- Je vais trouver le moyen de mettre fin à ce chaos.')
-            promptSlow('- Prudence, héros.')
+            promptSlow('- Prudence, {}.'.format(Player.name))
+            print(')(=================================================)(')
+            print('')
+            promptSlow('Vous vous réveillez dans la même salle que celle de votre rêve, à la différence près qu\'Ulysse n\'est plus là pour vous aider. Soudain, les murs Est et Ouest de la salle s\'effondrent, vous laissant le choix entre deux chemins.')
             main_game_loop()
         else :
             print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
