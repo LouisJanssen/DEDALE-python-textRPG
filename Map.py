@@ -5,6 +5,7 @@ from Stats import PlayerStats
 from Tools import promptSlow
 from Dialogue import Dialogue
 from Combat import StartCombat
+from CursesAndBlessings import Curse,Blessing
 
 Player = PlayerStats()
 
@@ -477,13 +478,13 @@ def testeaster():
   prompt()
 
 def testblessing():
-  print('blessing')
+  Blessing(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(2)
   prompt()
 
 def testcurse():
-  print('curse')
+  Curse(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(2)
   prompt()
