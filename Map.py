@@ -45,7 +45,7 @@ ZoneMap = {
     EAST: '',
     WEST: '',
     EVENT: 'fight',
-    SPEC: '',
+    SPEC: 'CyclopStats',
   },
   'C1': {
     ZONENAME: 'Le vieux pêcheur perdu en mer',
