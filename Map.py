@@ -4,6 +4,7 @@ import time
 from Stats import PlayerStats
 from Tools import promptSlow
 from Dialogue import Dialogue
+from Combat import StartCombat
 
 Player = PlayerStats()
 
@@ -464,7 +465,7 @@ def main_game_loop():
 ########## ZONE DE TESTS ##########
 #test 001
 def testlecombat():
-  print('boum boum')
+  StartCombat(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(2)
   prompt()
@@ -474,6 +475,7 @@ def testeaster():
   ActiveCase[Player.pos] = False
   time.sleep(2)
   prompt()
+
 def testblessing():
   print('blessing')
   ActiveCase[Player.pos] = False

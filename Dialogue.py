@@ -1,5 +1,6 @@
 # from Map import ZoneMap
 from Stats import PlayerStats
+from Tools import promptSlow
 Player = PlayerStats()
 
 # NpcDial['ZeusDial'][NPCNAME]
