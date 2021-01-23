@@ -2,7 +2,7 @@
 import time
 import sys
 import os
-from StartQuiz import StartQuiz
+from StartQuiz import Question1
 from Tools import promptSlow
 
 # function for slow prompt of prints
@@ -35,7 +35,7 @@ def PlayMenu():
   print('')
   ChoiceMainMenu = input(' > ')
   if ChoiceMainMenu.lower() == 'jouer' :
-    StartQuiz()
+    Question1(0, 0, 0)
   elif ChoiceMainMenu.lower() == 'continuer' :
     print('continuer')
   else:

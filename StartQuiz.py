@@ -219,20 +219,24 @@ def Question5(zeus, poseidon, hades) :
         elif AnswerHades > (AnswerZeus or AnswerPoseidon) :
             promptSlow('Vous êtes l\'enfant d\'Hadès')
             # AJOUTER modification stats (à déterminer)
+    StartDial()
 
 
 # print('Zeus = ', AnswerZeus)
 # print('Poseidon = ', AnswerPoseidon)
 # print('Hadès = ', AnswerHades)
-print ('<>==============================<>')
-print('')
-print(')(=================================================)(')
-print('Mystérieux inconnu :')
-promptSlow('"Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
-promptSlow('"Quel est ton nom ?"')
-HeroName = str(input('NOM : > '))
-Player.name = HeroName
-print(Player.name)
+def StartDial():
+    print ('<>==============================<>')
+    print('')
+    print(')(=================================================)(')
+    print('Mystérieux inconnu :')
+    promptSlow('"Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
+    promptSlow('"Quel est ton nom ?"')
+    HeroName = str(input('NOM : > '))
+    Player.name = HeroName
+    print(Player.name)
+    OdysseusDialogue()
+
 def OdysseusDialogue() :
     print('-------------------------------------')
     print('1 - Où sommes-nous ?')
@@ -265,6 +269,6 @@ def OdysseusDialogue() :
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
         OdysseusDialogue()
-OdysseusDialogue()
+
 
 #     main_game_loop()
