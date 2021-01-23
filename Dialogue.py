@@ -169,4 +169,4 @@ def Dialogue(npc):
         print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
         Dialogue(npc)
 
-Dialogue('ZeusDial')
+# Dialogue('ZeusDial')
