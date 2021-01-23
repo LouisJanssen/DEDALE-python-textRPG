@@ -3,6 +3,7 @@ import sys
 import time
 from Stats import PlayerStats
 from Tools import promptSlow
+from Dialogue import Dialogue
 
 Player = PlayerStats()
 
@@ -492,9 +493,9 @@ def testobject():
   prompt()
 
 def testnpc():
-  print('npc')
+  Dialogue(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
-  time.sleep(2)
+  time.sleep(1)
   prompt()
 
 # main_game_loop()
