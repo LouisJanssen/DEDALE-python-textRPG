@@ -23,7 +23,9 @@ def Combat(PlayerTurn, ennemy, playerdefense):
 
     def useObject():
         SLOT = 'SLOT'
+        QUANTITY = 'QUANTITY'
         promptSlow("Quel objet souhaitez vous utiliser ?")
+        promptSlow('Entrez "retour" pour revenir au menu de combat')
         InventoryList = ['','','','','']
         for i in range(0,5):
             InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
@@ -33,12 +35,30 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             if ask.lower() == 'ambrosia':
                 promptSlow('Vous buvez l\'ambroisie')
                 Player.Hp += 10
+                i = 1
+                while Inventory[('slot' + str(i))][SLOT] != 'ambrosia':
+                    i += 1
+                Inventory[('slot' + str(i))][QUANTITY] = str(int(Inventory[('slot' + str(i))][QUANTITY]) - 1)
+                if Inventory[('slot' + str(i))][QUANTITY] == '0':
+                    Inventory[('slot' + str(i))][SLOT] = 'empty'
             elif ask.lower() == 'fire':
                 promptSlow('Vous lancer le feu sacré')
                 ennemy.Hp -= 10
+                i = 1
+                while Inventory[('slot' + str(i))][SLOT] != 'fire':
+                    i += 1
+                Inventory[('slot' + str(i))][QUANTITY] = str(int(Inventory[('slot' + str(i))][QUANTITY]) - 1)
+                if Inventory[('slot' + str(i))][QUANTITY] == '0':
+                    Inventory[('slot' + str(i))][SLOT] = 'empty'
             else:
                 print('Veuillez choisir un consommable')
                 useObject()
+        elif ask.lower() == 'retour':
+            Combat(PlayerTurn, ennemy, playerdefense)
+        else:
+            print('Commande inconnue')
+            useObject()
+
 
     print('-----------------------------------------------------------------------')
 
