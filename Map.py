@@ -6,6 +6,7 @@ from Tools import promptSlow
 from Dialogue import Dialogue
 from Combat import StartCombat
 from CursesAndBlessings import Curse,Blessing
+from Inventory import displayInventory, passiveObject
 
 Player = PlayerStats()
 
@@ -370,6 +371,8 @@ def prompt():
       promptSlow('journal        -       vous permets d\'accéder à votre journal de quête')
       promptSlow('aide           -       vous permet d\'avoir une liste des commandes')
       promptSlow('quitter        -       vous permet de quitter le jeu')
+    elif action.lower() == 'inventaire':
+      displayInventory()
     else:
       print("Commande invalide, essayez 'aide' pour avoir la liste des commandes.\n")
 
@@ -460,7 +463,8 @@ def MovementHandler(destination):
 
 #Main game loop function
 def main_game_loop():
-  while Player.won is False:
+  while Player.dead is False:
+    passiveObject()
     prompt()
 
 ########## ZONE DE TESTS ##########

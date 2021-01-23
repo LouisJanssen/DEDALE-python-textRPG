@@ -2,6 +2,8 @@
 from DiceSystem import DiceRoll
 from Level import LevelUp
 from Stats import *
+from Inventory import Objects, Inventory
+from Tools import promptSlow
 Player = PlayerStats()
 
 # SAVE PLAYER STATS
@@ -18,6 +20,26 @@ PlayerTurn = True
 def Combat(PlayerTurn, ennemy, playerdefense):
 
     PlayerDefense = playerdefense
+
+    def useObject():
+        SLOT = 'SLOT'
+        promptSlow("Quel objet souhaitez vous utiliser ?")
+        InventoryList = ['','','','','']
+        for i in range(0,5):
+            InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
+        print(InventoryList)
+        ask = input(' > ')
+        if ask in InventoryList:
+            if ask.lower() == 'ambrosia':
+                promptSlow('Vous buvez l\'ambroisie')
+                Player.Hp += 10
+            elif ask.lower() == 'fire':
+                promptSlow('Vous lancer le feu sacré')
+                ennemy.Hp -= 10
+            else:
+                print('Veuillez choisir un consommable')
+                useObject()
+
     print('-----------------------------------------------------------------------')
 
     if (Player.Hp > 0) and (ennemy.Hp > 0) :
@@ -36,7 +58,12 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                     if PlayerDefense == False :
                         Player.Hp -= ennemy.Atk # Ajouter plus tard les bonus relatifs à la STR
                     elif PlayerDefense == True :
-                        Player.Hp -= (3/4)*(ennemy.Atk) # Les dégâts sont réduits de 3/4 si le joueur se défend
+                        InventoryList = ['','','','','']
+                        SLOT = 'SLOT'
+                        for i in range(0,5):
+                            InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
+                        if 'shield' not in InventoryList:
+                            Player.Hp -= (3/4)*(ennemy.Atk) # Les dégâts sont réduits de 3/4 si le joueur se défend
                 else :
                     print('Loupé !')
 
@@ -79,6 +106,9 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             elif Action == '3' :
                 print('Objets')
                 # Afficher liste des objets présents dans l'inventaire
+                useObject()
+                PlayerTurn = False
+                Combat(PlayerTurn, ennemy, playerdefense)
             else:
                 print("ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.")
                 Combat(PlayerTurn, ennemy, playerdefense)
@@ -108,5 +138,5 @@ def StartCombat(currentennemy):
     MobXP = MobStats[currentennemy][XP]
     LevelUp(PlayerXP, MobXP)
 
-# StartCombat('SpiderStats')
+StartCombat('SpiderStats')
 # StartCombat('ChickenStats')

@@ -4,9 +4,9 @@ Player = PlayerStats()
 
 def Curse(Cursetype):
   if Cursetype == 'Vines':
-    promptSlow('Vous subissez : HP - 1 et STR - 1')
+    promptSlow('Vous subissez : HP - 1 et ATK - 1')
     Player.Hp = Player.Hp - 1
-    Player.Str = Player.Str - 1
+    Player.Str = Player.Atk - 1
   elif Cursetype == 'Flower':
     promptSlow('Vous subissez : CHA + 1 et HP - 2')
     Player.Cha = Player.Cha + 1

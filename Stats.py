@@ -5,7 +5,7 @@ class PlayerStats:
     self.Atk = 3
     self.Cha = 5
     self.pos = 'F3'
-    self.won = False
+    self.dead = False
     self.lvl = 1
     self.xp = 0
     self.father = ""

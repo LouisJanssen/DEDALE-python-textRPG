@@ -1,4 +1,6 @@
 from Stats import PlayerStats
+from Tools import promptSlow
+
 Player = PlayerStats()
 #Initialisation of variables
 NAME = 'name'
@@ -33,7 +35,12 @@ Objects = {
           'belt':{
             NAME: 'CEINTURE D\'APHRODITE',
             DESCRIPTION: 'Une ceinture vous permettant d\'envouter n\'importe quel mortel',
-            EFFECT: 'Augmente le charisme de 3',
+            EFFECT: 'Augmente le charisme de 5',
+          },
+          'empty':{
+            NAME: 'vide',
+            DESCRIPTION: 'vide',
+            EFFECT: '',
           },
 }
 
@@ -43,12 +50,12 @@ QUANTITY = 'QUANTITY'
 #Library for inventory
 Inventory = {
             'slot1':{
-              SLOT:'shield',
+              SLOT:'fire',
               QUANTITY:'1',
             },
             'slot2':{
-              SLOT:'empty',
-              QUANTITY:'0',
+              SLOT:'ambrosia',
+              QUANTITY:'1',
             },
             'slot3':{
               SLOT:'empty',
@@ -91,11 +98,36 @@ def ObjectInventory(objectName):
         ObjectInventory(objectName)
 
 def displayInventory():
-  print('Voici votre inventaire :')
+  promptSlow('Voici votre inventaire :')
   InventoryList = ['','','','','']
   for i in range(0,5):
     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
   print(InventoryList)
+
+def passiveObject():
+  InventoryList = ['','','','','']
+  for i in range(0,5):
+    InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
+  if "club" in InventoryList and clubUsed == False :
+    clubUsed = True
+    Player.Atk += 2
+  elif "belt" in InventoryList and beltUsed == False :
+    beltUsed = True
+    Player.Cha += 5
+
+# def useObject():
+#   promptSlow("Quel objet souhaitez vous utiliser ?")
+#   InventoryList = ['','','','','']
+#   for i in range(0,5):
+#     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
+#   print(InventoryList)
+#   ask = input(' > ')
+#   if ask in InventoryList:
+#     if ask == 'ambrosia':
+#       promptSlow('Vous buvez l\'ambroisie')
+#       Player.Hp += 10
+#     elif ask == 'Fire':
+#       promptSlow('Vous lancer le feu sacré')
 
 # --------------  ZONE DE TEST  ------------------
 # def testInventory():
@@ -120,4 +152,7 @@ def displayInventory():
 # testUse(Inventory[('slot' + str(i))])
 
 # ObjectInventory('ambrosia')
-displayInventory()
+# displayInventory()
+
+# GERER LE NOM DES OBJETS
+# Objects[Inventory[('slot' + str(i + 1))][SLOT]][NAME]
