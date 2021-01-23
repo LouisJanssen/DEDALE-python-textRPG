@@ -1,6 +1,5 @@
-from Stats import *
+from Stats import PlayerStats
 Player = PlayerStats()
-PlayerLevel = 1
 
 def ChooseUpgrade():
     print('-======================================-')
@@ -31,8 +30,6 @@ def ChooseUpgrade():
     print('-======================================-')
 
 def LevelUp(XP, amount):
-    print(XP)
-    print(amount)
     XP += amount
     Player.xp += XP
     if Player.xp >= 25 :

@@ -1,6 +1,6 @@
 # IMPORTS
 from DiceSystem import DiceRoll
-from Level import *
+from Level import LevelUp
 from Stats import *
 Player = PlayerStats()
 
