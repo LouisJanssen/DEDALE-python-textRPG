@@ -367,12 +367,14 @@ def prompt():
       promptSlow('Liste des commandes: ')
       promptSlow('voyager        -       vous permets de vous déplacer')
       promptSlow('inventaire     -       vous permets d\'accéder à votre inventaire')
-      promptSlow('carte          -       vous permets d\'accéder à votre carte')
-      promptSlow('journal        -       vous permets d\'accéder à votre journal de quête')
+      promptSlow('stats     -       vous permets d\'accéder à vos stats')
+      # promptSlow('carte          -       vous permets d\'accéder à votre carte')
       promptSlow('aide           -       vous permet d\'avoir une liste des commandes')
       promptSlow('quitter        -       vous permet de quitter le jeu')
     elif action.lower() == 'inventaire':
       displayInventory()
+    elif action.lower() == 'stats':
+      displayStats()
     else:
       print("Commande invalide, essayez 'aide' pour avoir la liste des commandes.\n")
 
@@ -461,6 +463,12 @@ def MovementHandler(destination):
   Player.pos = destination
   PrintLocation()
 
+def displayStats():
+  print("Joueur : " + Player.name + " fils de " + Player.father)
+  print("Niveau : " + str(Player.lvl) + " Expérience : " + str(Player.xp))
+  print("HP : " + str(Player.Hp) + " | CHA : " + str(Player.Cha) + " |  ATK : " + str(Player.Atk))
+  print("")
+
 #Main game loop function
 def main_game_loop():
   while Player.dead is False:
@@ -472,37 +480,37 @@ def main_game_loop():
 def testlecombat():
   StartCombat(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
-  time.sleep(2)
+  time.sleep(0.5)
   prompt()
 
 def testeaster():
   print('easter')
   ActiveCase[Player.pos] = False
-  time.sleep(2)
+  time.sleep(0.5)
   prompt()
 
 def testblessing():
   Blessing(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
-  time.sleep(2)
+  time.sleep(0.5)
   prompt()
 
 def testcurse():
   Curse(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
-  time.sleep(2)
+  time.sleep(0.5)
   prompt()
 
 def testobject():
   ObjectInventory(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
-  time.sleep(2)
+  time.sleep(0.5)
   prompt()
 
 def testnpc():
   Dialogue(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
-  time.sleep(1)
+  time.sleep(0.5)
   prompt()
 
 # main_game_loop()

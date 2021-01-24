@@ -1,7 +1,7 @@
 from Stats import PlayerStats
 Player = PlayerStats()
 
-def ChooseUpgrade():
+def ChooseUpgrade(PlayerLevel):
     print('-======================================-')
     print('Bravo ! Vous venez de passer niveau', PlayerLevel, '.')
     print('Choisissez quelle statistique vous souhaitez augmenter :')
@@ -17,7 +17,8 @@ def ChooseUpgrade():
         Player.Cha += 1
     else :
         print('[ERREUR] Veuillez entrer un choix valide.')
-        ChooseUpgrade()
+        ChooseUpgrade(PlayerLevel)
+    Player.lvl = PlayerLevel
     print('-======================================-')
 
 def LevelUp(XP, amount):
@@ -25,15 +26,15 @@ def LevelUp(XP, amount):
     Player.xp += XP
     if Player.xp >= 25 :
         PlayerLevel = 2
-        ChooseUpgrade()
+        ChooseUpgrade(PlayerLevel)
     elif Player.xp >= 75 :
         PlayerLevel = 3
-        ChooseUpgrade()
+        ChooseUpgrade(PlayerLevel)
     elif Player.xp >= 150 :
         PlayerLevel = 4
-        ChooseUpgrade()
+        ChooseUpgrade(PlayerLevel)
     elif Player.xp >= 300 :
         PlayerLevel = 5
-        ChooseUpgrade()
+        ChooseUpgrade(PlayerLevel)
 
 # LevelUp(XP, 25)

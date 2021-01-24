@@ -216,6 +216,6 @@ def Dialogue(npc):
 
 # Dialogue('SphinxDial')
 
-Player.Cha += 3000
-Player.father = 'Poséidon'
+# Player.Cha += 3000
+# Player.father = 'Poséidon'
 # Dialogue('PoseidonDial')
