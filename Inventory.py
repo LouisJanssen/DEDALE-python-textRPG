@@ -75,10 +75,10 @@ def ObjectInventory(objectName):
   InventoryList = ['','','','','']
   for i in range(0,5):
     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
-  print('Ou souhaitez vous placer l\'objet ?')
+  print('Ou souhaitez vous placer l\'objet ? 1, 2, 3, 4 ou 5 ?')
   print(InventoryList)
   ask = input(' > ')
-  if ask == '1':
+  if (ask == '1' or ask =='2' or ask =='3' or ask == '4' or ask == '5'):
     if Inventory[('slot' + ask)][SLOT] == 'empty':
       Inventory[('slot' + ask)][SLOT] = objectName
       Inventory[('slot' + ask)][QUANTITY] = str(int(Inventory[('slot' + ask)][QUANTITY]) + 1)
@@ -96,6 +96,9 @@ def ObjectInventory(objectName):
         Inventory[('slot' + ask)][QUANTITY] = '1'
       elif ask2.lower() == 'non':
         ObjectInventory(objectName)
+  else:
+    print('Commande inconnue, veuillez choisir entre les emplacements : 1, 2, 3, 4 ou 5.')
+    ObjectInventory(objectName)
 
 def displayInventory():
   promptSlow('Voici votre inventaire :')
@@ -152,6 +155,7 @@ def passiveObject():
 # testUse(Inventory[('slot' + str(i))])
 
 # ObjectInventory('ambrosia')
+
 # displayInventory()
 
 # GERER LE NOM DES OBJETS

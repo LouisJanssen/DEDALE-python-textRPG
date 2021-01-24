@@ -69,7 +69,6 @@ def InstructionsMenu():
 def CreditsMenu():
   promptSlow('Code : Louis Janssen & François Olona')
   promptSlow('Histoire : Louis Janssen & François Olona')
-  promptSlow('Art ASCII : https://www.asciiart.eu/')
   promptSlow('Map inspirée de : https://www.youtube.com/watch?v=ERLT1iU0DVY&list=PL1-slM0ZOosXf2oQYZpTRAoeuo0TPiGpm&index=3&ab_channel=BryanTong')
   promptSlow('Ressources pédagogiques : https://courspython.com/classes-et-objets.html et https://docs.python.org/fr/3/library/index.html')
   promptSlow('Remerciements : Monsieur Loïc Janin')
