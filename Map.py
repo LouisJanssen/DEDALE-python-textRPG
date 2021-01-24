@@ -219,7 +219,7 @@ ZoneMap = {
     EAST: 'A5',
     WEST: 'A3',
     EVENT: 'npc',
-    SPEC: 'ParquesDial',
+    SPEC: 'MoiresDial',
   },
   'B4': {
     ZONENAME: 'Vignes trompeuses',

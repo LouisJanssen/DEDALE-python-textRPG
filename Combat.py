@@ -74,10 +74,16 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                 # L'ennemi attaque
                 MobAttack = DiceRoll()
                 print('Lancer de dé ennemi :', MobAttack) # Est-ce qu'on l'affiche ?
-                if MobAttack >= 10 : # Modifier plus tard en fonction des stats du joueur (AGI...)
+                if MobAttack >= 10 : 
                     if PlayerDefense == False :
-                        Player.Hp -= ennemy.Atk # Ajouter plus tard les bonus relatifs à la STR
+                        if ennemy.name == 'Minotaure' and ennemy.Hp <= 20 :
+                            print('Astérion récupère une partie de l\'énergie vitale du labyrinthe pour se soigner.')
+                            ennemy.Hp += 10
+                        else :
+                            print('L\'ennemi attaque !')
+                            Player.Hp -= ennemy.Atk
                     elif PlayerDefense == True :
+                        print('L\'ennemi perce légèrement votre défense !')
                         InventoryList = ['','','','','']
                         SLOT = 'SLOT'
                         for i in range(0,5):
@@ -85,7 +91,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                         if 'shield' not in InventoryList:
                             Player.Hp -= (3/4)*(ennemy.Atk) # Les dégâts sont réduits de 3/4 si le joueur se défend
                 else :
-                    print('Loupé !')
+                    print('L\'ennemi a loupé !')
 
             else :
                 print('L\'ennemi est K.O.')
@@ -147,7 +153,6 @@ def StartCombat(currentennemy):
             self.name = MobStats[currentennemy][NAME]
             self.Hp = MobStats[currentennemy][HP]
             self.Atk = MobStats[currentennemy][ATK]
-            self.loot = MobStats[currentennemy][LOOT]
     
     # COMBAT
     Combat(PlayerTurn, EnnemyStats(), False)
@@ -158,5 +163,5 @@ def StartCombat(currentennemy):
     MobXP = MobStats[currentennemy][XP]
     LevelUp(PlayerXP, MobXP)
 
-StartCombat('SpiderStats')
+# StartCombat('MinotaurStats')
 # StartCombat('ChickenStats')
