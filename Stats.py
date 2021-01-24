@@ -9,6 +9,7 @@ class PlayerStats:
     self.lvl = 1
     self.xp = 0
     self.father = ""
+    self.textspeed = 0.05
 
 #======================================================================================
 # Library monsters and stats

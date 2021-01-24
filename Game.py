@@ -13,7 +13,7 @@ def promptSlow(phrase):
   for l in phrase:
     sys.stdout.write(l)
     sys.stdout.flush()
-    time.sleep(0.03)
+    time.sleep(Player.textspeed)
   print('')
 
 def Curse(Cursetype):
@@ -45,6 +45,7 @@ class PlayerStats:
     self.lvl = 1
     self.xp = 0
     self.father = ""
+    self.textspeed = 0.05
 
 Player = PlayerStats()
 
@@ -474,6 +475,7 @@ def PrintMainMenu():
   print('JOUER')
   print('CHARGER')
   print('INSTRUCTIONS')
+  print('OPTIONS')
   print('CREDITS')
   print('QUITTER')
   print('')
@@ -512,9 +514,42 @@ def InstructionsMenu():
   print('RETOUR')
   print('')
   ChoiceMainMenu = input(' > ')
+  while ChoiceMainMenu != 'retour':
+    print('Commande inconnue essayez "retour"')
+    ChoiceMainMenu = input(' > ')
   if ChoiceMainMenu.lower() == 'retour' :
     PrintMainMenu()
     MainMenu()
+
+# Options menu
+def OptionsMenu():
+  print('OPTIONS :')
+  print('Choisissez la vitesse de défilement du texte :')
+  print('1 - Vitesse 1 : rapide')
+  print('2 - Vitesse 2 : moyen')
+  print('3 - Vitesse 3 : lent')
+  print('')
+  print('RETOUR')
+  print('')
+  ask = input(' > ')
+  while not (ask.lower() == '1' or ask.lower() == '2' or ask.lower() == '3' or ask.lower() == 'retour'):
+    print('Commande inconnue veuillez rentrez "1", "2", "3", ou "retour"')
+    ask = input(' > ')
+  if ask.lower() == '1':
+    Player.textspeed = 0
+    promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
+    time.sleep(1)
+    OptionsMenu()
+  elif ask.lower() == '2':
+    Player.textspeed = 0.02
+    promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
+    time.sleep(1)
+    OptionsMenu()
+  elif ask.lower() == '3':
+    Player.textspeed = 0.05
+    promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
+    time.sleep(1)
+    OptionsMenu()
 
 #credits menu
 def CreditsMenu():
@@ -526,6 +561,9 @@ def CreditsMenu():
   print('RETOUR')
   print('Appuyez sur la touche correspondante')
   ChoiceMainMenu = input()
+  while ChoiceMainMenu != 'retour':
+    print('Commande inconnue essayez "retour"')
+    ChoiceMainMenu = input(' > ')
   if ChoiceMainMenu.lower() == 'retour' :
     PrintMainMenu()
     MainMenu()
@@ -540,6 +578,8 @@ def MainMenu ():
     LoadMenu()
   elif ChoiceMainMenu.lower() == 'instructions' :
     InstructionsMenu()
+  elif ChoiceMainMenu.lower() in ['options', 'option'] :
+    OptionsMenu()
   elif ChoiceMainMenu.lower() in ['credits', 'crédits']:
     CreditsMenu()
   elif ChoiceMainMenu.lower() == 'quitter' :
