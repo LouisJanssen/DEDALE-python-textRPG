@@ -262,8 +262,8 @@ ZoneMap = {
     SPEC: '',
   },
   'F4': {
-    ZONENAME: 'Un message de dernière minute',
-    DESCRIPTION: 'Vous commencez votre route, sans vraiment savoir où vous allez ni ce que vous allez trouver en chemin. Vous marchez presque automatiquement, la tête encore dans le brouillard. Tout à coup, un souffle puissant vous fait presque perdre l\'équilibre. Sorti de nulle part, un homme se tient devant vous. Son accoutrement et son arrivée fulgurante laissent peu de doute quant à son identité. Vous faites face à Hermès, le dieu aux sandales ailées.',
+    ZONENAME: 'Questions pour un Héros',
+    DESCRIPTION: 'Vous commencez votre route, sans vraiment savoir où vous allez ni ce que vous allez trouver en chemin. Vous marchez presque automatiquement, la tête encore dans le brouillard. Tout à coup, vous vous retrouvez face à un bâtiment de marbre blanc duquel s\'échappent des lumières multicolores. Ne pouvant résister à la curiosité, vous décidez d\'aller voir ce qui s\'y passe. À peine mettez-vous un pied à l\'intérieur qu\'une nouvelle lumière éclaire soudain une créature mi-femme, mi-lion disposant, pour couronner le tout, d\'une paire d\'ailes. Une chose est sûre, elle a l\'air de s\'amuser.',
     NORTH: 'E4',
     SOUTH: '',
     EAST: '',
