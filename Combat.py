@@ -150,8 +150,16 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     
     elif (Player.Hp > 0) and (ennemy.Hp <= 0) :
         if ennemy.name == 'Minotaure':
-            print('Victoire vous avez vaincu le Minotaure !')
-            print('Voulez-vous retourner au menu principal ou quitter le jeu?')
+            print('FÉLICITATIONS : vous avez vaincu le Minotaure !')
+            print('-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-')
+            promptSlow('À vos pieds git le corps immense du Minotaure. Tandis que le labyrinthe s\'écroule peu à peu autour de vous, vous l\'observez longuement, partagé entre le soulagement et un sentiment étrange. Alors que vous vous apprêtez à lui tourner le dos, vous entendez un nouveau soufflement s\'échapper de ses narines. Sur votre garde, vous fixez son visage, prêt à attaquer au moindre mouvement. C\'est alors qu\'un détail qui vous a échappé jusque-là vous saute aux yeux. Vous reconnaissez la tristesse et l\'intelligence infinies qui émanent de son regard. Vous posez votre paume sur le front de la créature et, tandis qu\'une larme coule le long de votre joue, lui adressez ces ultimes mots :')
+            print('')
+            promptSlow('"Adieu, Dédale".')
+            print('')
+            print('<>===============================================================<>')
+            print('Merci d\'avoir joué !')
+            print('Voulez-vous retourner au menu principal ou quitter le jeu ?')
+            print('<>===============================================================<>')
             ask = input(" > ")
             while not (ask.lower() == 'menu' or ask.lower() == 'quitter'):
                 print('Commande inconnue, veuillez entrer "menu" ou "quitter"')
