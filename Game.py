@@ -45,7 +45,7 @@ class PlayerStats:
     self.lvl = 1
     self.xp = 0
     self.father = ""
-    self.textspeed = 0.05
+    self.textspeed = 0.02
 
 Player = PlayerStats()
 
@@ -137,26 +137,26 @@ def Combat(PlayerTurn, ennemy, playerdefense):
         print(InventoryList)
         ask = input(' > ')
         if ask in InventoryList:
-            if ask.lower() == 'ambrosia':
+            if ask.lower() == 'ambroisie':
                 promptSlow('Vous buvez l\'ambroisie')
                 Player.Hp += 10
                 i = 1
-                while Inventory[('slot' + str(i))][SLOT] != 'ambrosia':
+                while Inventory[('slot' + str(i))][SLOT] != 'ambroisie':
                     i += 1
                 Inventory[('slot' + str(i))][QUANTITY] = str(int(Inventory[('slot' + str(i))][QUANTITY]) - 1)
                 if Inventory[('slot' + str(i))][QUANTITY] == '0':
                     Inventory[('slot' + str(i))][SLOT] = 'empty'
-            elif ask.lower() == 'fire':
+            elif ask.lower() == 'feu sacré':
                 promptSlow('Vous lancer le feu sacré')
                 ennemy.Hp -= 10
                 i = 1
-                while Inventory[('slot' + str(i))][SLOT] != 'fire':
+                while Inventory[('slot' + str(i))][SLOT] != 'feu sacré':
                     i += 1
                 Inventory[('slot' + str(i))][QUANTITY] = str(int(Inventory[('slot' + str(i))][QUANTITY]) - 1)
                 if Inventory[('slot' + str(i))][QUANTITY] == '0':
                     Inventory[('slot' + str(i))][SLOT] = 'empty'
             else:
-                print('Veuillez choisir un consommable')
+                print('Veuillez choisir un consommable : "feu sacré" ou "ambroisie"')
                 useObject()
         elif ask.lower() == 'retour':
             Combat(PlayerTurn, ennemy, playerdefense)
@@ -307,7 +307,7 @@ EFFECT = 'effect'
 
 #Library for objects
 Objects = {
-          'ambrosia':{
+          'ambroisie':{
             OBJECTNAME: 'Ambroisie',
             DESCRIPTION: 'la boisson des dieux',
             EFFECT: 'Rends 10 HP',
@@ -317,17 +317,17 @@ Objects = {
             DESCRIPTION: 'Un bouclier mythique ayant apartenu à Persée',
             EFFECT: 'Vous permet de bloquer l\'intégralité des combats',
           },
-          'club':{
+          'massue':{
             OBJECTNAME: 'MASSUE D\'HERACLES',
             DESCRIPTION: 'Une massue ayant appartenu à un héros mythique',
             EFFECT: 'Augmente l\'attaque de 2',
           },
-          'fire':{
+          'feu sacré':{
             OBJECTNAME: 'FEU SACRE',
             DESCRIPTION: 'Vous pouvez le lancer pour infliger des dégâts',
             EFFECT: 'Inflige des dégâts à l\'ennemi.',
           },
-          'belt':{
+          'ceinture':{
             OBJECTNAME: 'CEINTURE D\'APHRODITE',
             DESCRIPTION: 'Une ceinture vous permettant d\'envouter n\'importe quel mortel',
             EFFECT: 'Augmente le charisme de 5',
@@ -345,11 +345,11 @@ QUANTITY = 'QUANTITY'
 #Library for inventory
 Inventory = {
             'slot1':{
-              SLOT:'fire',
+              SLOT:'feu sacré',
               QUANTITY:'1',
             },
             'slot2':{
-              SLOT:'ambrosia',
+              SLOT:'ambroisie',
               QUANTITY:'1',
             },
             'slot3':{
@@ -406,11 +406,11 @@ def passiveObject():
   InventoryList = ['','','','','']
   for i in range(0,5):
     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
-  if "club" in InventoryList and clubUsed == False :
-    clubUsed = True
+  if "massue" in InventoryList and massueUsed == False :
+    massueUsed = True
     Player.Atk += 2
-  elif "belt" in InventoryList and beltUsed == False :
-    beltUsed = True
+  elif "ceinture" in InventoryList and ceintureUsed == False :
+    ceintureUsed = True
     Player.Cha += 5
 
 # def useObject():
@@ -421,10 +421,10 @@ def passiveObject():
 #   print(InventoryList)
 #   ask = input(' > ')
 #   if ask in InventoryList:
-#     if ask == 'ambrosia':
+#     if ask == 'ambroisie':
 #       promptSlow('Vous buvez l\'ambroisie')
 #       Player.Hp += 10
-#     elif ask == 'Fire':
+#     elif ask == 'feu sacré':
 #       promptSlow('Vous lancer le feu sacré')
 
 # --------------  ZONE DE TEST  ------------------
@@ -435,12 +435,12 @@ def passiveObject():
 #   print('---------------')
 #   i = 1
 #   if Inventory[('slot' + str(i))] == 'empty':
-#     Inventory[('slot' + str(i))] = 'ambrosia'
+#     Inventory[('slot' + str(i))] = 'ambroisie'
 #   print(Inventory)
 
 # def testUse(objectUsed):
 #   print('avant' + str(Player.Hp))
-#   if objectUsed == 'ambrosia':
+#   if objectUsed == 'ambroisie':
 #     Player.Hp += 10
 #   print('après' + str(Player.Hp))
 
@@ -449,7 +449,7 @@ def passiveObject():
 # testInventory()
 # testUse(Inventory[('slot' + str(i))])
 
-# ObjectInventory('ambrosia')
+# ObjectInventory('ambroisie')
 
 # displayInventory()
 
@@ -550,6 +550,9 @@ def OptionsMenu():
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
     time.sleep(1)
     OptionsMenu()
+  elif ask.lower() == 'retour':
+    PrintMainMenu()
+    MainMenu()
 
 #credits menu
 def CreditsMenu():
@@ -668,7 +671,7 @@ ZoneMap = {
     EAST: 'A2',
     WEST: '',
     EVENT: 'object',
-    SPEC: 'fire',
+    SPEC: 'feu sacré',
   },
   'B1': {
     ZONENAME: 'Île de l\'œil du cyclone',
@@ -818,7 +821,7 @@ ZoneMap = {
     EAST: 'D4',
     WEST: 'D2',
     EVENT: 'object',
-    SPEC: 'belt',
+    SPEC: 'ceinture',
   },
   'E3': {
     ZONENAME: 'Le mal-aimé',
@@ -918,7 +921,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'B4',
     EVENT: 'object',
-    SPEC: 'club',
+    SPEC: 'massue',
   },
   'C5': {
     ZONENAME: 'Un adversaire de taille',
@@ -938,7 +941,7 @@ ZoneMap = {
     EAST: '',
     WEST: 'D4',
     EVENT: 'object',
-    SPEC: 'ambrosia',
+    SPEC: 'ambroisie',
   },
   'E5': {
     ZONENAME: 'Beaucoup trop de pattes à mon goût',
@@ -1201,7 +1204,7 @@ NpcDial = {
         DIALCHA1: '- Ah non, hein ! J\'en ai assez de ses crises ! Très bien, très bien, le voilà ton dédommagement. Retiens simplement que personne ne se moque de Zeus impunément.',
         DIALSON: '- Père, enfin je vous rencontre. C\'est un honneur.',
         DIALSON1: '- (Il est de moi, celui-là aussi ?!) Ah ! Oui ! Mon enfant ! Je suis si heureux de te rencontrer enfin. Laisse-moi te donner ma bénédiction divine. À présent, tes attaques seront plus puissantes qu\'elles ne l\'ont jamais été. Je souhaite bonne chance aux monstres qui croiseront ton chemin. En revanche, évite celui d\'Héra, si possible. Adieu, mon enfant.',
-        GIFT: 'fire',
+        GIFT: 'feu sacré',
     },
     'PoseidonDial':{
         NPCNAME: 'Poséidon',
@@ -1215,7 +1218,7 @@ NpcDial = {
         DIALCHA1: '- Hahaha, j\'en ai entendu parler, oui. Accepte donc ce modeste présent comme démonstration de mon admiration. Maintenant, chut, tu vas faire fuir le poisson.',
         DIALSON: '- Poséidon... J\'ai du mal à contrôler mon émotion. Je suis si heureux de vous rencontrer, père.',
         DIALSON1: '- Tiens donc ma canne à pêche un instant, mon enfant. Tu sais, la vie, c\'est comme la pêche. Tout est une question de patience. Inspire-toi de la mer à chaque instant. Aborde les épreuves avec calme et, quand le moment sera venu, déchaîne toi. Laisse-moi t\'accorder ma bénédiction avant de reprendre ton voyage. Que la vitalité de l\'océan t\'accompagne.',
-        GIFT: 'fire',
+        GIFT: 'feu sacré',
     },
     'HadesDial':{
         NPCNAME: 'Hadès',
@@ -1229,7 +1232,7 @@ NpcDial = {
         DIALCHA1: '- C\'est ça, fous toi de ma gueule. Qu\'est-ce que tu veux ? J\'ai l`habitude, avec vous, les héros. Tiens, prends ça et lâche moi la grappe.',
         DIALSON: '- Il a fait un gosse avec une mortelle y\'a quelques années. Bonjour, père.',
         DIALSON1: '- Alors ça ! Je te châtierais bien pour ton insolence, mais je dois bien avouer que tu tiens ça de ton père. T\'as bien raison, te laisse pas faire. Si on se bat pas, on se fait marcher dessus. Surtout les gens comme nous. Enfin, "les gens", les dieux, pour ma part. Approche, fiston, laisse moi te donner ma bénédiction divine. Sois polyvalent, apprends à attaquer mais aussi à te défendre, ça pourrait bien te permettre de ne pas avoir à me rendre visite avant un moment. Je dois y aller, à présent. J\'ai beucoup de boulot, en ce moment !',
-        GIFT: 'fire',
+        GIFT: 'feu sacré',
     },
     'ThanatosDial':{
         NPCNAME: 'Thanatos et Talos',
@@ -1241,7 +1244,7 @@ NpcDial = {
         DIAL2_1: '- Je sais pas trop, mais Monsieur Thanatos a été très gentil avec moi. Dites-moi, quand vous retournerez là-bas, vous pourrez dire à tonton Dédale que je sais que c\'était un accident ?',
         DIALCHA: '- Vous savez forcément ce qui a poussé Dédale à faire tout ça, j\'ai vraiment besoin qu\'on me donne des explications. Je commence à fatiguer d\'être dans le flou et de combattre sans arrêt malgré tout. (Parler à Thanatos)',
         DIALCHA1: '- Tu as raison, mortel. Comme tu le sais peut-être déjà, les dieux ont décidé d\'accorder le statut divin à Dédale, en guise de démonstration d\'admiration de la part de Zeus. Seulement, cela faisait déjà bien longtemps que Dédale avait commencé à sombrer dans la folie. Trop de démons le hantaient : Minos, Thésée, Arianne, Astérion... Talos...',
-        GIFT: 'ambrosia',
+        GIFT: 'ambroisie',
     },
     'DionysosDial':{
         NPCNAME: 'Dionysos',
@@ -1253,7 +1256,7 @@ NpcDial = {
         DIAL2_1: '- Haha, tu as bon goût, je dois dire. Tiens, attrape, je dois y retourner, de toute façon. J\'ai un groupe de satyres enivrés à retrouver.',
         DIALCHA: '- Seigneur Dionysos ! Je suis votre plus grand fan !',
         DIALCHA1: '- Oh ! J\'en connais un qui a le sens de la fête ! Malheureusement, la situation ne s\'y prête pas vraiment. Tiens, attrape ça, on fera la fête la prochaine fois qu\'on se voit. Pour l\'heure, j\'ai un groupe de satyres enivrés à retrouver.',
-        GIFT: 'ambrosia',
+        GIFT: 'ambroisie',
     },
     'MoiresDial':{
         NPCNAME: 'Les Moires',
@@ -1265,7 +1268,7 @@ NpcDial = {
         DIAL2_1: '- Je déroule, ne voyez-vous pas ?',
         DIALCHA: '- Que faites-vous ?',
         DIALCHA1: '- Je coupe, ne voyez-vous pas ? Prenez ceci, cela m\'évitera peut-être de m\'occuper de votre fil trop tôt.',
-        GIFT: 'ambrosia',
+        GIFT: 'ambroisie',
     },
     'MinosDial':{
         NPCNAME: 'Minos',
@@ -1277,7 +1280,7 @@ NpcDial = {
         DIAL2_1: '- ... Fou... Vengeance...',
         DIALCHA: '- C\'est Dédale qui vous a fait ça ?',
         DIALCHA1: '- ... Pitié... ... Partez... ... ... Prenez... et... ... ... partez...',
-        GIFT: 'fire',
+        GIFT: 'feu sacré',
     },
     'SphinxDial':{
         NPCNAME: 'La Sphinge',
@@ -1289,7 +1292,7 @@ NpcDial = {
         DIAL2_1: '- LA SPHINGE ! Ça se voit quand même, non ? L\'impolitesse des gens, je m\'y ferai jamais. t\'as de la chance que j\'ai commencé un régime sans humain.',
         DIALCHA: '- Laissez-moi deviner, c\'est l\'heure de la devinette, c\'est ça ?',
         DIALCHA1: '- Hihihi, tu es un malin, toi. Tiens, je t\'offre une petite friandise, tu me plais bien.',
-        GIFT: 'ambrosia',
+        GIFT: 'ambroisie',
     },
 }
 
