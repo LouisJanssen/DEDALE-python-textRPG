@@ -1,4 +1,3 @@
-# MODIFICATION DES NAME EN MOBNAME ET OBJECTNAME
 #Import of tools needed
 import sys
 import time
@@ -401,6 +400,22 @@ def displayInventory():
   for i in range(0,5):
     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
   print(InventoryList)
+  promptSlow('Quel objet voulez vous examinez ?')
+  promptSlow('Emplacement 1, 2, 3, 4 ou 5. Pour reveniren arrière entrez "retour"')
+  ask = input(' > ')
+  if ask in ['1', '2', '3', '4', '5']:
+    ObjPlace = Inventory[('slot' + str(ask))][SLOT]
+    ObjName = 'Objet : ' + Objects[ObjPlace][OBJECTNAME]
+    ObjDesc = 'Description : ' + Objects[ObjPlace][DESCRIPTION]
+    ObjEffect = 'Effet : ' + Objects[ObjPlace][EFFECT]
+    promptSlow(ObjName)
+    promptSlow(ObjDesc)
+    promptSlow(ObjEffect)
+    time.sleep(1)
+  elif ask == 'retour':
+    prompt()
+  else:
+    print('Commande inconnue essayez : "1", "2", "3", "4", "5", ou "retour"')
 
 def passiveObject():
   InventoryList = ['','','','','']
