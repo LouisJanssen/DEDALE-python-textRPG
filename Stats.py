@@ -13,56 +13,56 @@ class PlayerStats:
 #======================================================================================
 # Library monsters and stats
 
-NAME = 'NAME'
+MOBNAME = 'MOBNAME'
 HP = 'HP'
 ATK = 'ATK'
 XP = 'XP'
 
 MobStats = {
   'ChickenStats':{
-    NAME: 'Poule',
+    MOBNAME: 'Poule',
     HP: 1,
     ATK: 0,
     XP: 10,
   },
   'SpiderStats':{
-    NAME: 'Arraignée mécanique',
+    MOBNAME: 'Arraignée mécanique',
     HP: 5,
     ATK: 3,
     XP: 20,
   },
   'BoarStats':{
-    NAME: 'Sanglier',
+    MOBNAME: 'Sanglier',
     HP: 8,
     ATK: 5,
     XP: 30,
   },
   'HydraStats':{
-    NAME: 'Hydre',
+    MOBNAME: 'Hydre',
     HP: 15,
     ATK: 10,
     XP: 50,
   },
   'SirensStats':{
-    NAME: 'Sirène',
+    MOBNAME: 'Sirène',
     HP: 10,
     ATK: 10,
     XP: 40,
   },
   'CyclopStats':{
-    NAME: 'Cyclope',
+    MOBNAME: 'Cyclope',
     HP: 15,
     ATK: 15,
     XP: 60,
   },
   'LestrygonStats':{
-    NAME: 'Lestrygon',
+    MOBNAME: 'Lestrygon',
     HP: 10,
     ATK: 15,
     XP: 50,
   },
   'MinotaurStats':{
-    NAME: 'Minotaure',
+    MOBNAME: 'Minotaure',
     HP: 50,
     ATK: 25,
     XP: 0,

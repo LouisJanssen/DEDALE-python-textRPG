@@ -1,4 +1,7 @@
 # IMPORTS
+import sys
+import time
+from Main import *
 from DiceSystem import DiceRoll
 from Level import LevelUp
 from Stats import *
@@ -141,16 +144,34 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     
     elif Player.Hp <= 0 :
         print('GAME OVER')
+        Player.dead = True
+        time.sleep(1)
+        sys.exit()
     
     elif (Player.Hp > 0) and (ennemy.Hp <= 0) :
-        print('VICTOIRE')
+        if ennemy.name == 'Minotaure':
+            print('Victoire vous avez vaincu le Minotaure !')
+            print('Voulez-vous retourner au menu principal ou quitter le jeu?')
+            ask = input(" > ")
+            while not (ask.lower() == 'menu' or ask.lower() == 'quitter'):
+                print('Commande inconnue, veuillez entrer "menu" ou "quitter"')
+                ask = input(' > ')
+            if ask.lower() == 'menu':
+                PrintMainMenu()
+                MainMenu()
+            elif ask.lower() == 'quitter':
+                print('Merci d\'avoir joué !')
+                time.sleep(1)
+                sys.exit()
+        else:
+            print('VICTOIRE')
 
 def StartCombat(currentennemy):
 
     # SAVE MOB STATS
     class EnnemyStats:
         def __init__(self):
-            self.name = MobStats[currentennemy][NAME]
+            self.name = MobStats[currentennemy][MOBNAME]
             self.Hp = MobStats[currentennemy][HP]
             self.Atk = MobStats[currentennemy][ATK]
     

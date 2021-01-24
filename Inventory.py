@@ -3,7 +3,7 @@ from Tools import promptSlow
 
 Player = PlayerStats()
 #Initialisation of variables
-NAME = 'name'
+OBJECTNAME = 'name'
 DESCRIPTION = 'description'
 EFFECT = 'effect'
 
@@ -13,32 +13,32 @@ EFFECT = 'effect'
 #Library for objects
 Objects = {
           'ambrosia':{
-            NAME: 'Ambroisie',
+            OBJECTNAME: 'Ambroisie',
             DESCRIPTION: 'la boisson des dieux',
             EFFECT: 'Rends 10 HP',
           },
           'shield':{
-            NAME: 'BOUCLIER DE PERSEE',
+            OBJECTNAME: 'BOUCLIER DE PERSEE',
             DESCRIPTION: 'Un bouclier mythique ayant apartenu à Persée',
             EFFECT: 'Vous permet de bloquer l\'intégralité des combats',
           },
           'club':{
-            NAME: 'MASSUE D\'HERACLES',
+            OBJECTNAME: 'MASSUE D\'HERACLES',
             DESCRIPTION: 'Une massue ayant appartenu à un héros mythique',
             EFFECT: 'Augmente l\'attaque de 2',
           },
           'fire':{
-            NAME: 'FEU SACRE',
+            OBJECTNAME: 'FEU SACRE',
             DESCRIPTION: 'Vous pouvez le lancer pour infliger des dégâts',
             EFFECT: 'Inflige des dégâts à l\'ennemi.',
           },
           'belt':{
-            NAME: 'CEINTURE D\'APHRODITE',
+            OBJECTNAME: 'CEINTURE D\'APHRODITE',
             DESCRIPTION: 'Une ceinture vous permettant d\'envouter n\'importe quel mortel',
             EFFECT: 'Augmente le charisme de 5',
           },
           'empty':{
-            NAME: 'vide',
+            OBJECTNAME: 'vide',
             DESCRIPTION: 'vide',
             EFFECT: '',
           },
@@ -85,7 +85,7 @@ def ObjectInventory(objectName):
     elif Inventory[('slot' + ask)][SLOT] == objectName:
       Inventory[('slot' + ask)][QUANTITY] = str(int(Inventory[('slot' + ask)][QUANTITY]) + 1)
     else:
-      print("Voulez vous remplacer : " + Objects[Inventory[('slot' + ask)][SLOT]][NAME])
+      print("Voulez vous remplacer : " + Objects[Inventory[('slot' + ask)][SLOT]][OBJECTNAME])
       print("oui/non")
       ask2 = input(' > ')
       while not (ask2.lower() == 'oui' or ask2.lower() == 'non'):
@@ -159,4 +159,4 @@ def passiveObject():
 # displayInventory()
 
 # GERER LE NOM DES OBJETS
-# Objects[Inventory[('slot' + str(i + 1))][SLOT]][NAME]
+# Objects[Inventory[('slot' + str(i + 1))][SLOT]][OBJECTNAME]

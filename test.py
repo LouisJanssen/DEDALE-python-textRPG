@@ -54,7 +54,6 @@ Player = PlayerStats()
 MOBNAME = 'MOBNAME'
 HP = 'HP'
 ATK = 'ATK'
-LOOT = 'loot'
 XP = 'XP'
 
 MobStats = {
@@ -62,50 +61,49 @@ MobStats = {
     MOBNAME: 'Poule',
     HP: 1,
     ATK: 0,
-    LOOT: 'not defined',
     XP: 10,
   },
   'SpiderStats':{
     MOBNAME: 'Arraignée mécanique',
     HP: 5,
     ATK: 3,
-    LOOT: 'not defined',
     XP: 20,
   },
   'BoarStats':{
     MOBNAME: 'Sanglier',
     HP: 8,
     ATK: 5,
-    LOOT: 'not defined',
     XP: 30,
   },
   'HydraStats':{
     MOBNAME: 'Hydre',
     HP: 15,
     ATK: 10,
-    LOOT: 'not defined',
     XP: 50,
   },
   'SirensStats':{
     MOBNAME: 'Sirène',
     HP: 10,
     ATK: 10,
-    LOOT: 'not defined',
     XP: 40,
   },
   'CyclopStats':{
     MOBNAME: 'Cyclope',
     HP: 15,
     ATK: 15,
-    LOOT: 'not defined',
     XP: 60,
   },
   'LestrygonStats':{
     MOBNAME: 'Lestrygon',
     HP: 10,
     ATK: 15,
-    LOOT: 'not defined',
     XP: 50,
+  },
+  'MinotaurStats':{
+    MOBNAME: 'Minotaure',
+    HP: 50,
+    ATK: 25,
+    XP: 0,
   },
 }
 
@@ -130,8 +128,8 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     def useObject():
         SLOT = 'SLOT'
         QUANTITY = 'QUANTITY'
-        print("Quel objet souhaitez vous utiliser ?")
-        print('Entrez "retour" pour revenir au menu de combat')
+        promptSlow("Quel objet souhaitez vous utiliser ?")
+        promptSlow('Entrez "retour" pour revenir au menu de combat')
         InventoryList = ['','','','','']
         for i in range(0,5):
             InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
@@ -139,7 +137,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
         ask = input(' > ')
         if ask in InventoryList:
             if ask.lower() == 'ambrosia':
-                print('Vous buvez l\'ambroisie')
+                promptSlow('Vous buvez l\'ambroisie')
                 Player.Hp += 10
                 i = 1
                 while Inventory[('slot' + str(i))][SLOT] != 'ambrosia':
@@ -148,7 +146,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                 if Inventory[('slot' + str(i))][QUANTITY] == '0':
                     Inventory[('slot' + str(i))][SLOT] = 'empty'
             elif ask.lower() == 'fire':
-                print('Vous lancer le feu sacré')
+                promptSlow('Vous lancer le feu sacré')
                 ennemy.Hp -= 10
                 i = 1
                 while Inventory[('slot' + str(i))][SLOT] != 'fire':
@@ -180,10 +178,16 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                 # L'ennemi attaque
                 MobAttack = DiceRoll()
                 print('Lancer de dé ennemi :', MobAttack) # Est-ce qu'on l'affiche ?
-                if MobAttack >= 10 : # Modifier plus tard en fonction des stats du joueur (AGI...)
+                if MobAttack >= 10 : 
                     if PlayerDefense == False :
-                        Player.Hp -= ennemy.Atk # Ajouter plus tard les bonus relatifs à la STR
+                        if ennemy.name == 'Minotaure' and ennemy.Hp <= 20 :
+                            print('Astérion récupère une partie de l\'énergie vitale du labyrinthe pour se soigner.')
+                            ennemy.Hp += 10
+                        else :
+                            print('L\'ennemi attaque !')
+                            Player.Hp -= ennemy.Atk
                     elif PlayerDefense == True :
+                        print('L\'ennemi perce légèrement votre défense !')
                         InventoryList = ['','','','','']
                         SLOT = 'SLOT'
                         for i in range(0,5):
@@ -191,7 +195,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                         if 'shield' not in InventoryList:
                             Player.Hp -= (3/4)*(ennemy.Atk) # Les dégâts sont réduits de 3/4 si le joueur se défend
                 else :
-                    print('Loupé !')
+                    print('L\'ennemi a loupé !')
 
             else :
                 print('L\'ennemi est K.O.')
@@ -242,9 +246,26 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     elif Player.Hp <= 0 :
         print('GAME OVER')
         Player.dead = True
+        time.sleep(1)
+        sys.exit()
     
     elif (Player.Hp > 0) and (ennemy.Hp <= 0) :
-        print('VICTOIRE')
+        if ennemy.name == 'Minotaure':
+            print('Victoire vous avez vaincu le Minotaure !')
+            print('Voulez-vous retourner au menu principal ou quitter le jeu?')
+            ask = input(" > ")
+            while not (ask.lower() == 'menu' or ask.lower() == 'quitter'):
+                print('Commande inconnue, veuillez entrer "menu" ou "quitter"')
+                ask = input(' > ')
+            if ask.lower() == 'menu':
+                PrintMainMenu()
+                MainMenu()
+            elif ask.lower() == 'quitter':
+                print('Merci d\'avoir joué !')
+                time.sleep(1)
+                sys.exit()
+        else:
+            print('VICTOIRE')
 
 def StartCombat(currentennemy):
 
@@ -264,7 +285,7 @@ def StartCombat(currentennemy):
     MobXP = MobStats[currentennemy][XP]
     LevelUp(PlayerXP, MobXP)
 
-# StartCombat('SpiderStats')
+# StartCombat('MinotaurStats')
 # StartCombat('ChickenStats')
 
 #Initialisation of variables
@@ -770,7 +791,7 @@ ZoneMap = {
     EAST: 'A5',
     WEST: 'A3',
     EVENT: 'npc',
-    SPEC: 'ParquesDial',
+    SPEC: 'MoiresDial',
   },
   'B4': {
     ZONENAME: 'Vignes trompeuses',
@@ -1122,60 +1143,60 @@ NpcDial = {
     'HadesDial':{
         NPCNAME: 'Hadès',
         MINSTAT: 15,
-        SENTENCE: 'Blablablablablabla',
-        DIAL1: '1 - Bla',
-        DIAL1_1: '- Ki',
-        DIAL2: '2 - BlaBla',
-        DIAL2_1: '- Kiki',
-        DIALCHA: '3 - BliBlouBla',
-        DIALCHA1: '- Kikiki',
-        DIALSON: '4 - BlaBlouBli',
-        DIALSON1: '- Ikikik',
+        SENTENCE: 'Alors, qu\'est-ce que le grand méchant Hadès a encore fait de mal ?',
+        DIAL1: '- N-n-non-non ! Pitié ne me faites pas de mal !',
+        DIAL1_1: '- Eh bah dis-donc... Attends une seconde, me dis pas que c\'est toi le héros qui est censé résoudre tout ce merdier ? On est pas sortis de l\'auberge. Bon, j\'me tire, j\'vais encore avoir du boulot, moi.',
+        DIAL2: '- Savez-vous qui est réellement à l\'origine de tout cela, seigneur Hadès ?',
+        DIAL2_1: '- Ben oui, c\'est un secret pour personne, à l\'Olympe. J\'avais pourtant bien dit à mon crétin de frère que c\'était pas une bonne idée. J\'ai toujours dit que Dédale était complètement taré.',
+        DIALCHA: '- Seigneur Hadès, sans mentir, si votre ramage se rapporte à votre plumage, Vous êtes le phénix des hôtes de ce labyrinthe.',
+        DIALCHA1: '- C\'est ça, fous toi de ma gueule. Qu\'est-ce que tu veux ? J\'ai l`habitude, avec vous, les héros. Tiens, prends ça et lâche moi la grappe.',
+        DIALSON: '- Il a fait un gosse avec une mortelle y\'a quelques années. Bonjour, père.',
+        DIALSON1: '- Alors ça ! Je te châtierais bien pour ton insolence, mais je dois bien avouer que tu tiens ça de ton père. T\'as bien raison, te laisse pas faire. Si on se bat pas, on se fait marcher dessus. Surtout les gens comme nous. Enfin, "les gens", les dieux, pour ma part. Approche, fiston, laisse moi te donner ma bénédiction divine. Sois polyvalent, apprends à attaquer mais aussi à te défendre, ça pourrait bien te permettre de ne pas avoir à me rendre visite avant un moment. Je dois y aller, à présent. J\'ai beucoup de boulot, en ce moment !',
         GIFT: 'not_defined',
     },
     'ThanatosDial':{
         NPCNAME: 'Thanatos et Talos',
         MINSTAT: 15,
-        SENTENCE: 'Blablablablablabla',
-        DIAL1: '1 - Bla',
-        DIAL1_1: '- Ki',
-        DIAL2: '2 - BlaBla',
-        DIAL2_1: '- Kiki',
-        DIALCHA: '3 - BliBlouBla',
-        DIALCHA1: '- Kikiki',
+        SENTENCE: 'Tu ne devrais pas être là. Il est bien trop tôt pour que nous ne nous rencontrions. (Thanatos)',
+        DIAL1: '- Excusez-moi, mais je n\'ai aucune idée de comment je suis arrivé là. Je veux bien m\'en aller, si vous me montrez la sortie. (Parler à Thanatos)',
+        DIAL1_1: '- Ha ! Les humains regorgent de stratégies pour tenter de m\'échapper, mais toi, tu n\'as pas la moindre idée de ce qui t\'es arrivé. Je suis Thanatos, dieu de la mort. Rassure-toi, je vais te renvoyer de là d\'où tu viens, nous nous retrouverons tôt ou tard, de toute façon. Pour l\'heure, tu as une mission à terminer.',
+        DIAL2: '- Dis-moi, jeune garçon, peux-tu me dire où on se trouve, s\'il te plaît ? (Parler à Talos)',
+        DIAL2_1: '- Je sais pas trop, mais Monsieur Thanatos a été très gentil avec moi. Dites-moi, quand vous retournerez là-bas, vous pourrez dire à tonton Dédale que je sais que c\'était un accident ?',
+        DIALCHA: '- Vous savez forcément ce qui a poussé Dédale à faire tout ça, j\'ai vraiment besoin qu\'on me donne des explications. Je commence à fatiguer d\'être dans le flou et de combattre sans arrêt malgré tout. (Parler à Thanatos)',
+        DIALCHA1: '- Tu as raison, mortel. Comme tu le sais peut-être déjà, les dieux ont décidé d\'accorder le statut divin à Dédale, en guise de démonstration d\'admiration de la part de Zeus. Seulement, cela faisait déjà bien longtemps que Dédale avait commencé à sombrer dans la folie. Trop de démons le hantaient : Minos, Thésée, Arianne, Astérion... Talos...',
         GIFT: 'not_defined',
     },
     'DionysosDial':{
         NPCNAME: 'Dionysos',
         MINSTAT: 15,
-        SENTENCE: 'Blablablablablabla',
-        DIAL1: '1 - Bla',
-        DIAL1_1: '- Ki',
-        DIAL2: '2 - BlaBla',
-        DIAL2_1: '- Kiki',
-        DIALCHA: '3 - BliBlouBla',
-        DIALCHA1: '- Kikiki',
+        SENTENCE: 'C\'est quand-même meilleur que du jus de raisin !',
+        DIAL1: '- Dionysos ? C\'est vous ?',
+        DIAL1_1: '- Eh oui, petit ! On dirait que tu n\'as jamais vu de dieu de ta vie, héros ! Non... Me dis pas que je suis ta première fois ? Enfin, euh, on se comprend, hein. Très bien, sur ce, je dois y aller. J\'ai un groupe de satyres enivrés à retrouver. N\'oublie pas ce que je t\'ai dit concernant mon demi-frère. C\'est le roi des pièges.',
+        DIAL2: '- Hé ! J\'allais juste goûter au vin, soyez sympa !',
+        DIAL2_1: '- Haha, tu as bon goût, je dois dire. Tiens, attrape, je dois y retourner, de toute façon. J\'ai un groupe de satyres enivrés à retrouver.',
+        DIALCHA: '- Seigneur Dionysos ! Je suis votre plus grand fan !',
+        DIALCHA1: '- Oh ! J\'en connais un qui a le sens de la fête ! Malheureusement, la situation ne s\'y prête pas vraiment. Tiens, attrape ça, on fera la fête la prochaine fois qu\'on se voit. Pour l\'heure, j\'ai un groupe de satyres enivrés à retrouver.',
         GIFT: 'not_defined',
     },
-    'ParquesDial':{
-        NPCNAME: 'Les Parques',
+    'MoiresDial':{
+        NPCNAME: 'Les Moires',
         MINSTAT: 15,
-        SENTENCE: 'Blablablablablabla',
-        DIAL1: '1 - Bla',
-        DIAL1_1: '- Ki',
-        DIAL2: '2 - BlaBla',
-        DIAL2_1: '- Kiki',
-        DIALCHA: '3 - BliBlouBla',
-        DIALCHA1: '- Kikiki',
+        SENTENCE: 'Nous avons un visiteur, on dirait.',
+        DIAL1: '- Que faites-vous ? (Parler à la plus jeune)',
+        DIAL1_1: '- Je tisse, ne voyez-vous pas ?',
+        DIAL2: '- Que faites-vous ? (Parler à la femme adulte)',
+        DIAL2_1: '- Je déroule, ne voyez-vous pas ?',
+        DIALCHA: '- Que faites-vous ?',
+        DIALCHA1: '- Je coupe, ne voyez-vous pas ? Prenez ceci, cela m\'évitera peut-être de m\'occuper de votre fil trop tôt.',
         GIFT: 'not_defined',
     },
     'MinosDial':{
         NPCNAME: 'Minos',
         MINSTAT: 15,
-        SENTENCE: 'Blablablablablabla',
-        DIAL1: '1 - Bla',
-        DIAL1_1: '- Ki',
-        DIAL2: '2 - BlaBla',
+        SENTENCE: '...',
+        DIAL1: '- Je peux vous aider ?',
+        DIAL1_1: '- ...',
+        DIAL2: '- Qu\'est-ce qui vous est arrivé ?',
         DIAL2_1: '- Kiki',
         DIALCHA: '3 - BliBlouBla',
         DIALCHA1: '- Kikiki',
@@ -1207,7 +1228,7 @@ def SphinxEnigma() :
     promptSlow('- Et l\'entourloupe, elle est où ?')
     promptSlow('- Tu devras parier une partie de ta force vitale actuelle pour en gagner le double. Alors, qu\'en dis-tu ? Attention, tu n\'auras qu\'une seule chance.')
     print('1 - Je prends le risque, envoie ton énigme.')
-    print('2 - Très peu pour moi, merci')
+    print('2 - Très peu pour moi, merci.')
     print('>-------------------------------------------------<')
     StartEnigma = input(' > ')
     if StartEnigma == '1' :
