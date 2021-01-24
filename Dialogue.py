@@ -188,7 +188,6 @@ def Dialogue(npc):
     elif (DialChoice == '3') and (Player.Cha >= minstat) :
         promptSlow(NpcDial[npc][DIALCHA])
         promptSlow(NpcDial[npc][DIALCHA1])
-        # Le joueur recoit l'objet GIFT dans son inventaire
         ObjectInventory(NpcDial[npc][GIFT])
     elif (DialChoice == '3') and (Player.Cha < minstat) :
         promptSlow('Vous n\'avez pas le charisme nécessaire. Choisissez une autre option.')
