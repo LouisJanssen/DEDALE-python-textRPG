@@ -601,6 +601,15 @@ ActiveCase = {'A1': True, 'A2': True, 'A3': True,'A4': True, 'A5': True,
               'F1': True, 'F2': True, 'F3': False,'F4': True, 'F5': True
               }
 
+# Library for Map in real time
+MapCase = {'A1': 'o', 'A2': 'o', 'A3': 'o','A4': 'o', 'A5': 'o',
+           'B1': 'o', 'B2': 'o', 'B3': 'o','B4': 'o', 'B5': 'o',
+           'C1': 'o', 'C2': 'o', 'C3': 'o','C4': 'o', 'C5': 'o',
+           'D1': 'o', 'D2': 'o', 'D3': 'o','D4': 'o', 'D5': 'o',
+           'E1': 'o', 'E2': 'o', 'E3': 'o','E4': 'o', 'E5': 'o',
+           'F1': 'o', 'F2': 'o', 'F3': 'o','F4': 'o', 'F5': 'o'
+           }
+
 #Library for the map
 ZoneMap = {
   'A1': {
@@ -905,6 +914,24 @@ ZoneMap = {
   },
 }
 
+# Function for display real time map
+def MapDisplay():
+  for i in ActiveCase:
+    if ActiveCase[i] == False:
+      MapCase[i] = '-'
+  MapCase[Player.pos] = 'x'
+
+  print("   1  2  3  4  5 ")
+  print("A [" + MapCase['A1'] + "][" + MapCase['A2'] + "][" + MapCase['A3'] + "][" + MapCase['A4'] + "][" + MapCase['A5'] + "]")
+  print("B [" + MapCase['B1'] + "][" + MapCase['B2'] + "][" + MapCase['B3'] + "][" + MapCase['B4'] + "][" + MapCase['B5'] + "]")
+  print("C [" + MapCase['C1'] + "][" + MapCase['C2'] + "][" + MapCase['C3'] + "][" + MapCase['C4'] + "][" + MapCase['C5'] + "]")
+  print("D [" + MapCase['D1'] + "][" + MapCase['D2'] + "][" + MapCase['D3'] + "][" + MapCase['D4'] + "][" + MapCase['D5'] + "]")
+  print("E [" + MapCase['E1'] + "][" + MapCase['E2'] + "][" + MapCase['E3'] + "][" + MapCase['E4'] + "][" + MapCase['E5'] + "]")
+  print("F [" + MapCase['F1'] + "][" + MapCase['F2'] + "][" + MapCase['F3'] + "][" + MapCase['F4'] + "][" + MapCase['F5'] + "]")
+  print('Lieux non visités : o')
+  print('Lieux visités : -')
+  print('Position du joueur : x')
+
 #display the location of the player
 def PrintLocation():
   if(ActiveCase[Player.pos] == True):
@@ -939,14 +966,16 @@ def prompt():
       promptSlow('Liste des commandes: ')
       promptSlow('voyager        -       vous permets de vous déplacer')
       promptSlow('inventaire     -       vous permets d\'accéder à votre inventaire')
-      promptSlow('stats     -       vous permets d\'accéder à vos stats')
-      # promptSlow('carte          -       vous permets d\'accéder à votre carte')
-      promptSlow('aide           -       vous permet d\'avoir une liste des commandes')
+      promptSlow('stats          -       vous permets d\'accéder à vos stats')
+      promptSlow('carte          -       vous permets d\'accéder à votre carte')
+      promptSlow('aide           -       vous permets d\'avoir une liste des commandes')
       promptSlow('quitter        -       vous permet de quitter le jeu')
     elif action.lower() == 'inventaire':
       displayInventory()
     elif action.lower() == 'stats':
       displayStats()
+    elif action.lower() == 'carte':
+      MapDisplay()
     else:
       print("Commande invalide, essayez 'aide' pour avoir la liste des commandes.\n")
 
