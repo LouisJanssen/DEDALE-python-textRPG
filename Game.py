@@ -251,8 +251,16 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     
     elif (Player.Hp > 0) and (ennemy.Hp <= 0) :
         if ennemy.name == 'Minotaure':
-            print('Victoire vous avez vaincu le Minotaure !')
-            print('Voulez-vous retourner au menu principal ou quitter le jeu?')
+            print('FÉLICITATIONS : vous avez vaincu le Minotaure !')
+            print('-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-')
+            promptSlow('À vos pieds git le corps immense du Minotaure. Tandis que le labyrinthe s\'écroule peu à peu autour de vous, vous l\'observez longuement, partagé entre le soulagement et un sentiment étrange. Alors que vous vous apprêtez à lui tourner le dos, vous entendez un nouveau soufflement s\'échapper de ses narines. Sur votre garde, vous fixez son visage, prêt à attaquer au moindre mouvement. C\'est alors qu\'un détail qui vous a échappé jusque-là vous saute aux yeux. Vous reconnaissez la tristesse et l\'intelligence infinies qui émanent de son regard. Vous posez votre paume sur le front de la créature et, tandis qu\'une larme coule le long de votre joue, lui adressez ces ultimes mots :')
+            print('')
+            promptSlow('"Adieu, Dédale".')
+            print('')
+            print('<>===============================================================<>')
+            print('Merci d\'avoir joué !')
+            print('Voulez-vous retourner au menu principal ou quitter le jeu ?')
+            print('<>===============================================================<>')
             ask = input(" > ")
             while not (ask.lower() == 'menu' or ask.lower() == 'quitter'):
                 print('Commande inconnue, veuillez entrer "menu" ou "quitter"')
@@ -1559,7 +1567,7 @@ def OdysseusDialogue() :
         promptSlow('- Et maintenant ?')
         promptSlow('- J\'ai bien peur que tu n\'aies pas d\'autre solution que de mettre fin à cette folie.')
         promptSlow('- Vous n\'allez pas m\'aider ?')
-        promptSlow('- Crois-moi, je le ferais, si je le pouvais. Seulement, ma présence ici est temporaire. Zeus est parvenu à convaincre Morphée de me laisser te contacter. Il sait se montrer persuasif... Seulement, tu ne vas pas tarder à te réveiller, alors je dois faire vite, le temps presse. Tu dois trouver la source vitale du labyrinthe ! Dédale a beau avoir l\'intelligence d\'un dieu, il n\'en est pas un pour autant, et il est bien trop faible pour créer cet endroit à partir de sa seule psyché. Une fois que tu feras face à cette source, tu devras la détruire pour que tout revienne dans l\'ordre. C\'est le seul moyen d\'en finir avec cette folie.')
+        promptSlow('- Crois-moi, je le ferais, si je le pouvais. Seulement, ma présence ici est temporaire. Zeus est parvenu à convaincre Morphée de me laisser te contacter. Il sait se montrer persuasif... Seulement, tu ne vas pas tarder à te réveiller, alors je dois faire vite, le temps presse. Tu dois trouver la source vitale du labyrinthe ! Dédale a dû choisir une créature assez puissante pour le supporter. Probablement une créature liée à son passé, je le crains... Seulement, il faudrait une créature ayant à la fois une force physique et mentale hors du commun. Mais qui ? Quoi ? C\'est à toi de le découvrir, je suppose. Une fois que tu feras face à cette source, tu devras la détruire pour que tout revienne dans l\'ordre. C\'est le seul moyen d\'en finir avec cette folie.')
         OdysseusDialogue()
     elif OdysseusAnswer == '4' :
         promptSlow('- Je vais trouver le moyen de mettre fin à ce chaos.')
