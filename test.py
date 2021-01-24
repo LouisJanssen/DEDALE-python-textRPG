@@ -1,4 +1,4 @@
-
+# MODIFICATION DES NAME EN MOBNAME ET OBJECTNAME
 #Import of tools needed
 import sys
 import time
