@@ -7,19 +7,27 @@ Voici une liste des fonctionnalités présentes dans le jeu "Dédale" :
 - Map.
     > 30 lieux à découvrir.
     > 28 éléments répartis sur la map.
+    > Possibilité de repassé sur des cases déjà visité afin de découvrir toute la carte.
     } Consultable en jeu.
+    > Se met à jour indiquant où le joueur est passé et où il se trouve
 
-- Quiz de début (détermine le bonus de stats).
+- Quiz de début.
+    > Permet de définir les bonus de stats du joueur.
+    > Permet de définir qui est le père du Joueur rajoutant un choix de dialogue et une récompense s'il parle au PNJ correspondant.
 
 - Système de niveaux et de statistiques (HP, ATK, CHA).
-    } Consultable en jeu.
+    > HP est les points de vie du joueur.
+    > Atk du joueur.
+    > Cha permet d'avoir des choix de dialogue supplémentaire.
+    } Consultable en jeu et influant sur le jeu.
 
 - Objets et inventaire :
     > Consommables : feu sacré (dégâts), ambroisie (soins) ;
     > Équipement : Bouclier de Persée, Massue d'Héraclès, Ceinture d'Aphrodite.
-    } Consultable en jeu.
+    } Consultable en jeu et utilisable.
 
 - Combats et monstres divers :
+    > Possibilité d'attaquer, de se défendre ou d'utiliser un objet consommable.
     > Poulet ;
     > Araignée d'Héphaïstos ;
     > Sanglier ;
@@ -30,6 +38,7 @@ Voici une liste des fonctionnalités présentes dans le jeu "Dédale" :
     > BOSS : Astérion le Minotaure.
 
 - Dialogues et PNJ :
+    > Différentes options de dialogues.
     > Zeus ;
     > Poséidon ;
     > Hadès ;
