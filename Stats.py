@@ -1,8 +1,8 @@
 class PlayerStats:
   def __init__(self):
     self.name = ""
-    self.Hp = 10
-    self.Atk = 3
+    self.Hp = 15
+    self.Atk = 5
     self.Cha = 5
     self.pos = 'F3'
     self.dead = False
