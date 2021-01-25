@@ -1035,7 +1035,6 @@ def PlayerMove(MyAction):
         destination = ZoneMap[Player.pos][EAST]
         MovementHandler(destination)
       elif (ask == 'non'):
-        ActiveCase[Player.pos] = True
         prompt()
     else :
       destination = ZoneMap[Player.pos][EAST]
@@ -1053,7 +1052,6 @@ def PlayerMove(MyAction):
         destination = ZoneMap[Player.pos][NORTH]
         MovementHandler(destination)
       elif (ask == 'non'):
-        ActiveCase[Player.pos] = True
         prompt()
     else :
       destination = ZoneMap[Player.pos][NORTH]
@@ -1071,7 +1069,6 @@ def PlayerMove(MyAction):
         destination = ZoneMap[Player.pos][SOUTH]
         MovementHandler(destination)
       elif (ask == 'non'):
-        ActiveCase[Player.pos] = True
         prompt()
     else :
       destination = ZoneMap[Player.pos][SOUTH]
@@ -1089,7 +1086,6 @@ def PlayerMove(MyAction):
         destination = ZoneMap[Player.pos][WEST]
         MovementHandler(destination)
       elif (ask == 'non'):
-        ActiveCase[Player.pos] = True
         prompt()
     else :
       destination = ZoneMap[Player.pos][WEST]
