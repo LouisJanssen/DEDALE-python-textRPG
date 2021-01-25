@@ -37,15 +37,15 @@ def Blessing(Blesstype):
 class PlayerStats:
   def __init__(self):
     self.name = ""
-    self.Hp = 20
-    self.Atk = 5
-    self.Cha = 5
+    self.Hp = 200
+    self.Atk = 500
+    self.Cha = 500
     self.pos = 'F3'
     self.dead = False
     self.lvl = 1
     self.xp = 0
     self.father = ""
-    self.textspeed = 0.02
+    self.textspeed = 0
 
 Player = PlayerStats()
 
@@ -1012,6 +1012,7 @@ def PrintLocation():
     promptSlow(ZoneMap[Player.pos][ZONENAME].upper())
     promptSlow(ZoneMap[Player.pos][DESCRIPTION])
   else:
+    print('')
     promptSlow('Vous êtes déjà passé par ici, il ne reste plus rien d\'intéressant')
     print('')
 

@@ -1012,6 +1012,7 @@ def PrintLocation():
     promptSlow(ZoneMap[Player.pos][ZONENAME].upper())
     promptSlow(ZoneMap[Player.pos][DESCRIPTION])
   else:
+    print('')
     promptSlow('Vous êtes déjà passé par ici, il ne reste plus rien d\'intéressant')
     print('')
 
