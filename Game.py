@@ -559,17 +559,17 @@ def OptionsMenu():
   if ask.lower() == '1':
     Player.textspeed = 0
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
-    time.sleep(1)
+    time.sleep(0.5)
     OptionsMenu()
   elif ask.lower() == '2':
     Player.textspeed = 0.02
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
-    time.sleep(1)
+    time.sleep(0.5)
     OptionsMenu()
   elif ask.lower() == '3':
     Player.textspeed = 0.05
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
-    time.sleep(1)
+    time.sleep(0.5)
     OptionsMenu()
   elif ask.lower() == 'retour':
     PrintMainMenu()
@@ -812,7 +812,7 @@ ZoneMap = {
     SOUTH: 'B3',
     EAST: 'A4',
     WEST: 'A2',
-    EVENT: 'fight',
+    EVENT: 'BOSS',
     SPEC: 'MinotaurStats',
   },
   'B3': {
@@ -1018,6 +1018,8 @@ def PrintLocation():
 def prompt():
   if (ZoneMap[Player.pos][EVENT] == 'fight' and ActiveCase[Player.pos] == True):
     fightMonster()
+  if (ZoneMap[Player.pos][EVENT] == 'BOSS' and ActiveCase[Player.pos] == True):
+    fightMonster()
   elif (ZoneMap[Player.pos][EVENT] == 'npc' and ActiveCase[Player.pos] == True):
     npcSpeak()
   elif (ZoneMap[Player.pos][EVENT] == 'object' and ActiveCase[Player.pos] == True):
@@ -1153,8 +1155,7 @@ def main_game_loop():
     passiveObject()
     prompt()
 
-########## ZONE DE TESTS ##########
-#test 001
+# Function for events
 def fightMonster():
   StartCombat(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
