@@ -2,6 +2,7 @@
 import sys
 import time
 import os
+import pickle
 
 def DiceRoll() :
   import random
@@ -35,7 +36,7 @@ def Blessing(Blesstype):
 
 class PlayerStats:
   def __init__(self):
-    self.name = ""
+    self.name = "Bob"
     self.Hp = 10
     self.Atk = 3
     self.Cha = 5
@@ -43,7 +44,7 @@ class PlayerStats:
     self.dead = False
     self.lvl = 1
     self.xp = 0
-    self.father = ""
+    self.father = "Zeus"
     self.textspeed = 0.02
 
 Player = PlayerStats()
@@ -505,7 +506,11 @@ def PlayMenu():
   if ChoiceMainMenu.lower() == 'jouer' :
     Question1(0, 0, 0)
   elif ChoiceMainMenu.lower() == 'continuer' :
-    print('continuer')
+    if os.path.isfile("SaveFile") :
+      loadGame()
+    else :
+      promptSlow("Aucun fichier de sauvegarde trouvé.")
+      PlayMenu()
   else:
     print('Commande inconnue, essayez de rentrer une des instructions présente sur le menu.')
     PlayMenu()
@@ -575,6 +580,7 @@ def CreditsMenu():
   promptSlow('Histoire : Louis Janssen & François Olona')
   promptSlow('Map inspirée de : https://www.youtube.com/watch?v=ERLT1iU0DVY&list=PL1-slM0ZOosXf2oQYZpTRAoeuo0TPiGpm&index=3&ab_channel=BryanTong')
   promptSlow('Ressources pédagogiques : https://courspython.com/classes-et-objets.html et https://docs.python.org/fr/3/library/index.html')
+  promptSlow('Utilisation de pickle : https://www.geeksforgeeks.org/understanding-python-pickling-example/')
   promptSlow('Remerciements : Monsieur Loïc Janin')
   print('RETOUR')
   print('Appuyez sur la touche correspondante')
@@ -1034,6 +1040,7 @@ def prompt():
       promptSlow('inventaire     -       vous permets d\'accéder à votre inventaire')
       promptSlow('stats          -       vous permets d\'accéder à vos stats')
       promptSlow('carte          -       vous permets d\'accéder à votre carte')
+      promptSlow('sauvegarder    -       vous permets de sauvegarder votre partie')
       promptSlow('aide           -       vous permets d\'avoir une liste des commandes')
       promptSlow('quitter        -       vous permet de quitter le jeu')
     elif action.lower() == 'inventaire':
@@ -1042,6 +1049,9 @@ def prompt():
       displayStats()
     elif action.lower() == 'carte':
       MapDisplay()
+    elif action.lower() == 'sauvegarder':
+      promptSlow('Vous avez bien sauvegardé votre partie !')
+      saveGame()
     else:
       print("Commande invalide, essayez 'aide' pour avoir la liste des commandes.\n")
 
@@ -1637,9 +1647,50 @@ def OdysseusDialogue() :
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
         OdysseusDialogue()
-
-
-#     main_game_loop()
+  
+def saveGame(): 
+    # database 
+    db = {} 
+    db['PlayerName'] = Player.name
+    db['PlayerHp'] = Player.Hp
+    db['PlayerAtk'] = Player.Atk
+    db['PlayerCha'] = Player.Cha
+    db['Playerpos'] = Player.pos
+    db['Playerlvl'] = Player.lvl
+    db['Playerxp'] = Player.xp
+    db['Playerfather'] = Player.father
+    db['Playertextspeed'] = Player.textspeed
+    db['ActiveCase'] = ActiveCase
+    db['Inventory'] = Inventory
+      
+    # Création ou update du fichier
+    dbfile = open('SaveFile', 'wb') 
+      
+    # source, destination 
+    pickle.dump(db, dbfile)                      
+    dbfile.close() 
+  
+def loadGame(): 
+    dbfile = open('SaveFile', 'rb')      
+    db = pickle.load(dbfile) 
+    Player.name = db['PlayerName']
+    Player.Hp = db['PlayerHp']
+    Player.Atk = db['PlayerAtk']
+    Player.Cha = db['PlayerCha']
+    Player.pos = db['Playerpos']
+    Player.lvl = db['Playerlvl']
+    Player.xp = db['Playerxp']
+    Player.father = db['Playerfather']
+    Player.textspeed = db['Playertextspeed']
+    LoadedActiveCase = db['ActiveCase']
+    LoadedInventory = db['Inventory']
+    dbfile.close()
+    ActiveCase.clear()
+    ActiveCase.update(LoadedActiveCase)
+    Inventory.clear()
+    Inventory.update(LoadedInventory)
+    promptSlow('Chargement effectué ! Bon jeu !')
+    main_game_loop()
 
 PrintMainMenu()
 MainMenu()

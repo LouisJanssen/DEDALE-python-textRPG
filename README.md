@@ -7,7 +7,7 @@ François OLONA
 Theme:
 Greek Mythology
 
-Art ASCII : https://www.asciiart.eu/
+Utilisation de pickle : https://www.geeksforgeeks.org/understanding-python-pickling-example/
 
 Map inspirée de : https://www.youtube.com/watch?v=ERLT1iU0DVY&list=PL1-slM0ZOosXf2oQYZpTRAoeuo0TPiGpm&index=3&ab_channel=BryanTong
 
