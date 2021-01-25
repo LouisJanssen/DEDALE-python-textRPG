@@ -145,16 +145,16 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                     i += 1
                 Inventory[('slot' + str(i))][QUANTITY] = str(int(Inventory[('slot' + str(i))][QUANTITY]) - 1)
                 if Inventory[('slot' + str(i))][QUANTITY] == '0':
-                    Inventory[('slot' + str(i))][SLOT] = 'empty'
+                    Inventory[('slot' + str(i))][SLOT] = 'vide'
             elif ask.lower() == 'feu sacré':
                 promptSlow('Vous lancer le feu sacré')
-                ennemy.Hp -= 10
+                ennemy.Hp -= Player.Atk + 2
                 i = 1
                 while Inventory[('slot' + str(i))][SLOT] != 'feu sacré':
                     i += 1
                 Inventory[('slot' + str(i))][QUANTITY] = str(int(Inventory[('slot' + str(i))][QUANTITY]) - 1)
                 if Inventory[('slot' + str(i))][QUANTITY] == '0':
-                    Inventory[('slot' + str(i))][SLOT] = 'empty'
+                    Inventory[('slot' + str(i))][SLOT] = 'vide'
             else:
                 print('Veuillez choisir un consommable : "feu sacré" ou "ambroisie"')
                 useObject()
@@ -193,7 +193,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                         SLOT = 'SLOT'
                         for i in range(0,5):
                             InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
-                        if 'shield' not in InventoryList:
+                        if 'bouclier' not in InventoryList:
                             Player.Hp -= (3/4)*(ennemy.Atk) # Les dégâts sont réduits de 3/4 si le joueur se défend
                 else :
                     print('L\'ennemi a loupé !')
@@ -312,7 +312,7 @@ Objects = {
             DESCRIPTION: 'la boisson des dieux',
             EFFECT: 'Rends 10 HP',
           },
-          'shield':{
+          'bouclier':{
             OBJECTNAME: 'BOUCLIER DE PERSEE',
             DESCRIPTION: 'Un bouclier mythique ayant apartenu à Persée',
             EFFECT: 'Vous permet de bloquer l\'intégralité des combats',
@@ -332,10 +332,10 @@ Objects = {
             DESCRIPTION: 'Une ceinture vous permettant d\'envouter n\'importe quel mortel',
             EFFECT: 'Augmente le charisme de 5',
           },
-          'empty':{
+          'vide':{
             OBJECTNAME: 'vide',
             DESCRIPTION: 'vide',
-            EFFECT: '',
+            EFFECT: 'aucun',
           },
 }
 PasObject = {'ceintureUsed': False, 'massueUsed': False}
@@ -346,23 +346,23 @@ QUANTITY = 'QUANTITY'
 #Library for inventory
 Inventory = {
             'slot1':{
-              SLOT:'feu sacré',
-              QUANTITY:'1',
+              SLOT:'vide',
+              QUANTITY:'0',
             },
             'slot2':{
-              SLOT:'ambroisie',
-              QUANTITY:'1',
+              SLOT:'vide',
+              QUANTITY:'0',
             },
             'slot3':{
-              SLOT:'empty',
+              SLOT:'vide',
               QUANTITY:'0',
             },
             'slot4':{
-              SLOT:'empty',
+              SLOT:'vide',
               QUANTITY:'0',
             },
             'slot5':{
-              SLOT:'empty',
+              SLOT:'vide',
               QUANTITY:'0',
             },
 }
@@ -371,30 +371,36 @@ def ObjectInventory(objectName):
   InventoryList = ['','','','','']
   for i in range(0,5):
     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
-  print('Ou souhaitez vous placer l\'objet ? 1, 2, 3, 4 ou 5 ?')
-  print(InventoryList)
-  ask = input(' > ')
-  if (ask == '1' or ask =='2' or ask =='3' or ask == '4' or ask == '5'):
-    if Inventory[('slot' + ask)][SLOT] == 'empty':
-      Inventory[('slot' + ask)][SLOT] = objectName
-      Inventory[('slot' + ask)][QUANTITY] = str(int(Inventory[('slot' + ask)][QUANTITY]) + 1)
-    elif Inventory[('slot' + ask)][SLOT] == objectName:
-      Inventory[('slot' + ask)][QUANTITY] = str(int(Inventory[('slot' + ask)][QUANTITY]) + 1)
-    else:
-      print("Voulez vous remplacer : " + Objects[Inventory[('slot' + ask)][SLOT]][OBJECTNAME])
-      print("oui/non")
-      ask2 = input(' > ')
-      while not (ask2.lower() == 'oui' or ask2.lower() == 'non'):
-        print('Veuillez entrer soit "oui" soit "non"')
-        ask2 = input(' > ')
-      if ask2.lower() == 'oui':
-        Inventory[('slot' + ask)][SLOT] = objectName
-        Inventory[('slot' + ask)][QUANTITY] = '1'
-      elif ask2.lower() == 'non':
-        ObjectInventory(objectName)
+    
+  if str(objectName) in InventoryList:
+    for i in range(0,5):
+      if Inventory[('slot' + str(i + 1))][SLOT] == objectName:
+        Inventory[('slot' + str(i + 1))][QUANTITY] = str(int(Inventory[('slot' + str(i + 1))][QUANTITY]) + 1)
   else:
-    print('Commande inconnue, veuillez choisir entre les emplacements : 1, 2, 3, 4 ou 5.')
-    ObjectInventory(objectName)
+    print('Ou souhaitez vous placer l\'objet ? 1, 2, 3, 4 ou 5 ?')
+    print(InventoryList)
+    ask = input(' > ')
+    if (ask == '1' or ask =='2' or ask =='3' or ask == '4' or ask == '5'):
+      if Inventory[('slot' + ask)][SLOT] == 'vide':
+        Inventory[('slot' + ask)][SLOT] = objectName
+        Inventory[('slot' + ask)][QUANTITY] = str(int(Inventory[('slot' + ask)][QUANTITY]) + 1)
+      # elif Inventory[('slot' + ask)][SLOT] == objectName:
+      #   Inventory[('slot' + ask)][QUANTITY] = str(int(Inventory[('slot' + ask)][QUANTITY]) + 1)
+      else:
+        print("Voulez vous remplacer : " + Objects[Inventory[('slot' + ask)][SLOT]][OBJECTNAME])
+        print("oui/non")
+        ask2 = input(' > ')
+        while not (ask2.lower() == 'oui' or ask2.lower() == 'non'):
+          print('Veuillez entrer soit "oui" soit "non"')
+          ask2 = input(' > ')
+        if ask2.lower() == 'oui':
+          Inventory[('slot' + ask)][SLOT] = objectName
+          Inventory[('slot' + ask)][QUANTITY] = '1'
+        elif ask2.lower() == 'non':
+          ObjectInventory(objectName)
+    else:
+      print('Commande inconnue, veuillez choisir entre les emplacements : 1, 2, 3, 4 ou 5.')
+      ObjectInventory(objectName)
 
 def displayInventory():
   promptSlow('Voici votre inventaire :')
@@ -410,9 +416,11 @@ def displayInventory():
     ObjName = 'Objet : ' + Objects[ObjPlace][OBJECTNAME]
     ObjDesc = 'Description : ' + Objects[ObjPlace][DESCRIPTION]
     ObjEffect = 'Effet : ' + Objects[ObjPlace][EFFECT]
+    ObjQuantity = 'Quantité : ' + Inventory[('slot' + str(ask))][QUANTITY]
     promptSlow(ObjName)
     promptSlow(ObjDesc)
     promptSlow(ObjEffect)
+    promptSlow(ObjQuantity)
     time.sleep(1)
   elif ask == 'retour':
     prompt()
@@ -429,58 +437,6 @@ def passiveObject():
   elif "ceinture" in InventoryList and PasObject['ceintureUsed'] == False :
     PasObject['ceintureUsed'] = True
     Player.Cha += 5
-
-# def useObject():
-#   promptSlow("Quel objet souhaitez vous utiliser ?")
-#   InventoryList = ['','','','','']
-#   for i in range(0,5):
-#     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
-#   print(InventoryList)
-#   ask = input(' > ')
-#   if ask in InventoryList:
-#     if ask == 'ambroisie':
-#       promptSlow('Vous buvez l\'ambroisie')
-#       Player.Hp += 10
-#     elif ask == 'feu sacré':
-#       promptSlow('Vous lancer le feu sacré')
-
-# --------------  ZONE DE TEST  ------------------
-# def testInventory():
-#   print(Objects)
-#   print('---------------')
-#   print(Inventory)
-#   print('---------------')
-#   i = 1
-#   if Inventory[('slot' + str(i))] == 'empty':
-#     Inventory[('slot' + str(i))] = 'ambroisie'
-#   print(Inventory)
-
-# def testUse(objectUsed):
-#   print('avant' + str(Player.Hp))
-#   if objectUsed == 'ambroisie':
-#     Player.Hp += 10
-#   print('après' + str(Player.Hp))
-
-
-# i = 1 
-# testInventory()
-# testUse(Inventory[('slot' + str(i))])
-
-# ObjectInventory('ambroisie')
-
-# displayInventory()
-
-# GERER LE NOM DES OBJETS
-# Objects[Inventory[('slot' + str(i + 1))][SLOT]][NAME]
-
-
-# function for slow prompt of prints
-# def promptSlow(phrase):
-#   for l in phrase:
-#     sys.stdout.write(l)
-#     sys.stdout.flush()
-#     time.sleep(0.03)
-#   print('')
 
 # display of the menu
 def PrintMainMenu():
@@ -503,6 +459,7 @@ def PlayMenu():
   print('JOUER')
   print('CONTINUER')
   print('')
+  print('RETOUR')
   ChoiceMainMenu = input(' > ')
   if ChoiceMainMenu.lower() == 'jouer' :
     Question1(0, 0, 0)
@@ -512,6 +469,9 @@ def PlayMenu():
     else :
       promptSlow("Aucun fichier de sauvegarde trouvé.")
       PlayMenu()
+  elif ChoiceMainMenu.lower() == 'retour' :
+    PrintMainMenu()
+    MainMenu()
   else:
     print('Commande inconnue, essayez de rentrer une des instructions présente sur le menu.')
     PlayMenu()
@@ -733,7 +693,7 @@ ZoneMap = {
     EAST: 'E2',
     WEST: '',
     EVENT: 'object',
-    SPEC: 'shield',
+    SPEC: 'bouclier',
   },
   'F1': {
     ZONENAME: 'Forges d\'Héphaïstos',
