@@ -54,9 +54,9 @@ def LoadMenu():
 # instructions menu
 def InstructionsMenu():
   print('INSTRUCTIONS :')
-  promptSlow('Le but du jeu est d\'atteindre le boss et de le vaincre, pour ce faire vous aurez à l\'écran différents choix à faire que ce soit pour les déplacements, les choix de dialogue ou encore les combats.')
-  promptSlow('Pour effectuer une action entrez simplement ce que vous souhaitez faire dans le terminal')
-  promptSlow('Pour obtenir une liste des commandes en jeux entrez : aide')
+  promptSlow('Le but du jeu est d\'atteindre le boss et de le vaincre. Pour ce faire, vous aurez à l\'écran différents choix que ce soit pour les déplacements, les choix de dialogue ou encore les combats.')
+  promptSlow('Pour effectuer une action, entrez simplement ce que vous souhaitez faire dans le terminal.')
+  promptSlow('Pour obtenir une liste des commandes en jeu, entrez : aide')
   print('')
   print('RETOUR')
   print('')
@@ -92,11 +92,11 @@ def MainMenu ():
   elif ChoiceMainMenu.lower() in ['credits', 'crédits']:
     CreditsMenu()
   elif ChoiceMainMenu.lower() == 'quitter' :
-    print('PERSONNE NE S\'ECHAPPE DU LABYRINTHE !')
+    print('PERSONNE NE S\'ÉCHAPPE DU LABYRINTHE !')
     time.sleep(2)
     PrintMainMenu()
     MainMenu()
     print('____________________________________________________________')
   else :
-    print('Commande inconnue, essayez de rentrer une des instructions présente sur le menu ou tapez "instructions" pour avoir plus d\'infos. ')
+    print('Commande inconnue, essayez de rentrer une des instructions présentes sur le menu ou tapez "instructions" pour avoir plus d\'infos. ')
     MainMenu()

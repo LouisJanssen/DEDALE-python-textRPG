@@ -1,0 +1,57 @@
+Voici une liste des fonctionnalités présentes dans le jeu "Dédale" :
+
+- Menu.
+
+- Système de sauvegarde.
+
+- Map.
+    > 30 lieux à découvrir.
+    > 28 éléments répartis sur la map.
+    } Consultable en jeu.
+
+- Quiz de début (détermine le bonus de stats).
+
+- Système de niveaux et de statistiques (HP, ATK, CHA).
+    } Consultable en jeu.
+
+- Objets et inventaire :
+    > Consommables : feu sacré (dégâts), ambroisie (soins) ;
+    > Équipement : Bouclier de Persée, Massue d'Héraclès, Ceinture d'Aphrodite.
+    } Consultable en jeu.
+
+- Combats et monstres divers :
+    > Poulet ;
+    > Araignée d'Héphaïstos ;
+    > Sanglier ;
+    > Hydre ;
+    > Sirène ;
+    > Cyclope ;
+    > Lestrygon ;
+    > BOSS : Astérion le Minotaure.
+
+- Dialogues et PNJ :
+    > Zeus ;
+    > Poséidon ;
+    > Hadès ;
+    > Thanatos et Talos ;
+    > Dionysos ;
+    > Les Moires ;
+    > Minos ;
+    > La Sphinge.
+
+- Bénédictions et Malédictions (altérations de stats) :
+    > Bénédictions :
+        • Entraînement d'Héraclès.
+        • Bénédiction du Styx.
+    > Malédictions :
+        • Fléau de Narcisse.
+        • Penchant de Dionysos.
+
+- Histoire et narration développées.
+
+- Système de dé (combat).
+
+- Choix de la vitesse de défilement de texte.
+
+- BONUS :
+    > Jaquette du jeu (old school).
