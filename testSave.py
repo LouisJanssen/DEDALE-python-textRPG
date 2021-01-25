@@ -37,15 +37,15 @@ def Blessing(Blesstype):
 class PlayerStats:
   def __init__(self):
     self.name = "Bob"
-    self.Hp = 10
-    self.Atk = 3
+    self.Hp = 100
+    self.Atk = 50
     self.Cha = 5
     self.pos = 'F3'
     self.dead = False
     self.lvl = 1
     self.xp = 0
     self.father = "Zeus"
-    self.textspeed = 0.02
+    self.textspeed = 0
 
 Player = PlayerStats()
 
@@ -338,6 +338,7 @@ Objects = {
             EFFECT: '',
           },
 }
+PasObject = {'ceintureUsed': False, 'massueUsed': False}
 
 SLOT = 'SLOT'
 QUANTITY = 'QUANTITY'
@@ -422,11 +423,11 @@ def passiveObject():
   InventoryList = ['','','','','']
   for i in range(0,5):
     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
-  if "massue" in InventoryList and massueUsed == False :
-    massueUsed = True
+  if "massue" in InventoryList and PasObject['massueUsed'] == False :
+    PasObject['massueUsed'] = True
     Player.Atk += 2
-  elif "ceinture" in InventoryList and ceintureUsed == False :
-    ceintureUsed = True
+  elif "ceinture" in InventoryList and PasObject['ceintureUsed'] == False :
+    PasObject['ceintureUsed'] = True
     Player.Cha += 5
 
 # def useObject():
@@ -527,9 +528,9 @@ def PlayMenu():
 # instructions menu
 def InstructionsMenu():
   print('INSTRUCTIONS :')
-  promptSlow('Le but du jeu est d\'atteindre le boss et de le vaincre, pour ce faire vous aurez à l\'écran différents choix à faire que ce soit pour les déplacements, les choix de dialogue ou encore les combats.')
-  promptSlow('Pour effectuer une action entrez simplement ce que vous souhaitez faire dans le terminal')
-  promptSlow('Pour obtenir une liste des commandes en jeux entrez : aide')
+  promptSlow('Le but du jeu est d\'atteindre le boss et de le vaincre. Pour ce faire, vous aurez à l\'écran différents choix que ce soit pour les déplacements, les choix de dialogue ou encore les combats.')
+  promptSlow('Pour effectuer une action, entrez simplement ce que vous souhaitez faire dans le terminal.')
+  promptSlow('Pour obtenir une liste des commandes en jeu, entrez : aide')
   print('')
   print('RETOUR')
   print('')
@@ -607,13 +608,13 @@ def MainMenu ():
   elif ChoiceMainMenu.lower() in ['credits', 'crédits']:
     CreditsMenu()
   elif ChoiceMainMenu.lower() == 'quitter' :
-    print('PERSONNE NE S\'ECHAPPE DU LABYRINTHE !')
+    print('PERSONNE NE S\'ÉCHAPPE DU LABYRINTHE !')
     time.sleep(2)
     PrintMainMenu()
     MainMenu()
     print('____________________________________________________________')
   else :
-    print('Commande inconnue, essayez de rentrer une des instructions présente sur le menu ou tapez "instructions" pour avoir plus d\'infos. ')
+    print('Commande inconnue, essayez de rentrer une des instructions présentes sur le menu ou tapez "instructions" pour avoir plus d\'infos. ')
     MainMenu()
 
 def ChooseUpgrade(PlayerLevel):
@@ -811,8 +812,8 @@ ZoneMap = {
     SOUTH: 'B3',
     EAST: 'A4',
     WEST: 'A2',
-    EVENT: 'BOSS',
-    SPEC: '',
+    EVENT: 'fight',
+    SPEC: 'MinotaurStats',
   },
   'B3': {
     ZONENAME: 'Une responsabilité royale',
@@ -1016,17 +1017,17 @@ def PrintLocation():
 #main display with actions of the player
 def prompt():
   if (ZoneMap[Player.pos][EVENT] == 'fight' and ActiveCase[Player.pos] == True):
-    testlecombat()
+    fightMonster()
   elif (ZoneMap[Player.pos][EVENT] == 'npc' and ActiveCase[Player.pos] == True):
-    testnpc()
+    npcSpeak()
   elif (ZoneMap[Player.pos][EVENT] == 'object' and ActiveCase[Player.pos] == True):
-    testobject()
+    objectDiscover()
   elif (ZoneMap[Player.pos][EVENT] == 'curse' and ActiveCase[Player.pos] == True):
-    testcurse()
+    curseActivated()
   elif (ZoneMap[Player.pos][EVENT] == 'blessing' and ActiveCase[Player.pos] == True):
-    testblessing()
+    blessingActivated()
   elif (ZoneMap[Player.pos][EVENT] == 'easter' and ActiveCase[Player.pos] == True):
-    testeaster()
+    easterEgg()
   else:
     promptSlow('Que souhaitez vous faire ?')
     action = input('\n > ')
@@ -1154,37 +1155,36 @@ def main_game_loop():
 
 ########## ZONE DE TESTS ##########
 #test 001
-def testlecombat():
+def fightMonster():
   StartCombat(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(0.5)
   prompt()
 
-def testeaster():
-  print('easter')
+def easterEgg():
   ActiveCase[Player.pos] = False
   time.sleep(0.5)
   prompt()
 
-def testblessing():
+def blessingActivated():
   Blessing(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(0.5)
   prompt()
 
-def testcurse():
+def curseActivated():
   Curse(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(0.5)
   prompt()
 
-def testobject():
+def objectDiscover():
   ObjectInventory(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(0.5)
   prompt()
 
-def testnpc():
+def npcSpeak():
   Dialogue(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(0.5)
