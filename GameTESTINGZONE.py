@@ -36,16 +36,16 @@ def Blessing(Blesstype):
 
 class PlayerStats:
   def __init__(self):
-    self.name = "Bob"
-    self.Hp = 100
-    self.Atk = 50
+    self.name = ""
+    self.Hp = 20
+    self.Atk = 5
     self.Cha = 5
     self.pos = 'F3'
     self.dead = False
     self.lvl = 1
     self.xp = 0
-    self.father = "Zeus"
-    self.textspeed = 0
+    self.father = ""
+    self.textspeed = 0.02
 
 Player = PlayerStats()
 
@@ -61,18 +61,18 @@ MobStats = {
   'ChickenStats':{
     MOBNAME: 'Poule',
     HP: 1,
-    ATK: 0,
+    ATK: 9999,
     XP: 10,
   },
   'SpiderStats':{
     MOBNAME: 'Arraignée mécanique',
     HP: 5,
-    ATK: 3,
+    ATK: 5,
     XP: 20,
   },
   'BoarStats':{
     MOBNAME: 'Sanglier',
-    HP: 8,
+    HP: 10,
     ATK: 5,
     XP: 30,
   },
@@ -103,7 +103,7 @@ MobStats = {
   'MinotaurStats':{
     MOBNAME: 'Minotaure',
     HP: 50,
-    ATK: 25,
+    ATK: 20,
     XP: 0,
   },
 }
@@ -179,7 +179,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                 # L'ennemi attaque
                 MobAttack = DiceRoll()
                 print('Lancer de dé ennemi :', MobAttack) # Est-ce qu'on l'affiche ?
-                if MobAttack >= 10 : 
+                if MobAttack >= 3 : 
                     if PlayerDefense == False :
                         if ennemy.name == 'Minotaure' and ennemy.Hp <= 20 :
                             print('Astérion récupère une partie de l\'énergie vitale du labyrinthe pour se soigner.')
@@ -220,8 +220,8 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                 PlayerTurn = False
                 Attack = DiceRoll()
                 print('Lancer de dé :', Attack)
-                if Attack >= 10 : # Modifier plus tard en fonction des stats du joueur
-                    ennemy.Hp -= Player.Atk # Ajouter plus tard les bonus relatifs à la STR
+                if Attack >= 3 :
+                    ennemy.Hp -= Player.Atk
                 else :
                     print('Loupé !')
                 Combat(PlayerTurn, ennemy, playerdefense)
@@ -308,22 +308,22 @@ EFFECT = 'effect'
 #Library for objects
 Objects = {
           'ambroisie':{
-            OBJECTNAME: 'Ambroisie',
+            OBJECTNAME: 'AMBROISIE',
             DESCRIPTION: 'la boisson des dieux',
-            EFFECT: 'Rends 10 HP',
+            EFFECT: 'Rend 10 HP',
           },
-          'bouclier':{
-            OBJECTNAME: 'BOUCLIER DE PERSEE',
-            DESCRIPTION: 'Un bouclier mythique ayant apartenu à Persée',
-            EFFECT: 'Vous permet de bloquer l\'intégralité des combats',
+          'shield':{
+            OBJECTNAME: 'BOUCLIER DE PERSÉE',
+            DESCRIPTION: 'Un bouclier mythique ayant appartenu à Persée',
+            EFFECT: 'Vous permet de bloquer l\'intégralité des dégâts',
           },
           'massue':{
-            OBJECTNAME: 'MASSUE D\'HERACLES',
+            OBJECTNAME: 'MASSUE D\'HÉRACLÈS',
             DESCRIPTION: 'Une massue ayant appartenu à un héros mythique',
             EFFECT: 'Augmente l\'attaque de 2',
           },
           'feu sacré':{
-            OBJECTNAME: 'FEU SACRE',
+            OBJECTNAME: 'FEU SACRÉ',
             DESCRIPTION: 'Vous pouvez le lancer pour infliger des dégâts',
             EFFECT: 'Inflige des dégâts à l\'ennemi.',
           },
@@ -346,12 +346,12 @@ QUANTITY = 'QUANTITY'
 #Library for inventory
 Inventory = {
             'slot1':{
-              SLOT:'ambroisie',
-              QUANTITY:'1',
+              SLOT:'vide',
+              QUANTITY:'0',
             },
             'slot2':{
-              SLOT:'feu sacré',
-              QUANTITY:'1',
+              SLOT:'vide',
+              QUANTITY:'0',
             },
             'slot3':{
               SLOT:'vide',
@@ -384,8 +384,6 @@ def ObjectInventory(objectName):
       if Inventory[('slot' + ask)][SLOT] == 'vide':
         Inventory[('slot' + ask)][SLOT] = objectName
         Inventory[('slot' + ask)][QUANTITY] = str(int(Inventory[('slot' + ask)][QUANTITY]) + 1)
-      # elif Inventory[('slot' + ask)][SLOT] == objectName:
-      #   Inventory[('slot' + ask)][QUANTITY] = str(int(Inventory[('slot' + ask)][QUANTITY]) + 1)
       else:
         print("Voulez vous remplacer : " + Objects[Inventory[('slot' + ask)][SLOT]][OBJECTNAME])
         print("oui/non")
@@ -409,7 +407,7 @@ def displayInventory():
     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
   print(InventoryList)
   promptSlow('Quel objet voulez vous examinez ?')
-  promptSlow('Emplacement 1, 2, 3, 4 ou 5. Pour reveniren arrière entrez "retour"')
+  promptSlow('Emplacement 1, 2, 3, 4 ou 5. Pour revenir en arrière, entrez "retour"')
   ask = input(' > ')
   if ask in ['1', '2', '3', '4', '5']:
     ObjPlace = Inventory[('slot' + str(ask))][SLOT]
@@ -441,59 +439,73 @@ def passiveObject():
 # display of the menu
 def PrintMainMenu():
   os.system('clear')
-  print('-------------------------')
-  print('DEDALE')
-  print('-------------------------')
+  print('████████▄     ▄████████ ████████▄     ▄████████  ▄█          ▄████████ ')
+  print('███   ▀███   ███    ███ ███   ▀███   ███    ███ ███         ███    ███ ')
+  print('███    ███   ███    █▀  ███    ███   ███    ███ ███         ███    █▀  ')
+  print('███    ███  ▄███▄▄▄     ███    ███   ███    ███ ███        ▄███▄▄▄     ')
+  print('███    ███ ▀▀███▀▀▀     ███    ███ ▀███████████ ███       ▀▀███▀▀▀     ')
+  print('███    ███   ███    █▄  ███    ███   ███    ███ ███         ███    █▄  ')
+  print('███   ▄███   ███    ███ ███   ▄███   ███    ███ ███▌    ▄   ███    ███ ')
+  print('████████▀    ██████████ ████████▀    ███    █▀  █████▄▄██   ██████████ ')
+  print('                                                ▀                      ')
+  print('_______________________________________________________________________')
   print('')
-  print('JOUER')
-  # print('CHARGER')
-  print('INSTRUCTIONS')
-  print('OPTIONS')
-  print('CREDITS')
-  print('QUITTER')
+  print('                               .: JOUER :.                             ')
   print('')
-  print('____________________________________________________________')
+  print('                            .: INSTRUCTIONS :.                         ')
+  print('')
+  print('                              .: OPTIONS :.                            ')
+  print('')
+  print('                              .: CREDITS :.                            ')
+  print('')
+  print('                              .: QUITTER :.                            ')
+  print('')
+  print('_______________________________________________________________________')
 
 #PLay menu
 def PlayMenu():
-  print('JOUER')
-  print('CONTINUER')
+  print('                               .: JOUER :.                             ')
   print('')
-  print('RETOUR')
+  print('                             .: CONTINUER :.                           ')
+  print('')
+  print('                              .: RETOUR :.                             ')
+  print('')
+  print('_______________________________________________________________________')
   ChoiceMainMenu = input(' > ')
   if ChoiceMainMenu.lower() == 'jouer' :
+    print('')
     Question1(0, 0, 0)
   elif ChoiceMainMenu.lower() == 'continuer' :
     if os.path.isfile("SaveFile") :
       loadGame()
     else :
       promptSlow("Aucun fichier de sauvegarde trouvé.")
+      print('')
       PlayMenu()
   elif ChoiceMainMenu.lower() == 'retour' :
     PrintMainMenu()
     MainMenu()
   else:
     print('Commande inconnue, essayez de rentrer une des instructions présente sur le menu.')
+    print('')
     PlayMenu()
-
-#Load menu
-# def LoadMenu():
-#   print('SAUVEGARDE 1')
-#   print('SAUVEGARDE 2')
-#   print('SAUVEGARDE 3')
-#   print('RETOUR')
-#   print('')
-#   print('____________________________________________________________')
 
 # instructions menu
 def InstructionsMenu():
-  print('INSTRUCTIONS :')
-  promptSlow('Le but du jeu est d\'atteindre le boss et de le vaincre. Pour ce faire, vous aurez à l\'écran différents choix que ce soit pour les déplacements, les choix de dialogue ou encore les combats.')
-  promptSlow('Pour effectuer une action, entrez simplement ce que vous souhaitez faire dans le terminal.')
-  promptSlow('Pour obtenir une liste des commandes en jeu, entrez : aide')
+  print('                            .: INSTRUCTIONS :.                         ')
   print('')
-  print('RETOUR')
+  promptSlow(' - Le but du jeu est d\'atteindre le boss et de le vaincre. Pour ce faire,')
+  promptSlow('   vous aurez à l\'écran différents choix que ce soit pour les déplacements,')
+  promptSlow('   les choix de dialogue ou encore les combats.')
   print('')
+  promptSlow(' - Pour effectuer une action, entrez simplement ce que vous souhaitez faire')
+  promptSlow('   dans le terminal.')
+  print('')
+  promptSlow(' - Pour obtenir une liste des commandes en jeu, entrez : aide')
+  print('')
+  print('                              .: RETOUR :.                             ')
+  print('')
+  print('_______________________________________________________________________')
   ChoiceMainMenu = input(' > ')
   while ChoiceMainMenu != 'retour':
     print('Commande inconnue essayez "retour"')
@@ -504,14 +516,19 @@ def InstructionsMenu():
 
 # Options menu
 def OptionsMenu():
-  print('OPTIONS :')
-  print('Choisissez la vitesse de défilement du texte :')
-  print('1 - Vitesse 1 : rapide')
-  print('2 - Vitesse 2 : moyen')
-  print('3 - Vitesse 3 : lent')
+  print('                              .: OPTIONS :.                           ')
   print('')
-  print('RETOUR')
+  print('   Choisissez la vitesse de défilement du texte :')
   print('')
+  print('   1 - Vitesse 1 : rapide')
+  print('')
+  print('   2 - Vitesse 2 : moyen')
+  print('')
+  print('   3 - Vitesse 3 : lent')
+  print('')
+  print('                              .: RETOUR :.                             ')
+  print('')
+  print('_______________________________________________________________________')
   ask = input(' > ')
   while not (ask.lower() == '1' or ask.lower() == '2' or ask.lower() == '3' or ask.lower() == 'retour'):
     print('Commande inconnue veuillez rentrez "1", "2", "3", ou "retour"')
@@ -520,16 +537,19 @@ def OptionsMenu():
     Player.textspeed = 0
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
     time.sleep(0.5)
+    print('')
     OptionsMenu()
   elif ask.lower() == '2':
     Player.textspeed = 0.02
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
     time.sleep(0.5)
+    print('')
     OptionsMenu()
   elif ask.lower() == '3':
     Player.textspeed = 0.05
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
     time.sleep(0.5)
+    print('')
     OptionsMenu()
   elif ask.lower() == 'retour':
     PrintMainMenu()
@@ -537,22 +557,30 @@ def OptionsMenu():
 
 #credits menu
 def CreditsMenu():
+  print('                             .: CREDITS :.                             ')
+  print('')
   promptSlow('Code : Louis Janssen & François Olona')
+  print('')
   promptSlow('Histoire : Louis Janssen & François Olona')
+  print('')
   promptSlow('Map inspirée de : https://www.youtube.com/watch?v=ERLT1iU0DVY&list=PL1-slM0ZOosXf2oQYZpTRAoeuo0TPiGpm&index=3&ab_channel=BryanTong')
+  print('')
   promptSlow('Ressources pédagogiques : https://courspython.com/classes-et-objets.html et https://docs.python.org/fr/3/library/index.html')
+  print('')
   promptSlow('Utilisation de pickle : https://www.geeksforgeeks.org/understanding-python-pickling-example/')
+  print('')
   promptSlow('Remerciements : Monsieur Loïc Janin')
-  print('RETOUR')
-  print('Appuyez sur la touche correspondante')
-  ChoiceMainMenu = input()
+  print('')
+  print('                              .: RETOUR :.                             ')
+  print('')
+  print('_______________________________________________________________________')
+  ChoiceMainMenu = input(' > ')
   while ChoiceMainMenu != 'retour':
     print('Commande inconnue essayez "retour"')
     ChoiceMainMenu = input(' > ')
   if ChoiceMainMenu.lower() == 'retour' :
     PrintMainMenu()
     MainMenu()
-  print('____________________________________________________________')
 
 #main function for the main menu
 def MainMenu ():
@@ -565,11 +593,11 @@ def MainMenu ():
     InstructionsMenu()
   elif ChoiceMainMenu.lower() in ['options', 'option'] :
     OptionsMenu()
-  elif ChoiceMainMenu.lower() in ['credits', 'crédits']:
+  elif ChoiceMainMenu.lower() in ['credits', 'crédits', 'credit', 'crédit']:
     CreditsMenu()
   elif ChoiceMainMenu.lower() == 'quitter' :
     print('PERSONNE NE S\'ÉCHAPPE DU LABYRINTHE !')
-    time.sleep(2)
+    time.sleep(1)
     PrintMainMenu()
     MainMenu()
     print('____________________________________________________________')
@@ -586,11 +614,14 @@ def ChooseUpgrade(PlayerLevel):
     print('[CHA]', Player.Cha)
     Choice = input()
     if Choice.lower() == 'hp' :
-        Player.Hp += 3
+        Player.Hp += 10
+        print('Vos points de vie passent à', Player.Hp, '!')
     elif Choice.lower() == 'atk' :
-        Player.Atk += 3
+        Player.Atk += 5
+        print('Votre attaque passe à', Player.Atk, '!')
     elif Choice.lower() == 'cha' :
-        Player.Cha += 1
+        Player.Cha += 5
+        print('Votre charisme passe à', Player.Cha, '!')
     else :
         print('[ERREUR] Veuillez entrer un choix valide.')
         ChooseUpgrade(PlayerLevel)
@@ -1176,7 +1207,7 @@ GIFT = 'GIFT'
 NpcDial = {
     'ZeusDial':{
         NPCNAME: 'Zeus',
-        MINSTAT: 15,
+        MINSTAT: 20,
         SENTENCE: '- Oui ? On me parle ?',
         DIAL1: '- Z-Zeus, c\'est bien vous ?',
         DIAL1_1: '- Bien sûr que oui, avorton ! Tu oses questionner ma royale identité ? Décidément, les héros de nos jours, c\'est plus ce que c\'était. Bon, je tenais quand même à te souhaiter bonne chance pour Dédale, tout ça. Sur ce, je dois y aller. Héra va encore me chercher des noises, sinon...',
@@ -1190,7 +1221,7 @@ NpcDial = {
     },
     'PoseidonDial':{
         NPCNAME: 'Poséidon',
-        MINSTAT: 15,
+        MINSTAT: 20,
         SENTENCE: 'Ça mord bien, aujourd\'hui.',
         DIAL1: '- Qu\'est-ce que vous faites ici, au milieu de l\'océan ?',
         DIAL1_1: '- Je te retourne la question, voyageur. Je profite du beau de temps et du calme marin. Il n\'y a que ça qui parvienne à me détendre réellement.',
@@ -1204,7 +1235,7 @@ NpcDial = {
     },
     'HadesDial':{
         NPCNAME: 'Hadès',
-        MINSTAT: 15,
+        MINSTAT: 20,
         SENTENCE: 'Alors, qu\'est-ce que le grand méchant Hadès a encore fait de mal ?',
         DIAL1: '- N-n-non-non ! Pitié ne me faites pas de mal !',
         DIAL1_1: '- Eh bah dis-donc... Attends une seconde, me dis pas que c\'est toi le héros qui est censé résoudre tout ce merdier ? On est pas sortis de l\'auberge. Bon, j\'me tire, j\'vais encore avoir du boulot, moi.',
@@ -1218,7 +1249,7 @@ NpcDial = {
     },
     'ThanatosDial':{
         NPCNAME: 'Thanatos et Talos',
-        MINSTAT: 15,
+        MINSTAT: 10,
         SENTENCE: 'Tu ne devrais pas être là. Il est bien trop tôt pour que nous ne nous rencontrions. (Thanatos)',
         DIAL1: '- Excusez-moi, mais je n\'ai aucune idée de comment je suis arrivé là. Je veux bien m\'en aller, si vous me montrez la sortie. (Parler à Thanatos)',
         DIAL1_1: '- Ha ! Les humains regorgent de stratégies pour tenter de m\'échapper, mais toi, tu n\'as pas la moindre idée de ce qui t\'es arrivé. Je suis Thanatos, dieu de la mort. Rassure-toi, je vais te renvoyer de là d\'où tu viens, nous nous retrouverons tôt ou tard, de toute façon. Pour l\'heure, tu as une mission à terminer.',
@@ -1230,7 +1261,7 @@ NpcDial = {
     },
     'DionysosDial':{
         NPCNAME: 'Dionysos',
-        MINSTAT: 15,
+        MINSTAT: 5,
         SENTENCE: 'C\'est quand-même meilleur que du jus de raisin !',
         DIAL1: '- Dionysos ? C\'est vous ?',
         DIAL1_1: '- Eh oui, petit ! On dirait que tu n\'as jamais vu de dieu de ta vie, héros ! Non... Me dis pas que je suis ta première fois ? Enfin, euh, on se comprend, hein. Très bien, sur ce, je dois y aller. J\'ai un groupe de satyres enivrés à retrouver. N\'oublie pas ce que je t\'ai dit concernant mon demi-frère. C\'est le roi des pièges.',
@@ -1254,7 +1285,7 @@ NpcDial = {
     },
     'MinosDial':{
         NPCNAME: 'Minos',
-        MINSTAT: 15,
+        MINSTAT: 10,
         SENTENCE: '...',
         DIAL1: '- Je peux vous aider ?',
         DIAL1_1: '- ...',
@@ -1337,6 +1368,7 @@ def Dialogue(npc):
     elif (DialChoice == '3') and (Player.Cha >= minstat) :
         promptSlow(NpcDial[npc][DIALCHA])
         promptSlow(NpcDial[npc][DIALCHA1])
+        print('Vous recevez l\'objet', NpcDial[npc][GIFT], '!')
         ObjectInventory(NpcDial[npc][GIFT])
     elif (DialChoice == '3') and (Player.Cha < minstat) :
         promptSlow('Vous n\'avez pas le charisme nécessaire. Choisissez une autre option.')
@@ -1461,11 +1493,11 @@ def Question2(zeus, poseidon, hades) :
     print('<>==============================<>')
     Answer2 = input(' > ')
     if Answer2 == '1' :
-        zeus += 1
-    elif Answer2 == '2' :
         poseidon += 1
-    elif Answer2 == '3' :
+    elif Answer2 == '2' :
         hades += 1
+    elif Answer2 == '3' :
+        zeus += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         Question2(zeus, poseidon, hades)
@@ -1482,11 +1514,11 @@ def Question3(zeus, poseidon, hades) :
     print('<>==============================<>')
     Answer3 = input(' > ')
     if Answer3 == '1' :
-        zeus += 1
-    elif Answer3 == '2' :
-        poseidon += 1
-    elif Answer3 == '3' :
         hades += 1
+    elif Answer3 == '2' :
+        zeus += 1
+    elif Answer3 == '3' :
+        poseidon += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         Question3(zeus, poseidon, hades)
@@ -1505,9 +1537,9 @@ def Question4(zeus, poseidon, hades) :
     if Answer4 == '1' :
         zeus += 1
     elif Answer4 == '2' :
-        poseidon += 1
-    elif Answer4 == '3' :
         hades += 1
+    elif Answer4 == '3' :
+        poseidon += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         Question4(zeus, poseidon, hades)
@@ -1524,11 +1556,11 @@ def Question5(zeus, poseidon, hades) :
     print('<>==============================<>')
     Answer5 = input(' > ')
     if Answer5 == '1' :
-        zeus += 1
+        hades += 1
     elif Answer5 == '2' :
         poseidon += 1
     elif Answer5 == '3' :
-        hades += 1
+        zeus += 1
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         Question5(zeus, poseidon, hades)
@@ -1604,7 +1636,7 @@ def OdysseusDialogue() :
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
         OdysseusDialogue()
-  
+
 def saveGame(): 
     # database 
     db = {} 

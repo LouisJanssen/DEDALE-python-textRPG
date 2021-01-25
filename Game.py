@@ -439,59 +439,73 @@ def passiveObject():
 # display of the menu
 def PrintMainMenu():
   os.system('clear')
-  print('-------------------------')
-  print('DEDALE')
-  print('-------------------------')
+  print('████████▄     ▄████████ ████████▄     ▄████████  ▄█          ▄████████ ')
+  print('███   ▀███   ███    ███ ███   ▀███   ███    ███ ███         ███    ███ ')
+  print('███    ███   ███    █▀  ███    ███   ███    ███ ███         ███    █▀  ')
+  print('███    ███  ▄███▄▄▄     ███    ███   ███    ███ ███        ▄███▄▄▄     ')
+  print('███    ███ ▀▀███▀▀▀     ███    ███ ▀███████████ ███       ▀▀███▀▀▀     ')
+  print('███    ███   ███    █▄  ███    ███   ███    ███ ███         ███    █▄  ')
+  print('███   ▄███   ███    ███ ███   ▄███   ███    ███ ███▌    ▄   ███    ███ ')
+  print('████████▀    ██████████ ████████▀    ███    █▀  █████▄▄██   ██████████ ')
+  print('                                                ▀                      ')
+  print('_______________________________________________________________________')
   print('')
-  print('JOUER')
-  # print('CHARGER')
-  print('INSTRUCTIONS')
-  print('OPTIONS')
-  print('CREDITS')
-  print('QUITTER')
+  print('                               .: JOUER :.                             ')
   print('')
-  print('____________________________________________________________')
+  print('                            .: INSTRUCTIONS :.                         ')
+  print('')
+  print('                              .: OPTIONS :.                            ')
+  print('')
+  print('                              .: CREDITS :.                            ')
+  print('')
+  print('                              .: QUITTER :.                            ')
+  print('')
+  print('_______________________________________________________________________')
 
 #PLay menu
 def PlayMenu():
-  print('JOUER')
-  print('CONTINUER')
+  print('                               .: JOUER :.                             ')
   print('')
-  print('RETOUR')
+  print('                             .: CONTINUER :.                           ')
+  print('')
+  print('                              .: RETOUR :.                             ')
+  print('')
+  print('_______________________________________________________________________')
   ChoiceMainMenu = input(' > ')
   if ChoiceMainMenu.lower() == 'jouer' :
+    print('')
     Question1(0, 0, 0)
   elif ChoiceMainMenu.lower() == 'continuer' :
     if os.path.isfile("SaveFile") :
       loadGame()
     else :
       promptSlow("Aucun fichier de sauvegarde trouvé.")
+      print('')
       PlayMenu()
   elif ChoiceMainMenu.lower() == 'retour' :
     PrintMainMenu()
     MainMenu()
   else:
     print('Commande inconnue, essayez de rentrer une des instructions présente sur le menu.')
+    print('')
     PlayMenu()
-
-#Load menu
-# def LoadMenu():
-#   print('SAUVEGARDE 1')
-#   print('SAUVEGARDE 2')
-#   print('SAUVEGARDE 3')
-#   print('RETOUR')
-#   print('')
-#   print('____________________________________________________________')
 
 # instructions menu
 def InstructionsMenu():
-  print('INSTRUCTIONS :')
-  promptSlow('Le but du jeu est d\'atteindre le boss et de le vaincre. Pour ce faire, vous aurez à l\'écran différents choix que ce soit pour les déplacements, les choix de dialogue ou encore les combats.')
-  promptSlow('Pour effectuer une action, entrez simplement ce que vous souhaitez faire dans le terminal.')
-  promptSlow('Pour obtenir une liste des commandes en jeu, entrez : aide')
+  print('                            .: INSTRUCTIONS :.                         ')
   print('')
-  print('RETOUR')
+  promptSlow(' - Le but du jeu est d\'atteindre le boss et de le vaincre. Pour ce faire,')
+  promptSlow('   vous aurez à l\'écran différents choix que ce soit pour les déplacements,')
+  promptSlow('   les choix de dialogue ou encore les combats.')
   print('')
+  promptSlow(' - Pour effectuer une action, entrez simplement ce que vous souhaitez faire')
+  promptSlow('   dans le terminal.')
+  print('')
+  promptSlow(' - Pour obtenir une liste des commandes en jeu, entrez : aide')
+  print('')
+  print('                              .: RETOUR :.                             ')
+  print('')
+  print('_______________________________________________________________________')
   ChoiceMainMenu = input(' > ')
   while ChoiceMainMenu != 'retour':
     print('Commande inconnue essayez "retour"')
@@ -502,14 +516,19 @@ def InstructionsMenu():
 
 # Options menu
 def OptionsMenu():
-  print('OPTIONS :')
-  print('Choisissez la vitesse de défilement du texte :')
-  print('1 - Vitesse 1 : rapide')
-  print('2 - Vitesse 2 : moyen')
-  print('3 - Vitesse 3 : lent')
+  print('                              .: OPTIONS :.                           ')
   print('')
-  print('RETOUR')
+  print('   Choisissez la vitesse de défilement du texte :')
   print('')
+  print('   1 - Vitesse 1 : rapide')
+  print('')
+  print('   2 - Vitesse 2 : moyen')
+  print('')
+  print('   3 - Vitesse 3 : lent')
+  print('')
+  print('                              .: RETOUR :.                             ')
+  print('')
+  print('_______________________________________________________________________')
   ask = input(' > ')
   while not (ask.lower() == '1' or ask.lower() == '2' or ask.lower() == '3' or ask.lower() == 'retour'):
     print('Commande inconnue veuillez rentrez "1", "2", "3", ou "retour"')
@@ -518,16 +537,19 @@ def OptionsMenu():
     Player.textspeed = 0
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
     time.sleep(0.5)
+    print('')
     OptionsMenu()
   elif ask.lower() == '2':
     Player.textspeed = 0.02
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
     time.sleep(0.5)
+    print('')
     OptionsMenu()
   elif ask.lower() == '3':
     Player.textspeed = 0.05
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
     time.sleep(0.5)
+    print('')
     OptionsMenu()
   elif ask.lower() == 'retour':
     PrintMainMenu()
@@ -535,22 +557,30 @@ def OptionsMenu():
 
 #credits menu
 def CreditsMenu():
+  print('                             .: CREDITS :.                             ')
+  print('')
   promptSlow('Code : Louis Janssen & François Olona')
+  print('')
   promptSlow('Histoire : Louis Janssen & François Olona')
+  print('')
   promptSlow('Map inspirée de : https://www.youtube.com/watch?v=ERLT1iU0DVY&list=PL1-slM0ZOosXf2oQYZpTRAoeuo0TPiGpm&index=3&ab_channel=BryanTong')
+  print('')
   promptSlow('Ressources pédagogiques : https://courspython.com/classes-et-objets.html et https://docs.python.org/fr/3/library/index.html')
+  print('')
   promptSlow('Utilisation de pickle : https://www.geeksforgeeks.org/understanding-python-pickling-example/')
+  print('')
   promptSlow('Remerciements : Monsieur Loïc Janin')
-  print('RETOUR')
-  print('Appuyez sur la touche correspondante')
-  ChoiceMainMenu = input()
+  print('')
+  print('                              .: RETOUR :.                             ')
+  print('')
+  print('_______________________________________________________________________')
+  ChoiceMainMenu = input(' > ')
   while ChoiceMainMenu != 'retour':
     print('Commande inconnue essayez "retour"')
     ChoiceMainMenu = input(' > ')
   if ChoiceMainMenu.lower() == 'retour' :
     PrintMainMenu()
     MainMenu()
-  print('____________________________________________________________')
 
 #main function for the main menu
 def MainMenu ():
@@ -563,11 +593,11 @@ def MainMenu ():
     InstructionsMenu()
   elif ChoiceMainMenu.lower() in ['options', 'option'] :
     OptionsMenu()
-  elif ChoiceMainMenu.lower() in ['credits', 'crédits']:
+  elif ChoiceMainMenu.lower() in ['credits', 'crédits', 'credit', 'crédit']:
     CreditsMenu()
   elif ChoiceMainMenu.lower() == 'quitter' :
     print('PERSONNE NE S\'ÉCHAPPE DU LABYRINTHE !')
-    time.sleep(2)
+    time.sleep(1)
     PrintMainMenu()
     MainMenu()
     print('____________________________________________________________')
