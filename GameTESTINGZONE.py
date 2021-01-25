@@ -377,15 +377,18 @@ def ObjectInventory(objectName):
       if Inventory[('slot' + str(i + 1))][SLOT] == objectName:
         Inventory[('slot' + str(i + 1))][QUANTITY] = str(int(Inventory[('slot' + str(i + 1))][QUANTITY]) + 1)
   else:
-    print('Ou souhaitez vous placer l\'objet ? 1, 2, 3, 4 ou 5 ?')
-    print(InventoryList)
+    print('')
+    promptSlow('Où souhaitez vous placer l\'objet ? Sélectionnez l\'emplacement 1, 2, 3, 4 ou 5 ?')
+    print('Votre inventaire : ', InventoryList)
+    print('')
+    print('_______________________________________________________________________')
     ask = input(' > ')
     if (ask == '1' or ask =='2' or ask =='3' or ask == '4' or ask == '5'):
       if Inventory[('slot' + ask)][SLOT] == 'vide':
         Inventory[('slot' + ask)][SLOT] = objectName
         Inventory[('slot' + ask)][QUANTITY] = str(int(Inventory[('slot' + ask)][QUANTITY]) + 1)
       else:
-        print("Voulez vous remplacer : " + Objects[Inventory[('slot' + ask)][SLOT]][OBJECTNAME])
+        promptSlow("Voulez vous remplacer : " + Objects[Inventory[('slot' + ask)][SLOT]][OBJECTNAME])
         print("oui/non")
         ask2 = input(' > ')
         while not (ask2.lower() == 'oui' or ask2.lower() == 'non'):
@@ -401,20 +404,23 @@ def ObjectInventory(objectName):
       ObjectInventory(objectName)
 
 def displayInventory():
+  print('')
   promptSlow('Voici votre inventaire :')
   InventoryList = ['','','','','']
   for i in range(0,5):
     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
   print(InventoryList)
-  promptSlow('Quel objet voulez vous examinez ?')
-  promptSlow('Emplacement 1, 2, 3, 4 ou 5. Pour revenir en arrière, entrez "retour"')
+  print('')
+  promptSlow('Quel objet voulez vous examinez ? Entrez le numéro d\'emplacement ou "retour" pour quitter le menu')
+  print('_______________________________________________________________________')
   ask = input(' > ')
   if ask in ['1', '2', '3', '4', '5']:
     ObjPlace = Inventory[('slot' + str(ask))][SLOT]
-    ObjName = 'Objet : ' + Objects[ObjPlace][OBJECTNAME]
-    ObjDesc = 'Description : ' + Objects[ObjPlace][DESCRIPTION]
-    ObjEffect = 'Effet : ' + Objects[ObjPlace][EFFECT]
-    ObjQuantity = 'Quantité : ' + Inventory[('slot' + str(ask))][QUANTITY]
+    print('')
+    ObjName = ' - Objet : ' + Objects[ObjPlace][OBJECTNAME]
+    ObjDesc = ' - Description : ' + Objects[ObjPlace][DESCRIPTION]
+    ObjEffect = ' - Effet : ' + Objects[ObjPlace][EFFECT]
+    ObjQuantity = ' - Quantité : ' + Inventory[('slot' + str(ask))][QUANTITY]
     promptSlow(ObjName)
     promptSlow(ObjDesc)
     promptSlow(ObjEffect)
@@ -479,6 +485,7 @@ def PlayMenu():
     if os.path.isfile("SaveFile") :
       loadGame()
     else :
+      print('')
       promptSlow("Aucun fichier de sauvegarde trouvé.")
       print('')
       PlayMenu()
@@ -984,7 +991,8 @@ def MapDisplay():
     if ActiveCase[i] == False:
       MapCase[i] = '-'
   MapCase[Player.pos] = 'x'
-
+  
+  print('')
   print("   1  2  3  4  5 ")
   print("A [" + MapCase['A1'] + "][" + MapCase['A2'] + "][" + MapCase['A3'] + "][" + MapCase['A4'] + "][" + MapCase['A5'] + "]")
   print("B [" + MapCase['B1'] + "][" + MapCase['B2'] + "][" + MapCase['B3'] + "][" + MapCase['B4'] + "][" + MapCase['B5'] + "]")
@@ -992,6 +1000,8 @@ def MapDisplay():
   print("D [" + MapCase['D1'] + "][" + MapCase['D2'] + "][" + MapCase['D3'] + "][" + MapCase['D4'] + "][" + MapCase['D5'] + "]")
   print("E [" + MapCase['E1'] + "][" + MapCase['E2'] + "][" + MapCase['E3'] + "][" + MapCase['E4'] + "][" + MapCase['E5'] + "]")
   print("F [" + MapCase['F1'] + "][" + MapCase['F2'] + "][" + MapCase['F3'] + "][" + MapCase['F4'] + "][" + MapCase['F5'] + "]")
+  print('')
+  print('Légende :')
   print('Lieux non visités : o')
   print('Lieux visités : -')
   print('Position du joueur : x')
@@ -1003,7 +1013,7 @@ def PrintLocation():
     promptSlow(ZoneMap[Player.pos][DESCRIPTION])
   else:
     promptSlow('Vous êtes déjà passé par ici, il ne reste plus rien d\'intéressant')
-  
+    print('')
 
 #main display with actions of the player
 def prompt():
@@ -1022,21 +1032,25 @@ def prompt():
   elif (ZoneMap[Player.pos][EVENT] == 'easter' and ActiveCase[Player.pos] == True):
     easterEgg()
   else:
+    print('')
     promptSlow('Que souhaitez vous faire ?')
-    action = input('\n > ')
+    print('_______________________________________________________________________')
+    action = input(' > ')
     if action.lower() == 'quitter':
       sys.exit()
     elif action.lower() == 'voyager':
       PlayerMove(action.lower())
     elif action.lower() == 'aide':
+      print('')
       promptSlow('Liste des commandes: ')
-      promptSlow('voyager        -       vous permets de vous déplacer')
-      promptSlow('inventaire     -       vous permets d\'accéder à votre inventaire')
-      promptSlow('stats          -       vous permets d\'accéder à vos stats')
-      promptSlow('carte          -       vous permets d\'accéder à votre carte')
-      promptSlow('sauvegarder    -       vous permets de sauvegarder votre partie')
-      promptSlow('aide           -       vous permets d\'avoir une liste des commandes')
-      promptSlow('quitter        -       vous permet de quitter le jeu')
+      print('')
+      promptSlow(' - "voyager" : vous permets de vous déplacer')
+      promptSlow(' - "inventaire" : vous permets d\'accéder à votre inventaire')
+      promptSlow(' - "stats" : vous permets d\'accéder à vos stats')
+      promptSlow(' - "carte" : vous permets d\'accéder à votre carte')
+      promptSlow(' - "sauvegarder" : vous permets de sauvegarder votre partie')
+      promptSlow(' - "aide" : vous permets d\'avoir une liste des commandes')
+      promptSlow(' - "quitter" : vous permet de quitter le jeu')
     elif action.lower() == 'inventaire':
       displayInventory()
     elif action.lower() == 'stats':
@@ -1044,6 +1058,7 @@ def prompt():
     elif action.lower() == 'carte':
       MapDisplay()
     elif action.lower() == 'sauvegarder':
+      print('')
       promptSlow('Vous avez bien sauvegardé votre partie !')
       saveGame()
     else:
@@ -1051,21 +1066,29 @@ def prompt():
 
 #function for the movement of the player
 def PlayerMove(MyAction):
+  print('')
   ask = "Où souhaitez-vous aller ?"
-  dest = input(ask + '\n > ')
+  print('')
+  print('_______________________________________________________________________')
+  dest = input(ask + ' > ')
 
   if dest == 'est':
     if ZoneMap[Player.pos][EAST] == '':
+      print('')
       promptSlow('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
       PlayerMove(MyAction)
     elif (ZoneMap[ZoneMap[Player.pos][EAST]][EVENT] == 'BOSS'):
+      print('')
       promptSlow('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
+      print('_______________________________________________________________________')
       ask = input('>' ).lower()
       if (ask == 'oui'):
         destination = ZoneMap[Player.pos][EAST]
         MovementHandler(destination)
       elif (ask == 'non'):
+        print('')
+        print('Vous faites demi-tour.')
         prompt()
     else :
       destination = ZoneMap[Player.pos][EAST]
@@ -1073,16 +1096,21 @@ def PlayerMove(MyAction):
 
   elif dest == 'nord':
     if ZoneMap[Player.pos][NORTH] == '':
+      print('')
       promptSlow('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
       PlayerMove(MyAction)
     elif (ZoneMap[ZoneMap[Player.pos][NORTH]][EVENT] == 'BOSS'):
+      print('')
       promptSlow('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
+      print('_______________________________________________________________________')
       ask = input('>' ).lower()
       if (ask == 'oui'):
         destination = ZoneMap[Player.pos][NORTH]
         MovementHandler(destination)
       elif (ask == 'non'):
+        print('')
+        print('Vous faites demi-tour.')
         prompt()
     else :
       destination = ZoneMap[Player.pos][NORTH]
@@ -1090,16 +1118,21 @@ def PlayerMove(MyAction):
 
   elif dest == 'sud':
     if ZoneMap[Player.pos][SOUTH] == '':
+      print('')
       promptSlow('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
       PlayerMove(MyAction)
     elif (ZoneMap[ZoneMap[Player.pos][SOUTH]][EVENT] == 'BOSS'):
+      print('')
       promptSlow('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
+      print('_______________________________________________________________________')
       ask = input('>' ).lower()
       if (ask == 'oui'):
         destination = ZoneMap[Player.pos][SOUTH]
         MovementHandler(destination)
       elif (ask == 'non'):
+        print('')
+        print('Vous faites demi-tour.')
         prompt()
     else :
       destination = ZoneMap[Player.pos][SOUTH]
@@ -1107,21 +1140,27 @@ def PlayerMove(MyAction):
 
   elif dest == 'ouest':
     if ZoneMap[Player.pos][WEST] == '':
+      print('')
       promptSlow('Impossible d\'aller dans cette direction, un mur vous bloque la route.')
       PlayerMove(MyAction)
     elif (ZoneMap[ZoneMap[Player.pos][WEST]][EVENT] == 'BOSS'):
+      print('')
       promptSlow('Vous êtes face au combat ultime, vous ne pourrez plus revenir en arrière, êtes vous sûr de vouloir continuer ?')
       print('Oui / Non')
+      print('_______________________________________________________________________')
       ask = input('>' ).lower()
       if (ask == 'oui'):
         destination = ZoneMap[Player.pos][WEST]
         MovementHandler(destination)
       elif (ask == 'non'):
+        print('')
+        print('Vous faites demi-tour.')
         prompt()
     else :
       destination = ZoneMap[Player.pos][WEST]
       MovementHandler(destination)
   else :
+    print('')
     print("Commande invalide, essayez avec nord, sud, est ou ouest.\n")
     PlayerMove(MyAction)
 
@@ -1131,10 +1170,10 @@ def MovementHandler(destination):
   PrintLocation()
 
 def displayStats():
-  print("Joueur : " + Player.name + " fils de " + Player.father)
-  print("Niveau : " + str(Player.lvl) + " Expérience : " + str(Player.xp))
+  print('')
+  print("Joueur : " + Player.name + ", enfant de " + Player.father)
+  print("Niveau : " + str(Player.lvl) + " | Expérience : " + str(Player.xp))
   print("HP : " + str(Player.Hp) + " | CHA : " + str(Player.Cha) + " |  ATK : " + str(Player.Atk))
-  print("")
 
 #Main game loop function
 def main_game_loop():
@@ -1678,6 +1717,7 @@ def loadGame():
     ActiveCase.update(LoadedActiveCase)
     Inventory.clear()
     Inventory.update(LoadedInventory)
+    print('')
     promptSlow('Chargement effectué ! Bon jeu !')
     main_game_loop()
 
