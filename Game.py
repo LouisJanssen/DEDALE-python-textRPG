@@ -108,17 +108,6 @@ MobStats = {
   },
 }
 
-# Test = MobStats['CyclopStats'][HP]
-# print(Test)
-
-# SAVE PLAYER STATS
-class SavePlayerStats:
-    def __init__(self):
-        self.Hp = 10
-SaveHp = Player.Hp
-SavePlayer = SavePlayerStats()
-SavePlayer.Hp = SaveHp
-
 # COMBAT
 PlayerTurn = True
 
@@ -277,6 +266,8 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             print('VICTOIRE')
 
 def StartCombat(currentennemy):
+    # SAVE PLAYER STATS
+    SaveHp = Player.Hp
 
     # SAVE MOB STATS
     class EnnemyStats:
@@ -289,10 +280,9 @@ def StartCombat(currentennemy):
     Combat(PlayerTurn, EnnemyStats(), False)
 
     # RESET PLAYER STATS (Mob stats reset automatically)
-    Player.Hp = SavePlayer.Hp
-    PlayerXP = Player.xp
+    Player.Hp = SaveHp
     MobXP = MobStats[currentennemy][XP]
-    LevelUp(PlayerXP, MobXP)
+    LevelUp(MobXP)
 
 # StartCombat('MinotaurStats')
 # StartCombat('ChickenStats')
@@ -312,7 +302,7 @@ Objects = {
             DESCRIPTION: 'la boisson des dieux',
             EFFECT: 'Rend 10 HP',
           },
-          'shield':{
+          'bouclier':{
             OBJECTNAME: 'BOUCLIER DE PERSÉE',
             DESCRIPTION: 'Un bouclier mythique ayant appartenu à Persée',
             EFFECT: 'Vous permet de bloquer l\'intégralité des dégâts',
@@ -632,26 +622,27 @@ def ChooseUpgrade(PlayerLevel):
     else :
         print('[ERREUR] Veuillez entrer un choix valide.')
         ChooseUpgrade(PlayerLevel)
-    Player.lvl = PlayerLevel
     print('-======================================-')
 
-def LevelUp(XP, amount):
-    XP += amount
-    Player.xp += XP
-    if Player.xp >= 25 :
-        PlayerLevel = 2
-        ChooseUpgrade(PlayerLevel)
-    elif Player.xp >= 75 :
-        PlayerLevel = 3
-        ChooseUpgrade(PlayerLevel)
+def LevelUp(MobXp):
+    Player.xp += MobXp
+    PlayerLevel = Player.lvl
+    tmp = PlayerLevel
+    nbsLevel = 0
+    if Player.xp >= 300 :
+        PlayerLevel = 5
     elif Player.xp >= 150 :
         PlayerLevel = 4
-        ChooseUpgrade(PlayerLevel)
-    elif Player.xp >= 300 :
-        PlayerLevel = 5
-        ChooseUpgrade(PlayerLevel)
-
-# LevelUp(XP, 25)
+    elif Player.xp >= 75 :
+        PlayerLevel = 3
+    elif Player.xp >= 25 :
+        PlayerLevel = 2
+    Player.lvl = PlayerLevel
+    nbsLevel = PlayerLevel - tmp
+    i = 0
+    while i < nbsLevel:
+      ChooseUpgrade(PlayerLevel)
+      i += 1
 
 #Creation of the MAP
 ZONENAME = 'zonename'
