@@ -4,6 +4,7 @@ import time
 import os
 import pickle
 
+# Dice rolling (used in combats)
 def DiceRoll() :
   import random
   D = random.randint(1,20)
@@ -34,6 +35,7 @@ def Blessing(Blesstype):
     promptSlow('Vous gagnez : ATK + 5')
     Player.Atk = Player.Atk + 5
 
+# Player statistics
 class PlayerStats:
   def __init__(self):
     self.name = ""
@@ -49,7 +51,6 @@ class PlayerStats:
 
 Player = PlayerStats()
 
-#======================================================================================
 # Library monsters and stats
 
 MOBNAME = 'MOBNAME'
@@ -158,19 +159,18 @@ def Combat(PlayerTurn, ennemy, playerdefense):
 
     if (Player.Hp > 0) and (ennemy.Hp > 0) :
 
-        if PlayerTurn == False : # TOUR DE L'ADVERSAIRE
+        if PlayerTurn == False : # Enemy turn
             print('Tour de l\'adversaire')
             PlayerTurn = True
             if ennemy.Hp > 0 :
                 print('L\'ennemi fait son action')
                 
-                # Action de l'adversaire
-                # L'ennemi attaque
+                # Enemy attacks
                 MobAttack = DiceRoll()
-                print('Lancer de dé ennemi :', MobAttack) # Est-ce qu'on l'affiche ?
+                print('Lancer de dé ennemi :', MobAttack)
                 if MobAttack >= 3 : 
                     if PlayerDefense == False :
-                        if ennemy.name == 'Minotaure' and ennemy.Hp <= 20 :
+                        if ennemy.name == 'Minotaure' and ennemy.Hp <= 20 : # Adds another option (only for the boss)
                             print('Astérion récupère une partie de l\'énergie vitale du labyrinthe pour se soigner.')
                             ennemy.Hp += 10
                         else :
@@ -183,7 +183,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                         for i in range(0,5):
                             InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
                         if 'bouclier' not in InventoryList:
-                            Player.Hp -= (3/4)*(ennemy.Atk) # Les dégâts sont réduits de 3/4 si le joueur se défend
+                            Player.Hp -= (3/4)*(ennemy.Atk) # Damages are down to 3/4 if the player is defending.
                 else :
                     print('L\'ennemi a loupé !')
 
@@ -192,7 +192,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             
             Combat(PlayerTurn, ennemy, playerdefense)
 
-        elif PlayerTurn == True : # TOUR DU JOUEUR
+        elif PlayerTurn == True : # Player turn
             print('Joueur :', Player.name, '-', Player.Hp, 'PV')
             print('ENNEMI :', ennemy.name, '-', ennemy.Hp, 'PV')
             print(']===================================[')
@@ -219,13 +219,11 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                 print('Se défendre')
                 PlayerDefense = True
                 playerdefense = PlayerDefense
-                PlayerTurn = False
-                # Se défendre : Diminue de 3/4 la prochaine attaque ennemie
+                PlayerTurn = False # Defending dicreases next ennemy attack by 3/4
                 Combat(PlayerTurn, ennemy, playerdefense)
 
             elif Action == '3' :
-                print('Objets')
-                # Afficher liste des objets présents dans l'inventaire
+                print('Objets') # Displays inventory and avalaible objects
                 useObject()
                 PlayerTurn = False
                 Combat(PlayerTurn, ennemy, playerdefense)
@@ -284,16 +282,10 @@ def StartCombat(currentennemy):
     MobXP = MobStats[currentennemy][XP]
     LevelUp(MobXP)
 
-# StartCombat('MinotaurStats')
-# StartCombat('ChickenStats')
-
 #Initialisation of variables
 OBJECTNAME = 'objectname'
 DESCRIPTION = 'description'
 EFFECT = 'effect'
-
-# from Stats import PlayerStats
-# Player = PlayerStats()
 
 #Library for objects
 Objects = {
@@ -310,7 +302,7 @@ Objects = {
           'massue':{
             OBJECTNAME: 'MASSUE D\'HÉRACLÈS',
             DESCRIPTION: 'Une massue ayant appartenu à un héros mythique',
-            EFFECT: 'Augmente l\'attaque de 2',
+            EFFECT: 'Augmente l\'attaque de 5',
           },
           'feu sacré':{
             OBJECTNAME: 'FEU SACRÉ',
@@ -427,7 +419,7 @@ def passiveObject():
     InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
   if "massue" in InventoryList and PasObject['massueUsed'] == False :
     PasObject['massueUsed'] = True
-    Player.Atk += 2
+    Player.Atk += 5
   elif "ceinture" in InventoryList and PasObject['ceintureUsed'] == False :
     PasObject['ceintureUsed'] = True
     Player.Cha += 5
@@ -602,7 +594,8 @@ def MainMenu ():
     print('Commande inconnue, essayez de rentrer une des instructions présentes sur le menu ou tapez "instructions" pour avoir plus d\'infos. ')
     MainMenu()
 
-def ChooseUpgrade(PlayerLevel):
+# LEVEL SYSTEM
+def ChooseUpgrade(PlayerLevel): # Allows the player to choose which stat he wants to improve
     print('-======================================-')
     print('Bravo ! Vous venez de passer niveau', PlayerLevel, '.')
     print('Choisissez quelle statistique vous souhaitez augmenter :')
@@ -624,7 +617,7 @@ def ChooseUpgrade(PlayerLevel):
         ChooseUpgrade(PlayerLevel)
     print('-======================================-')
 
-def LevelUp(MobXp):
+def LevelUp(MobXp): # Increases Player XP depending on which enemy he fought : if he has enough XP, his level is increased
     Player.xp += MobXp
     PlayerLevel = Player.lvl
     tmp = PlayerLevel
@@ -644,7 +637,7 @@ def LevelUp(MobXp):
       ChooseUpgrade(PlayerLevel)
       i += 1
 
-#Creation of the MAP
+# Creation of the MAP
 ZONENAME = 'zonename'
 DESCRIPTION = 'description'
 NORTH = 'nord'
@@ -654,7 +647,7 @@ WEST = 'ouest'
 EVENT = 'event'
 SPEC = 'spec'
 
-#Library for activation of map tiles
+# Library for activation of map tiles
 ActiveCase = {'A1': True, 'A2': True, 'A3': True,'A4': True, 'A5': True,
               'B1': True, 'B2': True, 'B3': True,'B4': True, 'B5': True,
               'C1': True, 'C2': True, 'C3': True,'C4': True, 'C5': True,
@@ -672,7 +665,7 @@ MapCase = {'A1': 'o', 'A2': 'o', 'A3': 'o','A4': 'o', 'A5': 'o',
            'F1': 'o', 'F2': 'o', 'F3': 'o','F4': 'o', 'F5': 'o'
            }
 
-#Library for the map
+# Library for the map
 ZoneMap = {
   'A1': {
     ZONENAME: 'Le refuge de Prométhée',
@@ -997,7 +990,7 @@ def MapDisplay():
   print('Lieux visités : -')
   print('Position du joueur : x')
 
-#display the location of the player
+# display the location of the player
 def PrintLocation():
   if(ActiveCase[Player.pos] == True):
     promptSlow(ZoneMap[Player.pos][ZONENAME].upper())
@@ -1007,7 +1000,7 @@ def PrintLocation():
     promptSlow('Vous êtes déjà passé par ici, il ne reste plus rien d\'intéressant')
     print('')
 
-#main display with actions of the player
+# main display with actions of the player
 def prompt():
   if (ZoneMap[Player.pos][EVENT] == 'fight' and ActiveCase[Player.pos] == True):
     fightMonster()
@@ -1056,7 +1049,7 @@ def prompt():
     else:
       print("Commande invalide, essayez 'aide' pour avoir la liste des commandes.\n")
 
-#function for the movement of the player
+# function for the movement of the player
 def PlayerMove(MyAction):
   print('')
   ask = "Où souhaitez-vous aller ?"
@@ -1156,7 +1149,7 @@ def PlayerMove(MyAction):
     print("Commande invalide, essayez avec nord, sud, est ou ouest.\n")
     PlayerMove(MyAction)
 
-#Movement of the player
+# Movement of the player
 def MovementHandler(destination):
   Player.pos = destination
   PrintLocation()
@@ -1167,7 +1160,7 @@ def displayStats():
   print("Niveau : " + str(Player.lvl) + " | Expérience : " + str(Player.xp))
   print("HP : " + str(Player.Hp) + " | CHA : " + str(Player.Cha) + " |  ATK : " + str(Player.Atk))
 
-#Main game loop function
+# Main game loop function
 def main_game_loop():
   while Player.dead is False:
     passiveObject()
@@ -1209,19 +1202,7 @@ def npcSpeak():
   time.sleep(0.5)
   prompt()
 
-# main_game_loop()
-
-
-
-# from Map import ZoneMap
-
-# NpcDial['ZeusDial'][NPCNAME]
-
-# npc = ZoneMap[Player.pos][SPEC]
-
-# =======================================================
 # NPC Dialogues Library
-
 NPCNAME = 'NPCNAME'
 MINSTAT = 'MINSTAT'
 SENTENCE = 'SENTENCE'
@@ -1340,8 +1321,7 @@ NpcDial = {
     },
 }
 
-# Énigme du Sphinx
-
+# Sphinx Enigma Function (little riddle)
 def SphinxEnigma() :
     print('>-------------------------------------------------<')
     promptSlow('- Une dernière chose, {}. J\'ai une proposition à te faire, si tu te sens à la hauteur.'.format(Player.name))
@@ -1372,6 +1352,7 @@ def SphinxEnigma() :
         print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
         SphinxEnigma()
 
+# Dialogue Function
 def Dialogue(npc):
     minstat = NpcDial[npc][MINSTAT]
     print(')(=================================================)(')
@@ -1380,8 +1361,8 @@ def Dialogue(npc):
     print('-------------------------------------')
     print('1', NpcDial[npc][DIAL1])
     print('2', NpcDial[npc][DIAL2])
-    print('3', NpcDial[npc][DIALCHA], '[ CHA :', minstat, ']')
-    if npc == 'ZeusDial' and Player.father == 'Zeus' :
+    print('3', NpcDial[npc][DIALCHA], '[ CHA :', minstat, ']') # Only works if player has enough charisma
+    if npc == 'ZeusDial' and Player.father == 'Zeus' : # Appears if the player is the NPC's child
         print('4', NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
     elif npc == 'PoseidonDial' and Player.father == 'Poséidon' :
         print('4', NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
@@ -1400,38 +1381,32 @@ def Dialogue(npc):
         promptSlow(NpcDial[npc][DIALCHA])
         promptSlow(NpcDial[npc][DIALCHA1])
         print('Vous recevez l\'objet', NpcDial[npc][GIFT], '!')
-        ObjectInventory(NpcDial[npc][GIFT])
+        ObjectInventory(NpcDial[npc][GIFT]) # Gives the object owned by the NPC to the player (if he has enough charisma)
     elif (DialChoice == '3') and (Player.Cha < minstat) :
         promptSlow('Vous n\'avez pas le charisme nécessaire. Choisissez une autre option.')
         Dialogue(npc)
     elif (DialChoice == '4') and (npc == 'ZeusDial') and (Player.father == 'Zeus') :
         promptSlow(NpcDial[npc][DIALSON])
         promptSlow(NpcDial[npc][DIALSON1])
-        Player.Atk += 10
-        # Le joueur gagne un bonus d'attaque de la part de son père.
+        Player.Atk += 10 # Father's benediction gives an ATK bonus.
     elif (DialChoice == '4') and (npc == 'PoseidonDial') and (Player.father == 'Poséidon') :
         promptSlow(NpcDial[npc][DIALSON])
         promptSlow(NpcDial[npc][DIALSON1])
-        Player.Hp += 10
-        # Le joueur gagne un bonus de vie de la part de son père.
+        Player.Hp += 10 # Father's benediction gives an HP bonus.
     elif (DialChoice == '4') and (npc == 'HadesDial') and (Player.father == 'Hadès') :
         promptSlow(NpcDial[npc][DIALSON])
         promptSlow(NpcDial[npc][DIALSON1])
         Player.Atk += 5
-        Player.Hp += 5
-        # Le joueur gagne un bonus d'attaque et de vie de la part de son père.
+        Player.Hp += 5 # Father's benediction gives an ATK/HP bonus.
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
         Dialogue(npc)
     if npc == 'SphinxDial' :
         SphinxEnigma()
 
-# Dialogue('SphinxDial')
+# START QUIZ
 
-# Player.Cha += 3000
-# Player.father = 'Poséidon'
-# Dialogue('PoseidonDial')
-
+# Bonus questions (solving equalities)
 def QuestionBonus1(zeus, poseidon, hades) :
     print('<>==============================<>')
     promptSlow('Vous préférez vous baigner...')
@@ -1443,11 +1418,9 @@ def QuestionBonus1(zeus, poseidon, hades) :
     if AnswerBonus1 == '1' :
         promptSlow('Vous êtes l\'enfant d\'Hadès')
         Player.father = 'Hadès'
-        # AJOUTER modification stats (à déterminer)
     elif AnswerBonus1 == '2' :
         promptSlow('Vous êtes l\'enfant de Poséidon')
         Player.father = 'Poséidon'
-        # AJOUTER modification stats (à déterminer)
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         QuestionBonus1(zeus, poseidon, hades)
@@ -1463,11 +1436,9 @@ def QuestionBonus2(zeus, poseidon, hades) :
     if AnswerBonus2 == '1' :
         promptSlow('Vous êtes l\'enfant de Zeus')
         Player.father = 'Zeus'
-        # AJOUTER modification stats (à déterminer)
     elif AnswerBonus2 == '2' :
         promptSlow('Vous êtes l\'enfant de Poséidon')
         Player.father = 'Poséidon'
-        # AJOUTER modification stats (à déterminer)
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         QuestionBonus2(zeus, poseidon, hades)
@@ -1483,23 +1454,22 @@ def QuestionBonus3(zeus, poseidon, hades) :
     if AnswerBonus3 == '1' :
         promptSlow('Vous êtes l\'enfant de Zeus')
         Player.father = 'Zeus'
-        # AJOUTER modification stats (à déterminer)
     elif AnswerBonus3 == '2' :
         promptSlow('Vous êtes l\'enfant d\'Hadès')
         Player.father = 'Hadès'
-        # AJOUTER modification stats (à déterminer)
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant à l\'une des questions posées.')
         QuestionBonus3(zeus, poseidon, hades)
 
+# Questions (For each question, the player chose an answer related to one of 3 gods. In the end, you become the children of the god you are the closest to.)
 def Question1(zeus, poseidon, hades) :
     print('<>==============================<>')
     promptSlow('D\'où venez-vous ?')
-    print('1 - D\'Olympie, à l\'ombre des platanes et des oliviers du bois sacré d\'Altis.')
+    print('1 - D\'Olympie, à l\'ombre des platanes et des oliviers du bois sacré d\'Altis.') # Zeus
     time.sleep(0.3)
-    print('2 - Du Cap Sounion, bercé par les effluves iodées de la Mer Egée.')
+    print('2 - Du Cap Sounion, bercé par les effluves iodées de la Mer Egée.') # Poseidon
     time.sleep(0.3)
-    print('3 - De l\'Epire, dans la vallée de l\'Achéron, au bord d\'un fleuve à l\'aura étrange.')
+    print('3 - De l\'Epire, dans la vallée de l\'Achéron, au bord d\'un fleuve à l\'aura étrange.') # Hades
     print('<>==============================<>')
     Answer1 = input(' > ')
     if Answer1 == '1' :
@@ -1516,11 +1486,11 @@ def Question1(zeus, poseidon, hades) :
 def Question2(zeus, poseidon, hades) :
     print('<>==============================<>')
     promptSlow('Quel métier exerciez-vous ?')
-    print('1 - Un humble pêcheur.')
+    print('1 - Un humble pêcheur.') # Poseidon
     time.sleep(0.3)
-    print('2 - Mineur, dans l\'obscurité quasi-constante.')
+    print('2 - Mineur, dans l\'obscurité quasi-constante.') # Hades
     time.sleep(0.3)
-    print('3 - Un métier ? J\'étais un ROI, moi !')
+    print('3 - Un métier ? J\'étais un ROI, moi !') # Zeus
     print('<>==============================<>')
     Answer2 = input(' > ')
     if Answer2 == '1' :
@@ -1537,11 +1507,11 @@ def Question2(zeus, poseidon, hades) :
 def Question3(zeus, poseidon, hades) :
     print('<>==============================<>')
     promptSlow('Alors que vous étiez encore un jeune enfant, un événement vous a bouleversé...')
-    print('1 - La nuit où un être défunt s\'est adressé à vous en rêve.')
+    print('1 - La nuit où un être défunt s\'est adressé à vous en rêve.') # Hades
     time.sleep(0.3)
-    print('2 - La foudre vous a frappé, vous marquant à vie sans laisser aucune séquelle pour autant.')
+    print('2 - La foudre vous a frappé, vous marquant à vie sans laisser aucune séquelle pour autant.') # Zeus
     time.sleep(0.3)
-    print('3 - La fois où vous êtes tombé d\'une trirème et avez failli vous noyer mais qu\'une vague vous a redéposé à bord.')
+    print('3 - La fois où vous êtes tombé d\'une trirème et avez failli vous noyer mais qu\'une vague vous a redéposé à bord.') # Poseidon
     print('<>==============================<>')
     Answer3 = input(' > ')
     if Answer3 == '1' :
@@ -1558,11 +1528,11 @@ def Question3(zeus, poseidon, hades) :
 def Question4(zeus, poseidon, hades) :
     print('<>==============================<>')
     promptSlow('L\'animal qui vous correspond le plus est...')
-    print('1 - L\'aigle, noble et majestueux.')
+    print('1 - L\'aigle, noble et majestueux.') # Zeus
     time.sleep(0.3)
-    print('2 - Le serpent, discret et rusé.')
+    print('2 - Le serpent, discret et rusé.') # Hades
     time.sleep(0.3)
-    print('3 - Le dauphin, rapide et fédérateur.')
+    print('3 - Le dauphin, rapide et fédérateur.') # Poseidon
     print('<>==============================<>')
     Answer4 = input(' > ')
     if Answer4 == '1' :
@@ -1579,11 +1549,11 @@ def Question4(zeus, poseidon, hades) :
 def Question5(zeus, poseidon, hades) :
     print('<>==============================<>')
     promptSlow('De tous les monstres présents dans les histoires qui vous ont été contées, le plus puissant est sans aucun doute...')
-    print('1 - Cerbère, le terrible gardien des Enfers.')
+    print('1 - Cerbère, le terrible gardien des Enfers.') # Hades
     time.sleep(0.3)
-    print('2 - Les cyclopes, grands, puissants et au regard de braise.')
+    print('2 - Les cyclopes, grands, puissants et au regard de braise.') # Poseidon
     time.sleep(0.3)
-    print('3 - Les monstres ne peuvent rien face à ma puissance.')
+    print('3 - Les monstres ne peuvent rien face à ma puissance.') # Zeus
     print('<>==============================<>')
     Answer5 = input(' > ')
     if Answer5 == '1' :
@@ -1608,29 +1578,21 @@ def Question5(zeus, poseidon, hades) :
         if zeus > (poseidon and hades) :
             promptSlow('Vous êtes l\'enfant de Zeus')
             Player.father = 'Zeus'
-            # AJOUTER modification stats (à déterminer)
         elif poseidon > (zeus and hades) :
             promptSlow('Vous êtes l\'enfant de Poséidon')
             Player.father = 'Poséidon'
-            # AJOUTER modification stats (à déterminer)
         elif hades > (zeus and poseidon) :
             promptSlow('Vous êtes l\'enfant d\'Hadès')
             Player.father = 'Hadès'
-            # AJOUTER modification stats (à déterminer)
     StartDial()
 
-
-# print('Zeus = ', AnswerZeus)
-# print('Poseidon = ', AnswerPoseidon)
-# print('Hadès = ', AnswerHades)
 def StartDial():
-    print ('<>==============================<>')
-    print('')
     print(')(=================================================)(')
+    print('')
     print('Mystérieux inconnu :')
     promptSlow('"Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
     promptSlow('"Quel est ton nom ?"')
-    HeroName = input('NOM : > ')
+    HeroName = input('NOM : > ') # The player is invited to type his name (have fun)
     Player.name = HeroName
     print(Player.name)
     OdysseusDialogue()
@@ -1660,9 +1622,11 @@ def OdysseusDialogue() :
     elif OdysseusAnswer == '4' :
         promptSlow('- Je vais trouver le moyen de mettre fin à ce chaos.')
         promptSlow('- Prudence, {}.'.format(Player.name))
+        print('')
         print(')(=================================================)(')
         print('')
         promptSlow('Vous vous réveillez dans la même salle que celle de votre rêve, à la différence près qu\'Ulysse n\'est plus là pour vous aider. Soudain, les murs Est et Ouest de la salle s\'effondrent, vous laissant le choix entre deux chemins.')
+        print('')
         main_game_loop()
     else :
         print('ERREUR : Veuillez entrer le chiffre correspondant au dialogue voulu.')
