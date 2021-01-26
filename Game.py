@@ -1191,6 +1191,8 @@ def curseActivated():
   prompt()
 
 def objectDiscover():
+  print('')
+  print('.: Vous recevez l\'objet : ' + Objects[ZoneMap[Player.pos][SPEC]][OBJECTNAME] + ' :.')
   ObjectInventory(ZoneMap[Player.pos][SPEC])
   ActiveCase[Player.pos] = False
   time.sleep(0.5)
@@ -1388,14 +1390,20 @@ def Dialogue(npc):
     elif (DialChoice == '4') and (npc == 'ZeusDial') and (Player.father == 'Zeus') :
         promptSlow(NpcDial[npc][DIALSON])
         promptSlow(NpcDial[npc][DIALSON1])
+        print('')
+        print('.: Vous recevez un bonus d\'attaque :.')
         Player.Atk += 10 # Father's benediction gives an ATK bonus.
     elif (DialChoice == '4') and (npc == 'PoseidonDial') and (Player.father == 'Poséidon') :
         promptSlow(NpcDial[npc][DIALSON])
         promptSlow(NpcDial[npc][DIALSON1])
+        print('')
+        print('.: Vous recevez un bonus de point de vie :.')
         Player.Hp += 10 # Father's benediction gives an HP bonus.
     elif (DialChoice == '4') and (npc == 'HadesDial') and (Player.father == 'Hadès') :
         promptSlow(NpcDial[npc][DIALSON])
         promptSlow(NpcDial[npc][DIALSON1])
+        print('')
+        print('.: Vous recevez un bonus d\'attaque et de point de vie :.')
         Player.Atk += 5
         Player.Hp += 5 # Father's benediction gives an ATK/HP bonus.
     else :
