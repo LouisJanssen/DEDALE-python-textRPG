@@ -134,6 +134,7 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             InventoryList[i] = Inventory[('slot' + str(i + 1))][SLOT]
         print(InventoryList)
         ask = input(' > ')
+        print('')
         if ask in InventoryList:
             if ask.lower() == 'ambroisie':
                 promptSlow('Vous buvez l\'ambroisie')
@@ -162,13 +163,16 @@ def Combat(PlayerTurn, ennemy, playerdefense):
             print('Commande inconnue')
             useObject()
 
-
-    print('-----------------------------------------------------------------------')
+    print('')
+    print('>-----------------------------------------------------------------<')
+    print('')
 
     if (Player.Hp > 0) and (ennemy.Hp > 0) :
 
         if PlayerTurn == False : # Enemy turn
+            print('')
             print('Tour de l\'adversaire')
+            print('')
             PlayerTurn = True
             if ennemy.Hp > 0 :
                 print('L\'ennemi fait son action')
@@ -203,12 +207,16 @@ def Combat(PlayerTurn, ennemy, playerdefense):
         elif PlayerTurn == True : # Player turn
             print('Joueur :', Player.name, '-', Player.Hp, 'PV')
             print('ENNEMI :', ennemy.name, '-', ennemy.Hp, 'PV')
-            print(']===================================[')
-            print('1 - ATTAQUER')
-            print('2 - SE DÉFENDRE')
-            print('3 - OBJETS')
-            print(']===================================[')
+            print('<>===============================================================<>')
+            print('                         1 - ATTAQUER')
+            print('')
+            print('                         2 - SE DÉFENDRE')
+            print('')
+            print('                         3 - OBJETS')
+            print('<>===============================================================<>')
+            print('')
             Action = input(' > ')
+            print('')
 
             if Action == '1' :
                 print('Le Joueur attaque')
@@ -240,7 +248,9 @@ def Combat(PlayerTurn, ennemy, playerdefense):
                 Combat(PlayerTurn, ennemy, playerdefense)
     
     elif Player.Hp <= 0 :
-        print('GAME OVER')
+        print('<>===============================================================<>')
+        print('                           GAME OVER')
+        print('<>===============================================================<>')
         Player.dead = True
         time.sleep(1)
         sys.exit()
@@ -248,28 +258,36 @@ def Combat(PlayerTurn, ennemy, playerdefense):
     elif (Player.Hp > 0) and (ennemy.Hp <= 0) :
         if ennemy.name == 'Minotaure':
             print('FÉLICITATIONS : vous avez vaincu le Minotaure !')
-            print('-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-')
+            print('')
+            print('<>===============================================================<>')
             promptSlow('À vos pieds git le corps immense du Minotaure. Tandis que le labyrinthe s\'écroule peu à peu autour de vous, vous l\'observez longuement, partagé entre le soulagement et un sentiment étrange. Alors que vous vous apprêtez à lui tourner le dos, vous entendez un nouveau soufflement s\'échapper de ses narines. Sur votre garde, vous fixez son visage, prêt à attaquer au moindre mouvement. C\'est alors qu\'un détail qui vous a échappé jusque-là vous saute aux yeux. Vous reconnaissez la tristesse et l\'intelligence infinies qui émanent de son regard. Vous posez votre paume sur le front de la créature et, tandis qu\'une larme coule le long de votre joue, lui adressez ces ultimes mots :')
             print('')
             promptSlow('"Adieu, Dédale".')
+            print('<>===============================================================<>')
             print('')
-            print('<>===============================================================<>')
-            print('Merci d\'avoir joué !')
-            print('Voulez-vous retourner au menu principal ou quitter le jeu ?')
-            print('<>===============================================================<>')
+            print('')
+            print('                         Merci d\'avoir joué !')
+            print('')
+            print('    Voulez-vous retourner au menu principal ou quitter le jeu ?')
+            print('')
             ask = input(" > ")
             while not (ask.lower() == 'menu' or ask.lower() == 'quitter'):
+                print('')
                 print('Commande inconnue, veuillez entrer "menu" ou "quitter"')
                 ask = input(' > ')
+                print('')
             if ask.lower() == 'menu':
                 PrintMainMenu()
                 MainMenu()
             elif ask.lower() == 'quitter':
+                print('')
                 print('Merci d\'avoir joué !')
                 time.sleep(1)
                 sys.exit()
         else:
-            print('VICTOIRE')
+            print('<>===============================================================<>')
+            print('                           VICTOIRE')
+            print('<>===============================================================<>')
 
 def StartCombat(currentennemy):
 
@@ -366,9 +384,10 @@ def ObjectInventory(objectName):
       if Inventory[('slot' + str(i + 1))][SLOT] == objectName:
         Inventory[('slot' + str(i + 1))][QUANTITY] = str(int(Inventory[('slot' + str(i + 1))][QUANTITY]) + 1)
   else:
-    print('Ou souhaitez vous placer l\'objet ? 1, 2, 3, 4 ou 5 ?')
+    print('Où souhaitez vous placer l\'objet ? 1, 2, 3, 4 ou 5 ?')
     print(InventoryList)
     ask = input(' > ')
+    print('')
     if (ask == '1' or ask =='2' or ask =='3' or ask == '4' or ask == '5'):
       if Inventory[('slot' + ask)][SLOT] == 'vide':
         Inventory[('slot' + ask)][SLOT] = objectName
@@ -377,9 +396,11 @@ def ObjectInventory(objectName):
         print("Voulez vous remplacer : " + Objects[Inventory[('slot' + ask)][SLOT]][OBJECTNAME])
         print("oui/non")
         ask2 = input(' > ')
+        print('')
         while not (ask2.lower() == 'oui' or ask2.lower() == 'non'):
           print('Veuillez entrer soit "oui" soit "non"')
           ask2 = input(' > ')
+          print('')
         if ask2.lower() == 'oui':
           Inventory[('slot' + ask)][SLOT] = objectName
           Inventory[('slot' + ask)][QUANTITY] = '1'
@@ -398,6 +419,7 @@ def displayInventory():
   promptSlow('Quel objet voulez vous examinez ?')
   promptSlow('Emplacement 1, 2, 3, 4 ou 5. Pour revenir en arrière, entrez "retour"')
   ask = input(' > ')
+  print('')
   if ask in ['1', '2', '3', '4', '5']:
     ObjPlace = Inventory[('slot' + str(ask))][SLOT]
     ObjName = 'Objet : ' + Objects[ObjPlace][OBJECTNAME]
@@ -448,6 +470,7 @@ def PlayMenu():
   print('')
   print('RETOUR')
   ChoiceMainMenu = input(' > ')
+  print('')
   if ChoiceMainMenu.lower() == 'jouer' :
     Question1(0, 0, 0)
   elif ChoiceMainMenu.lower() == 'continuer' :
@@ -482,9 +505,11 @@ def InstructionsMenu():
   print('RETOUR')
   print('')
   ChoiceMainMenu = input(' > ')
+  print('')
   while ChoiceMainMenu != 'retour':
-    print('Commande inconnue essayez "retour"')
+    print('Commande inconnue, essayez "retour"')
     ChoiceMainMenu = input(' > ')
+    print('')
   if ChoiceMainMenu.lower() == 'retour' :
     PrintMainMenu()
     MainMenu()
@@ -500,9 +525,11 @@ def OptionsMenu():
   print('RETOUR')
   print('')
   ask = input(' > ')
+  print('')
   while not (ask.lower() == '1' or ask.lower() == '2' or ask.lower() == '3' or ask.lower() == 'retour'):
     print('Commande inconnue veuillez rentrez "1", "2", "3", ou "retour"')
     ask = input(' > ')
+    print('')
   if ask.lower() == '1':
     Player.textspeed = 0
     promptSlow('Voilà une phrase exemple pour voir si la vitesse de défilement sélectionnée vous convient.')
@@ -536,6 +563,7 @@ def CreditsMenu():
   while ChoiceMainMenu != 'retour':
     print('Commande inconnue essayez "retour"')
     ChoiceMainMenu = input(' > ')
+    print('')
   if ChoiceMainMenu.lower() == 'retour' :
     PrintMainMenu()
     MainMenu()
@@ -544,6 +572,7 @@ def CreditsMenu():
 #main function for the main menu
 def MainMenu ():
   ChoiceMainMenu = input(' > ')
+  print('')
   if ChoiceMainMenu.lower() == 'jouer' :
     PlayMenu()
   # elif ChoiceMainMenu.lower() == 'charger' :
@@ -566,7 +595,7 @@ def MainMenu ():
 
 # LEVEL SYSTEM
 def ChooseUpgrade(PlayerLevel): # Allows the player to choose which stat he wants to improve
-    print('-======================================-')
+    print('<>===============================================================<>')
     print('Bravo ! Vous venez de passer niveau', PlayerLevel, '.')
     print('Choisissez quelle statistique vous souhaitez augmenter :')
     print('[HP]', Player.Hp)
@@ -586,7 +615,7 @@ def ChooseUpgrade(PlayerLevel): # Allows the player to choose which stat he want
         print('[ERREUR] Veuillez entrer un choix valide.')
         ChooseUpgrade(PlayerLevel)
     Player.lvl = PlayerLevel
-    print('-======================================-')
+    print('<>===============================================================<>')
 
 def LevelUp(XP, amount): # Increases Player XP depending on which enemy he fought : if he has enough XP, his level is increased
     XP += amount
@@ -726,7 +755,7 @@ ZoneMap = {
   },
   'D2': {
     ZONENAME: 'Le trésor de Midas',
-    DESCRIPTION: 'Cela fait déjà un moment que cette idée vous trotte en tête, mais c\'est désormais une certitude. Le labyrinthe de Dédale semble avoir pioché différents lieux aux quatre coins du monde pour les réunir au même endroit. Aucun doute : cette rivière, dont le sable est fait d\'or, c\'est forcément le Pactole. Sur l\'autre rive, vous voyez un coffre massif, contenant probablement d\'incroyables richesses. Vous parvenez non sans mal à l\'atteindre et constatez la présence d\'une étrange serrure...',
+    DESCRIPTION: 'Cela fait déjà un moment que cette idée vous trotte en tête, mais c\'est désormais une certitude. Le labyrinthe de Dédale semble avoir pioché différents lieux aux quatre coins du monde pour les réunir au même endroit. Aucun doute : cette rivière, dont le sable est fait d\'or, c\'est forcément le Pactole. Sur l\'autre rive, vous voyez un coffre massif, contenant probablement d\'incroyables richesses. Vous parvenez non sans mal à l\'atteindre et constatez la présence d\'une étrange serrure... Deux choix s\'offrent à vous : [OUVRIR] > Veuillez vous connecter pour procéder à l\'achat d\'une Clé olympienne (4,99 €). [LAISSER LE COFFRE]',
     NORTH: 'C2',
     SOUTH: '',
     EAST: 'D3',
@@ -957,10 +986,23 @@ def MapDisplay():
 # display the location of the player
 def PrintLocation():
   if(ActiveCase[Player.pos] == True):
-    promptSlow(ZoneMap[Player.pos][ZONENAME].upper())
+    print('')
+    print('__________________________________________________________________________________________________________________________________________')
+    print('')
+    print('                                                    ', ZoneMap[Player.pos][ZONENAME].upper())
+    print('')
     promptSlow(ZoneMap[Player.pos][DESCRIPTION])
+    print('')
+    print('__________________________________________________________________________________________________________________________________________')
+    print('')
   else:
+    print('')
+    print('__________________________________________________________________________________________________________________________________________')
+    print('')
     promptSlow('Vous êtes déjà passé par ici, il ne reste plus rien d\'intéressant')
+    print('')
+    print('__________________________________________________________________________________________________________________________________________')
+    print('')
   
 
 # main display with actions of the player
@@ -980,6 +1022,7 @@ def prompt():
   elif (ZoneMap[Player.pos][EVENT] == 'easter' and ActiveCase[Player.pos] == True):
     easterEgg()
   else:
+    print('')
     promptSlow('Que souhaitez vous faire ?')
     action = input('\n > ')
     if action.lower() == 'quitter':
@@ -1009,6 +1052,7 @@ def prompt():
 
 # function for the movement of the player
 def PlayerMove(MyAction):
+  print('')
   ask = "Où souhaitez-vous aller ?"
   dest = input(ask + '\n > ')
 
@@ -1258,7 +1302,7 @@ NpcDial = {
 
 # Sphinx Enigma Function (little riddle)
 def SphinxEnigma() :
-    print('>-------------------------------------------------<')
+    print('][===============================================================][')
     promptSlow('- Une dernière chose, {}. J\'ai une proposition à te faire, si tu te sens à la hauteur.'.format(Player.name))
     promptSlow('- De quoi s\'agit-il ?')
     promptSlow('- Une énigme.')
@@ -1266,15 +1310,20 @@ def SphinxEnigma() :
     promptSlow('- De la force vitale...')
     promptSlow('- Et l\'entourloupe, elle est où ?')
     promptSlow('- Tu devras parier une partie de ta force vitale actuelle pour en gagner le double. Alors, qu\'en dis-tu ? Attention, tu n\'auras qu\'une seule chance.')
+    print('>-----------------------------------------------------------------<')
     print('1 - Je prends le risque, envoie ton énigme.')
     print('2 - Très peu pour moi, merci.')
-    print('>-------------------------------------------------<')
+    print('>-----------------------------------------------------------------<')
     StartEnigma = input(' > ')
+    print('')
+    print('][===============================================================][')
+    print('')
     if StartEnigma == '1' :
         Player.Hp -= 5
         promptSlow('- Même en marchant vers lui, vous ne pouvez l\'atteindre.')
         promptSlow('Alors, {}, une idée ?'.format(Player.name))
         AnswerEnigma = input(' > ')
+        print('')
         if AnswerEnigma.lower() == 'l\'horizon' or AnswerEnigma.lower() == 'horizon' :
             promptSlow('- Alors là... Je dois admettre que je suis impressionnée. Tu es quelqu\'un de culture, {}. Laisse-moi augmenter tes points de v-... Euh, ta force vitale !'.format(Player.name))
             Player.Hp += 15
@@ -1290,10 +1339,10 @@ def SphinxEnigma() :
 # Dialogue Function
 def Dialogue(npc):
     minstat = NpcDial[npc][MINSTAT]
-    print(')(=================================================)(')
+    print('][===============================================================][')
     print(NpcDial[npc][NPCNAME], ':')
     print(NpcDial[npc][SENTENCE])
-    print('-------------------------------------')
+    print('>-----------------------------------------------------------------<')
     print('1', NpcDial[npc][DIAL1])
     print('2', NpcDial[npc][DIAL2])
     print('3', NpcDial[npc][DIALCHA], '[ CHA :', minstat, ']') # Only works if player has enough charisma
@@ -1303,9 +1352,11 @@ def Dialogue(npc):
         print('4', NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
     elif npc == 'HadesDial' and Player.father == 'Hadès' :
         print('4', NpcDial[npc][DIALSON], '[ Enfant de', NpcDial[npc][NPCNAME], ']')
-    print('-------------------------------------')
+    print('>-----------------------------------------------------------------<')
     DialChoice = input(' > ')
-    print(')(=================================================)(')
+    print('')
+    print('][===============================================================][')
+    print('')
     if DialChoice == '1' :
         promptSlow(NpcDial[npc][DIAL1])
         promptSlow(NpcDial[npc][DIAL1_1])
@@ -1315,6 +1366,7 @@ def Dialogue(npc):
     elif (DialChoice == '3') and (Player.Cha >= minstat) :
         promptSlow(NpcDial[npc][DIALCHA])
         promptSlow(NpcDial[npc][DIALCHA1])
+        print('')
         print('Vous recevez l\'objet', NpcDial[npc][GIFT], '!')
         ObjectInventory(NpcDial[npc][GIFT]) # Gives the object owned by the NPC to the player (if he has enough charisma)
     elif (DialChoice == '3') and (Player.Cha < minstat) :
@@ -1344,13 +1396,16 @@ def Dialogue(npc):
 # Bonus questions (solving equalities)
 
 def QuestionBonus1(zeus, poseidon, hades) :
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     promptSlow('Vous préférez vous baigner...')
+    print('')
     print('1 - Dans une rivière, profitant de l\'eau douce et de ses murmures.')
     time.sleep(0.3)
+    print('')
     print('2 - Dans la mer, bercé par les effluves de l\'océan tumultueux.')
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     AnswerBonus1 = input(' > ')
+    print('')
     if AnswerBonus1 == '1' :
         promptSlow('Vous êtes l\'enfant d\'Hadès')
         Player.father = 'Hadès'
@@ -1362,13 +1417,15 @@ def QuestionBonus1(zeus, poseidon, hades) :
         QuestionBonus1(zeus, poseidon, hades)
 
 def QuestionBonus2(zeus, poseidon, hades) :
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     promptSlow('Qu\'est-ce qui vous impressionne le plus ?')
     print('1 - Le tonnerre, aussi bruyant que destructeur.')
     time.sleep(0.3)
+    print('')
     print('2 - Les tremblements de terre, puissants et imprévisibles.')
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     AnswerBonus2 = input(' > ')
+    print('')
     if AnswerBonus2 == '1' :
         promptSlow('Vous êtes l\'enfant de Zeus')
         Player.father = 'Zeus'
@@ -1380,13 +1437,15 @@ def QuestionBonus2(zeus, poseidon, hades) :
         QuestionBonus2(zeus, poseidon, hades)
 
 def QuestionBonus3(zeus, poseidon, hades) :
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     promptSlow('Deux chemins s\'offrent à vous alors que vous tentez de rejoindre un endroit lointain. Lequel choisissez-vous ?')
     print('1 - Un pont vertigineux, si haut que les nuages vous chatouillent la plante des pieds.')
     time.sleep(0.3)
+    print('')
     print('2 - Un tunnel souterrain, plongé dans l\'obscurité la plus totale.')
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     AnswerBonus3 = input(' > ')
+    print('')
     if AnswerBonus3 == '1' :
         promptSlow('Vous êtes l\'enfant de Zeus')
         Player.father = 'Zeus'
@@ -1400,15 +1459,19 @@ def QuestionBonus3(zeus, poseidon, hades) :
 # Questions (For each question, the player chose an answer related to one of 3 gods. In the end, you become the children of the god you are the closest to.)
 
 def Question1(zeus, poseidon, hades) :
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     promptSlow('D\'où venez-vous ?')
+    print('')
     print('1 - D\'Olympie, à l\'ombre des platanes et des oliviers du bois sacré d\'Altis.') # Zeus
     time.sleep(0.3)
+    print('')
     print('2 - Du Cap Sounion, bercé par les effluves iodées de la Mer Egée.') # Poseidon
     time.sleep(0.3)
+    print('')
     print('3 - De l\'Epire, dans la vallée de l\'Achéron, au bord d\'un fleuve à l\'aura étrange.') #Hades
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     Answer1 = input(' > ')
+    print('')
     if Answer1 == '1' :
         zeus += 1
     elif Answer1 == '2' :
@@ -1421,15 +1484,19 @@ def Question1(zeus, poseidon, hades) :
     Question2(zeus, poseidon, hades)
 
 def Question2(zeus, poseidon, hades) :
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     promptSlow('Quel métier exerciez-vous ?')
+    print('')
     print('1 - Un humble pêcheur.') # Poseidon
     time.sleep(0.3)
+    print('')
     print('2 - Mineur, dans l\'obscurité quasi-constante.') # Hades
     time.sleep(0.3)
+    print('')
     print('3 - Un métier ? J\'étais un ROI, moi !') # Zeus
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     Answer2 = input(' > ')
+    print('')
     if Answer2 == '1' :
         poseidon += 1
     elif Answer2 == '2' :
@@ -1442,15 +1509,19 @@ def Question2(zeus, poseidon, hades) :
     Question3(zeus, poseidon, hades)
 
 def Question3(zeus, poseidon, hades) :
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     promptSlow('Alors que vous étiez encore un jeune enfant, un événement vous a bouleversé...')
+    print('')
     print('1 - La nuit où un être défunt s\'est adressé à vous en rêve.') # Hades
     time.sleep(0.3)
+    print('')
     print('2 - La foudre vous a frappé, vous marquant à vie sans laisser aucune séquelle pour autant.') # Zeus
     time.sleep(0.3)
+    print('')
     print('3 - La fois où vous êtes tombé d\'une trirème et avez failli vous noyer mais qu\'une vague vous a redéposé à bord.') # Poseidon
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     Answer3 = input(' > ')
+    print('')
     if Answer3 == '1' :
         hades += 1
     elif Answer3 == '2' :
@@ -1463,15 +1534,19 @@ def Question3(zeus, poseidon, hades) :
     Question4(zeus, poseidon, hades)
 
 def Question4(zeus, poseidon, hades) :
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     promptSlow('L\'animal qui vous correspond le plus est...')
+    print('')
     print('1 - L\'aigle, noble et majestueux.') # Zeus
     time.sleep(0.3)
+    print('')
     print('2 - Le serpent, discret et rusé.') # Hades
     time.sleep(0.3)
+    print('')
     print('3 - Le dauphin, rapide et fédérateur.') # Poseidon
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     Answer4 = input(' > ')
+    print('')
     if Answer4 == '1' :
         zeus += 1
     elif Answer4 == '2' :
@@ -1484,15 +1559,19 @@ def Question4(zeus, poseidon, hades) :
     Question5(zeus, poseidon, hades)
 
 def Question5(zeus, poseidon, hades) :
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     promptSlow('De tous les monstres présents dans les histoires qui vous ont été contées, le plus puissant est sans aucun doute...')
+    print('')
     print('1 - Cerbère, le terrible gardien des Enfers.') # Hades
     time.sleep(0.3)
+    print('')
     print('2 - Les cyclopes, grands, puissants et au regard de braise.') # Poseidon
     time.sleep(0.3)
+    print('')
     print('3 - Les monstres ne peuvent rien face à ma puissance.') # Zeus
-    print('<>==============================<>')
+    print('<>===============================================================<>')
     Answer5 = input(' > ')
+    print('')
     if Answer5 == '1' :
         hades += 1
     elif Answer5 == '2' :
@@ -1524,24 +1603,26 @@ def Question5(zeus, poseidon, hades) :
     StartDial()
 
 def StartDial():
-    print(')(=================================================)(')
     print('')
+    print('][===============================================================][')
     print('Mystérieux inconnu :')
     promptSlow('"Héros ! Tu m\'entends ? Hé ho ! Par Athéna, écoute-moi !" Perdu, vous parvenez difficilement à ouvrir les yeux. Vous vous trouvez dans une salle carrée vide. En face de vous, un homme vous fixe d\'un regard inquiet et intelligent : "Ah, tu as repris connaissance, c\'est bien. Doucement, doucement.')
+    print('')
     promptSlow('"Quel est ton nom ?"')
     HeroName = input('NOM : > ') # The player is invited to type his name (have fun)
     Player.name = HeroName
-    print(Player.name)
+    print('')
     OdysseusDialogue()
 
 def OdysseusDialogue() :
-    print('-------------------------------------')
+    print('>-----------------------------------------------------------------<')
     print('1 - Où sommes-nous ?')
     print('2 - Qui êtes-vous ?')
     print('3 - Et maintenant ?')
     print('4 - Je vais trouver le moyen de mettre fin à ce chaos. (Passer)')
-    print('-------------------------------------')
+    print('>-----------------------------------------------------------------<')
     OdysseusAnswer = input(' > ')
+    print('')
     if OdysseusAnswer == '1' :
         promptSlow('- Où sommes-nous ?')
         promptSlow('- Alors là, j\'ai bien peur de ne pas pouvoir te répondre, {}. Il semblerait que l\'espace et le temps s\'entremêlent en ce lieu. Par les dieux, comment Dédale a-t-il pu acquérir pareils pouvoirs ?!'.format(Player.name))
@@ -1559,8 +1640,7 @@ def OdysseusDialogue() :
     elif OdysseusAnswer == '4' :
         promptSlow('- Je vais trouver le moyen de mettre fin à ce chaos.')
         promptSlow('- Prudence, {}.'.format(Player.name))
-        print('')
-        print(')(=================================================)(')
+        print('][===============================================================][')
         print('')
         promptSlow('Vous vous réveillez dans la même salle que celle de votre rêve, à la différence près qu\'Ulysse n\'est plus là pour vous aider. Soudain, les murs Est et Ouest de la salle s\'effondrent, vous laissant le choix entre deux chemins.')
         print('')
